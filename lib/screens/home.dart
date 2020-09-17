@@ -1,19 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:scholar_app/screens/settings.dart';
-//import 'package:carousel_pro/carousel_pro.dart';
-//import 'package:flutter/rendering.dart';
-//import 'package:fab_circular_menu/fab_circular_menu.dart';
-//
-////imported packages/files
-//import 'package:demo_delivery/components/horizontal_listview.dart';
-//import 'package:demo_delivery/components/products.dart';
-//import 'package:demo_delivery/pages/cart.dart';
 
 //imported files
-import 'package:settings_ui/settings_ui.dart';
-
-
+import 'package:hexcolor/hexcolor.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -28,15 +18,15 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
         appBar: new AppBar(
           elevation: 0.0,
-          backgroundColor: Colors.red,
+          backgroundColor: Hexcolor("#98C429"),
           title: Text("SCHOLAR", textAlign: TextAlign.end,),
           actions: [
             new IconButton(
               icon: Icon(
-                Icons.settings,
+                Icons.notifications,
                 color: Colors.white70,
               ),
-              onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new SettingsScreen())),
+            //  onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new SettingsScreen())),
             ),
           ],
         ),
@@ -49,28 +39,26 @@ class _HomeScreenState extends State<HomeScreen> {
                 accountEmail: Text("gemuhd@gmail.com"),
                 currentAccountPicture: GestureDetector(
                   child: new CircleAvatar(
-                    backgroundColor: Colors.grey,
-
-//                    child: Image(
-//                      image: AssetImage("images/pp.jpg"),
-//                    ),
+                    backgroundColor: Colors.white,
+                    child: Image(
+                      image: AssetImage("assets/images/profile_picture.jpg"),
+                    ),
                   ),
                 ),
-//                decoration: new BoxDecoration(
-//                    color: Colors.red,
-//                    image: DecorationImage(
-//                      image: AssetImage("images/flutter.png"),
-//                    )),
+                decoration: new BoxDecoration(
+                    color: Hexcolor("98C429"),
+                    image: DecorationImage(image: AssetImage("assets/images/logo.png"),)
+                ),
               ),
 
               //body
               InkWell(
-                //onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new HomePage())),
+                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new HomeScreen())),
                 child: ListTile(
-                  title: Text("Dashboard"),
+                  title: Text("Admissions"),
                   leading: Icon(
                     Icons.home,
-                    color: Colors.red,
+                    color: Hexcolor("#8eab46"),
                   ),
                 ),
               ),
@@ -78,10 +66,10 @@ class _HomeScreenState extends State<HomeScreen> {
               InkWell(
                 onTap: () {},
                 child: ListTile(
-                  title: Text("Personal Details"),
+                  title: Text("Profile"),
                   leading: Icon(
                     Icons.person,
-                    color: Colors.red,
+                    color: Hexcolor("#8eab46"),
                   ),
                 ),
               ),
@@ -89,10 +77,10 @@ class _HomeScreenState extends State<HomeScreen> {
               InkWell(
                 onTap: () {},
                 child: ListTile(
-                  title: Text("Qualifications"),
+                  title: Text("Account"),
                   leading: Icon(
-                    Icons.shopping_basket,
-                    color: Colors.red,
+                    Icons.account_box,
+                    color: Hexcolor("#8eab46"),
                   ),
                 ),
               ),
@@ -103,130 +91,308 @@ class _HomeScreenState extends State<HomeScreen> {
 //                      MaterialPageRoute(builder: (context) => new Cart()));
 //                },
                 child: ListTile(
-                  title: Text("Work Experience"),
+                  title: Text("Connect With"),
                   leading: Icon(
-                    Icons.shopping_cart,
-                    color: Colors.red,
+                    Icons.sync,
+                    color: Hexcolor("#8eab46"),
                   ),
                 ),
               ),
 
               InkWell(
-                onTap: () {},
+                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new SettingsScreen())),
                 child: ListTile(
-                  title: Text("Parents/Guardians"),
-                  leading: Icon(
-                    Icons.favorite,
-                    color: Colors.red,
-                  ),
-                ),
-              ),
-
-              Divider(),
-              InkWell(
-                onTap: () {},
-                child: ListTile(
-                  title: Text("Documents"),
+                  title: Text("Settings"),
                   leading: Icon(
                     Icons.settings,
-                    color: Colors.blue,
-                  ),
-                ),
-              ),
-
-              InkWell(
-//                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => About())),
-                child: ListTile(
-                  title: Text("Admission Letters"),
-                  leading: Icon(
-                    Icons.help_outline,
-                    color: Colors.blue,
+                    color: Hexcolor("#8eab46"),
                   ),
                 ),
               ),
 
               Divider(),
               InkWell(
-                onTap: () => Navigator.of(context).pop(),
+                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new HomeScreen())),
                 child: ListTile(
                   title: Text("Close"),
                   leading: Icon(
                     Icons.close,
-                    color: Colors.red,
+                    color: Hexcolor("#8eab46"),
                   ),
                 ),
               ),
+
+
             ],
           ),
         ),
-        body: ListView(
-          children: [
-            //calling image carousel
-            //image_carousel,
+        body:
+                  GridView.count(
+                    shrinkWrap: true,
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 5,
+                    crossAxisSpacing: 5,
+                    primary: false,
+                    children: [
 
-            //category section
-            new Padding(
-              padding: EdgeInsets.all(8),
-              child: Text(
-                "Categories",
-                style: TextStyle(
-                    color: Colors.red,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
+                      Card(
+                        margin: EdgeInsets.fromLTRB(5, 10, 10, 5),
+                        elevation: 5,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Stack(
+                                overflow: Overflow.visible,
+                                children: [
+                                  Image.asset('assets/images/apply.jpg', height: 100, width: 100, ),
+                                  new Positioned(
+                                      top: -20,
+                                      right: -20,
+                                      child: new Container(
+                                        decoration: new BoxDecoration(
+                                            borderRadius: new BorderRadius.circular(4.0)),
+                                        width: 25,
+                                        height: 25,
+                                        alignment: Alignment.center,
+                                        child: Icon(Icons.check, color: Hexcolor("#8eab46"), size: 30,),
+                                      )),
+                                ],
+                              ),
+                              Text("Apply",),
+                            ],
+                          ),
+                        ),
+                      ),
 
-            //horizontal list view
-            //HorizontalList(),
 
-            //products section
-            new Padding(
-              padding: EdgeInsets.all(8),
-              child: Text(
-                "Available",
-                style: TextStyle(
-                    color: Colors.red,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
+                      Card(
+                        margin: EdgeInsets.fromLTRB(5, 10, 10, 5),
+                        elevation: 5,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Stack(
+                                overflow: Overflow.visible,
+                                children: [
+                                  Image.asset('assets/images/personal.png', height: 90, width: 100, ),
+                                  new Positioned(
+                                      top: -20,
+                                      right: -20,
+                                      child: new Container(
+                                        decoration: new BoxDecoration(
+                                            borderRadius: new BorderRadius.circular(4.0)),
+                                        width: 25,
+                                        height: 25,
+                                        alignment: Alignment.center,
+                                        child: Icon(Icons.check, color: Hexcolor("#8eab46"), size: 30,),
+                                      )),
+                                ],
+                              ),
+                              Text("  \nPersonal Details",),
+                            ],
+                          ),
+                        ),
+                      ),
 
-            //grid view
 
-//            Container(
-//              height: 370,
-//              child: Products(),
-//            )
-          ],
-        ),
+                      Card(
+                        margin: EdgeInsets.fromLTRB(5, 10, 10, 5),
+                        elevation: 5,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Stack(
+                                overflow: Overflow.visible,
+                                children: [
+                                  Image.asset('assets/images/qualification.png', height: 80, width: 100, ),
+                                  new Positioned(
+                                      top: -20,
+                                      right: -20,
+                                      child: new Container(
+                                        decoration: new BoxDecoration(
+                                            borderRadius: new BorderRadius.circular(4.0)),
+                                        width: 25,
+                                        height: 25,
+                                        alignment: Alignment.center,
+                                        child: Icon(Icons.check, color: Hexcolor("#8eab46"), size: 30,),
+                                      )),
+                                ],
+                              ),
+                              Text("\nQualifications",),
+                            ],
+                          ),
+                        ),
+                      ),
 
-        //floating action button
-//        floatingActionButton: FabCircularMenu(
-//          children: [
-//            IconButton(
-//              icon: Icon(
-//                Icons.home,
-//                color: Colors.white,
-//              ),
-//              onPressed: () => Navigator.of(context).push(
-//                  MaterialPageRoute(builder: (context) => new HomePage())),
-//            ),
-//            IconButton(
-//                icon: Icon(Icons.favorite, color: Colors.white),
-//                onPressed: () {
-//                  print('Favorite');
-//                }),
-//            IconButton(
-//              icon: Icon(Icons.notifications, color: Colors.white),
-//              onPressed: () => Navigator.of(context).push(
-//                  MaterialPageRoute(builder: (context) => new HomePage())),
-//            )
-//          ],
-//          ringDiameter: 200,
-//          fabOpenIcon: Icon(Icons.add, color: Colors.white),
-//          ringColor: Colors.red,
-//          fabColor: Colors.red,
-//        )
+
+                      Card(
+                        margin: EdgeInsets.fromLTRB(5, 10, 10, 5),
+                        elevation: 5,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Stack(
+                                overflow: Overflow.visible,
+                                children: [
+                                  Image.asset('assets/images/work.png', height: 100, width: 100, ),
+                                  new Positioned(
+                                      top: -20,
+                                      right: -20,
+                                      child: new Container(
+                                        decoration: new BoxDecoration(
+                                            borderRadius: new BorderRadius.circular(4.0)),
+                                        width: 25,
+                                        height: 25,
+                                        alignment: Alignment.center,
+                                        child: Icon(Icons.check, color: Hexcolor("#8eab46"), size: 30,),
+                                      )),
+                                ],
+                              ),
+                              Text("Work Experience",),
+                            ],
+                          ),
+                        ),
+                      ),
+
+                      Card(
+                        margin: EdgeInsets.fromLTRB(5, 10, 10, 5),
+                        elevation: 5,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Stack(
+                                overflow: Overflow.visible,
+                                children: [
+                                  Image.asset('assets/images/parents.png', height: 100, width: 100, ),
+                                  new Positioned(
+                                      top: -20,
+                                      right: -20,
+                                      child: new Container(
+                                        decoration: new BoxDecoration(
+                                            borderRadius: new BorderRadius.circular(4.0)),
+                                        width: 25,
+                                        height: 25,
+                                        alignment: Alignment.center,
+                                        child: Icon(Icons.check, color: Hexcolor("#8eab46"), size: 30,),
+                                      )),
+                                ],
+                              ),
+                              Text("Parents/Guardians",),
+                            ],
+                          ),
+                        ),
+                      ),
+
+                      Card(
+                        margin: EdgeInsets.fromLTRB(5, 10, 10, 5),
+                        elevation: 5,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Stack(
+                                overflow: Overflow.visible,
+                                children: [
+                                  Image.asset('assets/images/docs.png', height: 100, width: 100, ),
+                                  new Positioned(
+                                      top: -20,
+                                      right: -20,
+                                      child: new Container(
+                                        decoration: new BoxDecoration(
+                                            borderRadius: new BorderRadius.circular(4.0)),
+                                        width: 25,
+                                        height: 25,
+                                        alignment: Alignment.center,
+                                        child: Icon(Icons.check, color: Hexcolor("#8eab46"), size: 30,),
+                                      )),
+                                ],
+                              ),
+                              Text("Documents",),
+                            ],
+                          ),
+                        ),
+                      ),
+
+                      Card(
+                        margin: EdgeInsets.fromLTRB(5, 10, 10, 5),
+                        elevation: 5,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Stack(
+                                overflow: Overflow.visible,
+                                children: [
+                                  Image.asset('assets/images/letters.png', height: 100, width: 100, ),
+                                  new Positioned(
+                                      top: -20,
+                                      right: -20,
+                                      child: new Container(
+                                        decoration: new BoxDecoration(
+                                            borderRadius: new BorderRadius.circular(4.0)),
+                                        width: 25,
+                                        height: 25,
+                                        alignment: Alignment.center,
+                                        child: Icon(Icons.check, color: Hexcolor("#8eab46"), size: 30,),
+                                      )),
+                                ],
+                              ),
+                              Text("Application Letters",),
+                            ],
+                          ),
+                        ),
+                      ),
+
+                      Card(
+                        margin: EdgeInsets.fromLTRB(5, 10, 10, 5),
+                        elevation: 5,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Center(
+                          child: Stack(
+                            overflow: Overflow.visible,
+                            children: [
+                              RaisedButton(
+                                onPressed: () {},
+                                child: const Text('LOGOUT', style: TextStyle(fontSize: 20)),
+                                color: Colors.red,
+                                textColor: Colors.white,
+                                elevation: 5,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      
+                    ],
+                  ),
     );
   }
 }

@@ -24,6 +24,13 @@ class _LanguagesScreenState extends State<LanguagesScreen> {
               },
             ),
             SettingsTile(
+              title: "French",
+              trailing: trailingWidget(1),
+              onTap: () {
+                changeLanguage(1);
+              },
+            ),
+            SettingsTile(
               title: "Spanish",
               trailing: trailingWidget(1),
               onTap: () {
