@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatefulWidget {
+class SignupScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return LoginScreenState();
+    return SignupScreenState();
   }
 
 }
-class LoginScreenState extends State<LoginScreen> {
+class SignupScreenState extends State<SignupScreen> {
 
   String _name;
   String _email;
@@ -107,7 +107,7 @@ class LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      appBar: AppBar(title: Text("LOGIN")),
+      appBar: AppBar(title: Text("SIGN UP")),
       body: Container(
         margin: EdgeInsets.all(10),
         child: Form(
