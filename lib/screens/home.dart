@@ -53,6 +53,18 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
+                otherAccountsPictures: [
+                  CircleAvatar(
+                    child: Image(
+                      image: AssetImage("assets/images/fb.png"),
+                    ),
+                  ),
+                  CircleAvatar(
+                    child: Image(
+                      image: AssetImage("assets/images/tt.jpeg"),
+                    ),
+                  ),
+                ],
                 decoration: new BoxDecoration(
                     color: Hexcolor("98C429"),
                     image: DecorationImage(image: AssetImage("assets/images/logo.png"),)

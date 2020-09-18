@@ -30,11 +30,11 @@ splash screen
     ---->green check
     shows that information entered has been completed and validated
     
-    ---->red questio mark
+    ---->red question mark
     indicates some information missing or has not yet been validated
     
     ---->red cross
-    no information avalable for this section hence no validation yet
+    no information available for this section hence no validation yet
     
     ---->search
     to preview 
