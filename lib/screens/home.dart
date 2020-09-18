@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:scholar_app/screens/account.dart';
 import 'package:scholar_app/screens/connect_with.dart';
 import 'package:scholar_app/screens/notifications.dart';
@@ -29,7 +30,12 @@ class _HomeScreenState extends State<HomeScreen> {
           actions: [
             InkWell(
                 onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new PreviewScreen())),
-                child: new Image.asset('assets/images/preview.png', height: 30, width: 70, )),
+                child: Column(
+                  children: [
+                    new Image.asset('assets/images/preview.png', height: 40, width: 70, ),
+                    Text("Preview")
+                  ],
+                )),
           ],
         ),
         drawer: new Drawer(
@@ -378,41 +384,56 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                       ),
+                              
+                              Container(
+                                margin: EdgeInsets.all(50),
+                                child: FlatButton(
+                                    color: Hexcolor("#98C429"),
+                                    onPressed: () {
+                                      return  Alert(
+                                          context: context,
+                                          title: "Pay Application Fees",
+                                         // desc: "Clicking here takes you to sign/login with facebook, implement using firebase, or facebook auth",
+                                          buttons: [
+                                            DialogButton(child: Text("Continue"), onPressed: () {Navigator.pop(context);}),
+                                          ],
+                                      content: Form(
+                                        child: Column(
+                                          children: [
+                                            TextFormField(
+                                              decoration: InputDecoration(
+                                                labelText: "Paying for application.."
+                                              ),
+                                            ),
 
-                      Card(
-                        margin: EdgeInsets.fromLTRB(5, 10, 10, 5),
-                        elevation: 5,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Center(
-                          child: Stack(
-                            overflow: Overflow.visible,
-                            children: [
-                              RaisedButton(
-                                onPressed: () => {
+                                            TextFormField(
+                                              decoration: InputDecoration(
+                                                  labelText: "MoMo number",
 
-                                  CupertinoAlertDialog(
-                                    title: Text('Delete This Contact?'),
-                                  content: const Text(
-                                  'This will delete the contact from your device.'),
-                                    actions: [
-                                      CupertinoDialogAction(child: Text("Not now"),),
-                                      CupertinoDialogAction(child: Text("Yes"),)
-                                    ],
-                                  ),
-                                  showDialog()
+                                              ),
+                                              keyboardType: TextInputType.number,
+                                            ),
 
-                                },
-                                child: const Text('SUBMIT', style: TextStyle(fontSize: 20)),
-                                color: Hexcolor("#8eab46"),
-                                textColor: Colors.white,
-                                elevation: 5,
+                                            TextFormField(
+                                              decoration: InputDecoration(
+                                                  labelText: "Amount"
+                                              ),
+                                              keyboardType: TextInputType.number,
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      ).show();
+                                    },
+                                    child: Row(
+                                      children: [
+                                        Spacer(),
+                                        Text("SUBMIT",),
+                                        Spacer(),
+                                      ],
+                                    )
+                                ),
                               ),
-                            ],
-                          ),
-                        ),
-                      ),
                       
                     ],
                   ),
