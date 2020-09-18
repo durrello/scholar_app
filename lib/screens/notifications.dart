@@ -18,45 +18,65 @@ class NotificationScreenState extends State<NotificationScreen> {
       appBar: AppBar(title: Text("Notifications"), backgroundColor: Hexcolor("#98C429"),),
       body: ListView(
         children: [
-          Container(
-            alignment: Alignment.centerLeft,
-            margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
-            padding: EdgeInsets.all(3),
-            child: Column(
-              children: [
-                Column(
-                  children: [
-                    Align(
-                        child: Text("From administration", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15,),),
-                      alignment: Alignment.topLeft,
-                    ),
-                    Text("Your application was, with id number 000000000 has been received and is under processing, we will get back to you "),
-                    Align(child: Text("Admission Team"), alignment: Alignment.centerRight,)
-                  ],
-                ),
+          ListTile(
+              //leading: Text("From administration", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15,),),
+      title: Text("Admission Team"),
+      subtitle: Text("Your application was, with id number 000000000 has been received and is under processing, we will get back to you ", style: TextStyle(fontWeight: FontWeight.bold),),
+            trailing: Icon(Icons.markunread),
+                     ),
+
                 Divider(),
 
-                Column(
-                  children: [
-                    Align(
-                        child: Text("From administration", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15,),),
-                      alignment: Alignment.topLeft,
-                    ),
-                    Text("Your application was, with id number 284748934 has been received but was incomplete, "
-                        " You have less than 48hrs to rectify this else face the consequencieswe will get back to you"),
-                    Align(child: Text("Admission Team"), alignment: Alignment.centerRight,) 
-                  ],
-                ),
+          ListTile(
+            // Text("From administration", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15,),),
+            title: Text("Admission Team"),
+               subtitle:  Text("Your application was, with id number 284748934 has been received but was incomplete, "
+                   " You have less than 48hrs to rectify this else face the consequencies we will get back to you" , style: TextStyle(fontWeight: FontWeight.bold),),
+            trailing: Icon(Icons.markunread),
+          ),
 
+          Divider(),
 
+          ListTile(
+            //leading: Text("From administration", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15,),),
+            title: Text("Admission Team"),
+            subtitle: Text("Your application was, with id number 000000000 has been received and is under processing, we will get back to you ", style: TextStyle(fontWeight: FontWeight.bold),),
+            trailing: Icon(Icons.markunread),
+          ),
 
+          Divider(),
 
+          ListTile(
+            // Text("From administration", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15,),),
+            title: Text("Admission Team"),
+            subtitle:  Text("Your application was, with id number 284748934 has been received but was incomplete, "
+                " You have less than 48hrs to rectify this else face the consequencies we will get back to you"),
+            trailing: Icon(Icons.done_all),
+          ),
+
+          Divider(),
+
+          ListTile(
+            //leading: Text("From administration", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15,),),
+            title: Text("Admission Team"),
+            subtitle: Text("Your application was, with id number 000000000 has been received and is under processing, we will get back to you ", style: TextStyle(fontWeight: FontWeight.bold),),
+            trailing: Icon(Icons.markunread),
+          ),
+
+          Divider(),
+
+          ListTile(
+            // Text("From administration", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15,),),
+            title: Text("Admission Team"),
+            subtitle:  Text("Your application was, with id number 284748934 has been received but was incomplete, "
+                " You have less than 48hrs to rectify this else face the consequencies we will get back to you"),
+            trailing: Icon(Icons.done_all),
+          ),
+
+          Divider(),
               ],
             ),
-          ),
-        ],
-      )
-    );
+          );
   }
 
 }

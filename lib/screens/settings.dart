@@ -22,13 +22,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
         sections: [
           SettingsSection(
 
-            title: 'Common',
+           // title: 'Common',
             // titleTextStyle: TextStyle(fontSize: 30),
             tiles: [
               SettingsTile(
                 title: 'Language',
                 subtitle: 'English',
-                leading: Icon(Icons.language),
+                leading: Icon(Icons.language, color: Hexcolor("#98C429"),),
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (BuildContext context) => LanguagesScreen()));
@@ -44,37 +44,37 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
           ),
           SettingsSection(
-            title: 'Account',
+           // title: 'Account',
             tiles: [
-              SettingsTile(title: 'Phone number', leading: Icon(Icons.phone)),
-              SettingsTile(title: 'Email', leading: Icon(Icons.email)),
-              SettingsTile(title: 'Sign out', leading: Icon(Icons.exit_to_app)),
+              SettingsTile(title: 'Phone number', leading: Icon(Icons.phone, color: Hexcolor("#98C429"),)),
+              SettingsTile(title: 'Email', leading: Icon(Icons.email, color: Hexcolor("#98C429"),)),
+              SettingsTile(title: 'Sign out', leading: Icon(Icons.exit_to_app, color: Hexcolor("#98C429"),)),
             ],
           ),
           SettingsSection(
-            title: 'Security',
+//            title: 'Security',
             tiles: [
 
               SettingsTile.switchTile(
                 title: 'Change password',
-                leading: Icon(Icons.lock),
-                switchValue: true,
+                leading: Icon(Icons.lock, color: Hexcolor("#98C429"),),
+                switchValue: false,
                 onToggle: (bool value) {},
               ),
               SettingsTile.switchTile(
                 title: 'Enable Notifications',
                 enabled: notificationsEnabled,
-                leading: Icon(Icons.notifications_active),
+                leading: Icon(Icons.notifications_active, color: Hexcolor("#98C429"),),
                 switchValue: true,
                 onToggle: (value) {},
               ),
             ],
           ),
           SettingsSection(
-            title: 'Misc',
+//            title: 'Misc',
             tiles: [
               SettingsTile(
-                  title: 'Terms of Service', leading: Icon(Icons.description)),
+                  title: 'Terms of Service', leading: Icon(Icons.description, color: Hexcolor("#98C429"))),
             ],
           ),
           CustomSection(
@@ -90,7 +90,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                 ),
                 Text(
-                  'Version: 2.4.0 (287)',
+                  'Version: 1.0.0',
                   style: TextStyle(color: Hexcolor("#98C429")),
                 ),
               ],

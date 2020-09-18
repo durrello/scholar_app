@@ -10,10 +10,13 @@ class _PreviewScreenState extends State<PreviewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Notifications"), backgroundColor: Hexcolor("#98C429"),),
+      appBar: AppBar(title: Text("Application Preview"), backgroundColor: Hexcolor("#98C429"),),
       body: Container(
-        child: Text("Preview of status"),
+        child: Text("Preview of status/level/percentage complete of the ongoing application "),
       ),
     );
   }
 }
+
+
+
