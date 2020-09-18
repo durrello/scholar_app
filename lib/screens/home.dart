@@ -1,5 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:scholar_app/screens/account.dart';
+import 'package:scholar_app/screens/connect_with.dart';
+import 'package:scholar_app/screens/notifications.dart';
+import 'package:scholar_app/screens/preview.dart';
+import 'package:scholar_app/screens/profile.dart';
 import 'package:scholar_app/screens/settings.dart';
 
 //imported files
@@ -21,13 +27,9 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: Hexcolor("#98C429"),
           title: Text("SCHOLAR", textAlign: TextAlign.end,),
           actions: [
-            new IconButton(
-              icon: Icon(
-                Icons.notifications,
-                color: Colors.white70,
-              ),
-            //  onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new SettingsScreen())),
-            ),
+            InkWell(
+                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new PreviewScreen())),
+                child: new Image.asset('assets/images/preview.png', height: 30, width: 70, )),
           ],
         ),
         drawer: new Drawer(
@@ -64,7 +66,18 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
 
               InkWell(
-                onTap: () {},
+                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new NotificationScreen())),
+                child: ListTile(
+                  title: Text("Notifications"),
+                  leading: Icon(
+                    Icons.notifications,
+                    color: Hexcolor("#8eab46"),
+                  ),
+                ),
+              ),
+
+              InkWell(
+                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new ProfileScreen())),
                 child: ListTile(
                   title: Text("Profile"),
                   leading: Icon(
@@ -75,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
 
               InkWell(
-                onTap: () {},
+                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new AccountScreen())),
                 child: ListTile(
                   title: Text("Account"),
                   leading: Icon(
@@ -86,10 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
 
               InkWell(
-//                onTap: () {
-//                  Navigator.of(context).push(
-//                      MaterialPageRoute(builder: (context) => new Cart()));
-//                },
+                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new Connect_with())),
                 child: ListTile(
                   title: Text("Connect With"),
                   leading: Icon(
@@ -114,7 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
               InkWell(
                 onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new HomeScreen())),
                 child: ListTile(
-                  title: Text("Close"),
+                  title: Text("Logout"),
                   leading: Icon(
                     Icons.close,
                     color: Hexcolor("#8eab46"),
@@ -380,9 +390,22 @@ class _HomeScreenState extends State<HomeScreen> {
                             overflow: Overflow.visible,
                             children: [
                               RaisedButton(
-                                onPressed: () {},
-                                child: const Text('LOGOUT', style: TextStyle(fontSize: 20)),
-                                color: Colors.red,
+                                onPressed: () => {
+
+                                  CupertinoAlertDialog(
+                                    title: Text('Delete This Contact?'),
+                                  content: const Text(
+                                  'This will delete the contact from your device.'),
+                                    actions: [
+                                      CupertinoDialogAction(child: Text("Not now"),),
+                                      CupertinoDialogAction(child: Text("Yes"),)
+                                    ],
+                                  ),
+                                  showDialog()
+
+                                },
+                                child: const Text('SUBMIT', style: TextStyle(fontSize: 20)),
+                                color: Hexcolor("#8eab46"),
                                 textColor: Colors.white,
                                 elevation: 5,
                               ),

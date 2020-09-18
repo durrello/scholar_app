@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:settings_ui/settings_ui.dart';
 
 import 'package:scholar_app/screens/language.dart';
@@ -15,11 +16,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Settings')),
+      appBar: AppBar(title: Text('Settings'), backgroundColor: Hexcolor("#98C429"),),
       body: SettingsList(
         // backgroundColor: Colors.orange,
         sections: [
           SettingsSection(
+
             title: 'Common',
             // titleTextStyle: TextStyle(fontSize: 30),
             tiles: [
@@ -39,6 +41,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 //                onTap: () => print('e'),
 //              ),
             ],
+
           ),
           SettingsSection(
             title: 'Account',
@@ -83,12 +86,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     'assets/images/settings.png',
                     height: 50,
                     width: 50,
-                    color: Color(0xFF777777),
+                    color: Hexcolor("#98C429"),
                   ),
                 ),
                 Text(
                   'Version: 2.4.0 (287)',
-                  style: TextStyle(color: Color(0xFF777777)),
+                  style: TextStyle(color: Hexcolor("#98C429")),
                 ),
               ],
             ),
