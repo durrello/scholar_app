@@ -3,6 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:scholar_app/screens/account.dart';
+import 'package:scholar_app/screens/app_form/apply.dart';
+import 'package:scholar_app/screens/app_form/documents.dart';
+import 'package:scholar_app/screens/app_form/experience.dart';
+import 'package:scholar_app/screens/app_form/guardians.dart';
+import 'package:scholar_app/screens/app_form/personal_info.dart';
+import 'package:scholar_app/screens/app_form/qualifications.dart';
 import 'package:scholar_app/screens/connect_with.dart';
 import 'package:scholar_app/screens/notifications.dart';
 import 'package:scholar_app/screens/preview.dart';
@@ -163,203 +169,223 @@ class _HomeScreenState extends State<HomeScreen> {
                     primary: false,
                     children: [
 
-                      Card(
-                        margin: EdgeInsets.fromLTRB(5, 10, 10, 5),
-                        elevation: 5,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Stack(
-                                overflow: Overflow.visible,
-                                children: [
-                                  Image.asset('assets/images/apply.jpg', height: 100, width: 100, ),
-                                  new Positioned(
-                                      top: -20,
-                                      right: -20,
-                                      child: new Container(
-                                        decoration: new BoxDecoration(
-                                            borderRadius: new BorderRadius.circular(4.0)),
-                                        width: 25,
-                                        height: 25,
-                                        alignment: Alignment.center,
-                                        child: Icon(Icons.info, color: Hexcolor("#8eab46"), size: 30,),
-                                      )),
-                                ],
-                              ),
-                              Text("Apply",),
-                            ],
+                      InkWell(
+                        onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new ApplyScreen())),
+                        child: Card(
+                          margin: EdgeInsets.fromLTRB(5, 10, 10, 5),
+                          elevation: 5,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Stack(
+                                  overflow: Overflow.visible,
+                                  children: [
+                                    Image.asset('assets/images/apply.jpg', height: 100, width: 100, ),
+                                    new Positioned(
+                                        top: -20,
+                                        right: -20,
+                                        child: new Container(
+                                          decoration: new BoxDecoration(
+                                              borderRadius: new BorderRadius.circular(4.0)),
+                                          width: 25,
+                                          height: 25,
+                                          alignment: Alignment.center,
+                                          child: Icon(Icons.info, color: Hexcolor("#8eab46"), size: 30,),
+                                        )),
+                                  ],
+                                ),
+                                Text("Apply",),
+                              ],
+                            ),
                           ),
                         ),
                       ),
 
 
-                      Card(
-                        margin: EdgeInsets.fromLTRB(5, 10, 10, 5),
-                        elevation: 5,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Stack(
-                                overflow: Overflow.visible,
-                                children: [
-                                  Image.asset('assets/images/personal.png', height: 90, width: 100, ),
-                                  new Positioned(
-                                      top: -20,
-                                      right: -20,
-                                      child: new Container(
-                                        decoration: new BoxDecoration(
-                                            borderRadius: new BorderRadius.circular(4.0)),
-                                        width: 25,
-                                        height: 25,
-                                        alignment: Alignment.center,
-                                        child: Icon(Icons.check, color: Hexcolor("#8eab46"), size: 30,),
-                                      )),
-                                ],
-                              ),
-                              Text("  \nPersonal Details",),
-                            ],
+                      InkWell(
+                        onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new PersonalInfoScreen())),
+                        child: Card(
+                          margin: EdgeInsets.fromLTRB(5, 10, 10, 5),
+                          elevation: 5,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Stack(
+                                  overflow: Overflow.visible,
+                                  children: [
+                                    Image.asset('assets/images/personal.png', height: 90, width: 100, ),
+                                    new Positioned(
+                                        top: -20,
+                                        right: -20,
+                                        child: new Container(
+                                          decoration: new BoxDecoration(
+                                              borderRadius: new BorderRadius.circular(4.0)),
+                                          width: 25,
+                                          height: 25,
+                                          alignment: Alignment.center,
+                                          child: Icon(Icons.check, color: Hexcolor("#8eab46"), size: 30,),
+                                        )),
+                                  ],
+                                ),
+                                Text("  \nPersonal Details",),
+                              ],
+                            ),
                           ),
                         ),
                       ),
 
 
-                      Card(
-                        margin: EdgeInsets.fromLTRB(5, 10, 10, 5),
-                        elevation: 5,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Stack(
-                                overflow: Overflow.visible,
-                                children: [
-                                  Image.asset('assets/images/qualification.png', height: 80, width: 100, ),
-                                  new Positioned(
-                                      top: -20,
-                                      right: -20,
-                                      child: new Container(
-                                        decoration: new BoxDecoration(
-                                            borderRadius: new BorderRadius.circular(4.0)),
-                                        width: 25,
-                                        height: 25,
-                                        alignment: Alignment.center,
-                                        child: Icon(Icons.help, color: Colors.redAccent, size: 30,),
-                                      )),
-                                ],
-                              ),
-                              Text("\nQualifications",),
-                            ],
+                      InkWell(
+                        onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new GuardianInfoScreen())),
+                        child: Card(
+                          margin: EdgeInsets.fromLTRB(5, 10, 10, 5),
+                          elevation: 5,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Stack(
+                                  overflow: Overflow.visible,
+                                  children: [
+                                    Image.asset('assets/images/parents.png', height: 100, width: 100, ),
+                                    new Positioned(
+                                        top: -20,
+                                        right: -20,
+                                        child: new Container(
+                                          decoration: new BoxDecoration(
+                                              borderRadius: new BorderRadius.circular(4.0)),
+                                          width: 25,
+                                          height: 25,
+                                          alignment: Alignment.center,
+                                          child: Icon(Icons.check, color: Hexcolor("#8eab46"), size: 30,),
+                                        )),
+                                  ],
+                                ),
+                                Text("Parents/Guardians",),
+                              ],
+                            ),
                           ),
                         ),
                       ),
 
 
-                      Card(
-                        margin: EdgeInsets.fromLTRB(5, 10, 10, 5),
-                        elevation: 5,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Stack(
-                                overflow: Overflow.visible,
-                                children: [
-                                  Image.asset('assets/images/work.png', height: 100, width: 100, ),
-                                  new Positioned(
-                                      top: -20,
-                                      right: -20,
-                                      child: new Container(
-                                        decoration: new BoxDecoration(
-                                            borderRadius: new BorderRadius.circular(4.0)),
-                                        width: 25,
-                                        height: 25,
-                                        alignment: Alignment.center,
-                                        child: Icon(Icons.check, color: Hexcolor("#8eab46"), size: 30,),
-                                      )),
-                                ],
-                              ),
-                              Text("Work Experience",),
-                            ],
+                      InkWell(
+                        onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new ExperienceScreen())),
+                        child: Card(
+                          margin: EdgeInsets.fromLTRB(5, 10, 10, 5),
+                          elevation: 5,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Stack(
+                                  overflow: Overflow.visible,
+                                  children: [
+                                    Image.asset('assets/images/work.png', height: 100, width: 100, ),
+                                    new Positioned(
+                                        top: -20,
+                                        right: -20,
+                                        child: new Container(
+                                          decoration: new BoxDecoration(
+                                              borderRadius: new BorderRadius.circular(4.0)),
+                                          width: 25,
+                                          height: 25,
+                                          alignment: Alignment.center,
+                                          child: Icon(Icons.check, color: Hexcolor("#8eab46"), size: 30,),
+                                        )),
+                                  ],
+                                ),
+                                Text("Work Experience",),
+                              ],
+                            ),
                           ),
                         ),
                       ),
 
-                      Card(
-                        margin: EdgeInsets.fromLTRB(5, 10, 10, 5),
-                        elevation: 5,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Stack(
-                                overflow: Overflow.visible,
-                                children: [
-                                  Image.asset('assets/images/parents.png', height: 100, width: 100, ),
-                                  new Positioned(
-                                      top: -20,
-                                      right: -20,
-                                      child: new Container(
-                                        decoration: new BoxDecoration(
-                                            borderRadius: new BorderRadius.circular(4.0)),
-                                        width: 25,
-                                        height: 25,
-                                        alignment: Alignment.center,
-                                        child: Icon(Icons.check, color: Hexcolor("#8eab46"), size: 30,),
-                                      )),
-                                ],
-                              ),
-                              Text("Parents/Guardians",),
-                            ],
+
+                      InkWell(
+                        onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new QualificationScreen())),
+                        child: Card(
+                          margin: EdgeInsets.fromLTRB(5, 10, 10, 5),
+                          elevation: 5,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Stack(
+                                  overflow: Overflow.visible,
+                                  children: [
+                                    Image.asset('assets/images/qualification.png', height: 80, width: 100, ),
+                                    new Positioned(
+                                        top: -20,
+                                        right: -20,
+                                        child: new Container(
+                                          decoration: new BoxDecoration(
+                                              borderRadius: new BorderRadius.circular(4.0)),
+                                          width: 25,
+                                          height: 25,
+                                          alignment: Alignment.center,
+                                          child: Icon(Icons.help, color: Colors.redAccent, size: 30,),
+                                        )),
+                                  ],
+                                ),
+                                Text("\nQualifications",),
+                              ],
+                            ),
                           ),
                         ),
                       ),
 
-                      Card(
-                        margin: EdgeInsets.fromLTRB(5, 10, 10, 5),
-                        elevation: 5,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Stack(
-                                overflow: Overflow.visible,
-                                children: [
-                                  Image.asset('assets/images/docs.png', height: 100, width: 100, ),
-                                  new Positioned(
-                                      top: -20,
-                                      right: -20,
-                                      child: new Container(
-                                        decoration: new BoxDecoration(
-                                            borderRadius: new BorderRadius.circular(4.0)),
-                                        width: 25,
-                                        height: 25,
-                                        alignment: Alignment.center,
-                                        child: Icon(Icons.close, color: Colors.redAccent, size: 30,),
-                                      )),
-                                ],
-                              ),
-                              Text("Documents",),
-                            ],
+
+                      InkWell(
+                        onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new DocumentScreen())),
+                        child: Card(
+                          margin: EdgeInsets.fromLTRB(5, 10, 10, 5),
+                          elevation: 5,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Stack(
+                                  overflow: Overflow.visible,
+                                  children: [
+                                    Image.asset('assets/images/docs.png', height: 100, width: 100, ),
+                                    new Positioned(
+                                        top: -20,
+                                        right: -20,
+                                        child: new Container(
+                                          decoration: new BoxDecoration(
+                                              borderRadius: new BorderRadius.circular(4.0)),
+                                          width: 25,
+                                          height: 25,
+                                          alignment: Alignment.center,
+                                          child: Icon(Icons.close, color: Colors.redAccent, size: 30,),
+                                        )),
+                                  ],
+                                ),
+                                Text("Documents",),
+                              ],
+                            ),
                           ),
                         ),
                       ),

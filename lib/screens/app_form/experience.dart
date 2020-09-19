@@ -1,0 +1,233 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:hexcolor/hexcolor.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:scholar_app/screens/app_form/qualifications.dart';
+import 'package:scholar_app/screens/home.dart';
+
+class ExperienceScreen extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return ExperienceScreenState();
+  }
+
+}
+class ExperienceScreenState extends State<ExperienceScreen> {
+
+  String _name;
+  String _phone;
+  String _password;
+  String _username;
+  String _campus;
+  String _email;
+  String Company;
+  String Role;
+  String From_to;
+  String Work_desc;
+  String Programs;
+
+
+  //gender dropdown initial state
+  String dropdownValue = 'One';
+  int gender = 1;
+  int nationality = 1;
+  int blood_group = 1;
+  int religion = 1;
+  int country = 1;
+
+
+
+
+  final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+
+  //date picker
+//  Future<Null> selectDate(BuildContext context) async {
+//    DateTime _date = DateTime.now();
+//    final DateTime picked = await showDatePicker(context: context, initialDate: _date, firstDate: DateTime(1980), lastDate: DateTime(2000));
+//
+//    if(picked != null && picked != _date){
+//      setState(() {
+//        _date = picked;
+//      });
+//      print(_date.toString());
+//    }
+//  }
+
+  Widget _buildCompany() {
+    return TextFormField(
+      decoration: InputDecoration(labelText: 'Company'),
+      validator: (String value){
+        if(value.isEmpty && value.length < 6){
+          return 'Company is required';
+        }
+      },
+      onSaved: (String value){
+        _name = value;
+      },
+    );
+  }
+
+//  Widget _buildDate(){
+//    return Container(
+//      child: IconButton(icon: Icon(Icons.alarm), onPressed: () => {selectDate(context)}),
+//    );
+//  }
+
+  Widget _buildRole() {
+    return TextFormField(
+      decoration: InputDecoration(labelText: 'What was/is your role'),
+      validator: (String value){
+        if(value.isEmpty){
+          return 'Role is Required';
+        }
+      },
+      onSaved: (String value){
+        _name = value;
+      },
+    );
+  }
+
+  Widget _buildFrom_to() {
+    return TextFormField(
+      decoration: InputDecoration(labelText: 'From to'),
+      validator: (String value){
+        if(value.isEmpty){
+          return 'From which year to which year';
+        }
+      },
+      onSaved: (String value){
+        _name = value;
+      },
+    );
+  }
+
+  Widget _buildWork_desc() {
+    return TextFormField(
+      decoration: InputDecoration(labelText: 'Work description'),
+      validator: (String value){
+        if(value.isEmpty){
+          return 'Description is required';
+        }
+      },
+      onSaved: (String value){
+        _name = value;
+      },
+    );
+  }
+
+  Widget _buildPrograms(){
+    return Row(
+      children: [
+        Text("Programs"), Spacer(),
+        DropdownButton(
+            value: nationality,
+            items: [
+              DropdownMenuItem(
+                child: Text("Computer Engineering"),
+                value: 1,
+              ),
+              DropdownMenuItem(
+                child: Text("Nursing"),
+                value: 2,
+              ),
+              DropdownMenuItem(
+                child: Text("Medical Doctor"),
+                value: 3,
+              ),
+              DropdownMenuItem(
+                child: Text("Pharmacist"),
+                value: 4,
+              ),
+              DropdownMenuItem(
+                child: Text("Chemist"),
+                value: 5,
+              ),
+              DropdownMenuItem(
+                child: Text("Yahoo Boy"),
+                value: 6,
+              ),
+            ],
+            onChanged: (value) {
+              setState(() {
+                nationality = value;
+              });
+            }),
+
+      ],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+        appBar: AppBar(title: Text("Work Experience"), backgroundColor: Hexcolor("#98C429"),),
+        body: Container(
+          margin: EdgeInsets.all(7),
+          child: ListView(
+            children: [
+              Form(
+                  key: _formkey,
+                  child: Column(
+                    // mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Guardian Details", style: TextStyle(fontWeight: FontWeight.bold),),
+                      _buildCompany(),
+                      _buildRole(),
+                      _buildFrom_to(),
+                      _buildWork_desc(),
+                      Container(
+                          margin: EdgeInsets.fromLTRB(0, 30, 0, 5),
+                          child: Text("Relation with Academics", style: TextStyle(fontWeight: FontWeight.bold),)),
+                      _buildPrograms(),
+                    ],
+                  )),
+
+              Padding(
+                padding: EdgeInsets.all(40),
+                child: Row(
+                  children: [
+                    RaisedButton(
+                      child: Text("Save and Exit", style: TextStyle(color: Colors.green, fontSize: 16)),
+                      onPressed: () {
+                        return  Alert(
+                          context: context,
+                          title: "Confirm",
+                          desc: "By clicking yes your information will be saved",
+                          buttons: [
+                            DialogButton(child: Text("Yes"), onPressed: () {Navigator.of(context).push(MaterialPageRoute(
+                                builder: (BuildContext context) => HomeScreen()));}, color: Colors.grey,),
+                            DialogButton(child: Text("No, Continue", style: TextStyle(color: Colors.white),), onPressed: () {Navigator.pop(context);}, color: Hexcolor("#98C429"),)
+                          ],
+                        ).show();
+                      },
+
+                    ),
+
+                    Spacer(),
+
+                    RaisedButton(
+                      child: Text("Continue", style: TextStyle(color: Colors.green, fontSize: 16)),
+                      onPressed: () => {
+                        if(!_formkey.currentState.validate()){
+
+                        }else{
+                          _formkey.currentState.save(),
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (BuildContext context) => QualificationScreen()))
+                        }
+
+                      },)
+                  ],
+                ),
+              )
+            ],
+          ),
+        )
+    );
+  }
+
+}
+
+
+

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class SignupScreen extends StatefulWidget {
   @override
@@ -53,6 +54,7 @@ class SignupScreenState extends State<SignupScreen> {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Enter Phone Number'),
       keyboardType: TextInputType.phone,
+      // ignore: missing_return
       validator: (String value){
         if(value.isEmpty){
           return 'Phone Number is required';
@@ -67,6 +69,7 @@ class SignupScreenState extends State<SignupScreen> {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Password'),
       keyboardType: TextInputType.visiblePassword,
+      // ignore: missing_return
       validator: (String value){
         if(value.isEmpty){
           return 'Password is required';
@@ -107,7 +110,7 @@ class SignupScreenState extends State<SignupScreen> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      appBar: AppBar(title: Text("SIGN UP")),
+      appBar: AppBar(title: Text("SIGN UP"), backgroundColor: Hexcolor("98C429"),),
       body: Container(
         margin: EdgeInsets.all(10),
         child: Form(
