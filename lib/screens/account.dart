@@ -17,7 +17,6 @@ class _AccountScreenState extends State<AccountScreen> {
         child: ListView(
           children: [
             ListTile(
-              // Text("From administration", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15,),),
               leading: Icon(Icons.alternate_email, color: Hexcolor("#98C429"),),
               title: Text("Email"),
               subtitle:  TextField(
@@ -25,7 +24,6 @@ class _AccountScreenState extends State<AccountScreen> {
                     hintText: 'gemuhd@gmail.com'
                 ),
               ),
-              // trailing: Icon(Icons.markunread),
             ),
 
             Divider(),
@@ -38,7 +36,6 @@ class _AccountScreenState extends State<AccountScreen> {
                     hintText: 'durrello'
                 ),
               ),
-              //trailing: Icon(Icons.done_all),
             ),
 
             Divider(),
@@ -52,7 +49,6 @@ class _AccountScreenState extends State<AccountScreen> {
                     hintText: 'Enter old password'
                 ),
               ),
-              //  trailing: Icon(Icons.markunread),
             ),
 
             ListTile(

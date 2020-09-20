@@ -33,19 +33,6 @@ class DocumentScreenState extends State<DocumentScreen> {
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
-  //date picker
-//  Future<Null> selectDate(BuildContext context) async {
-//    DateTime _date = DateTime.now();
-//    final DateTime picked = await showDatePicker(context: context, initialDate: _date, firstDate: DateTime(1980), lastDate: DateTime(2000));
-//
-//    if(picked != null && picked != _date){
-//      setState(() {
-//        _date = picked;
-//      });
-//      print(_date.toString());
-//    }
-//  }
-
   Widget _buildDocumentTitle() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Document Title'),
@@ -59,12 +46,6 @@ class DocumentScreenState extends State<DocumentScreen> {
       },
     );
   }
-
-//  Widget _buildDate(){
-//    return Container(
-//      child: IconButton(icon: Icon(Icons.alarm), onPressed: () => {selectDate(context)}),
-//    );
-//  }
 
   Widget _buildPrograms(){
     return Row(

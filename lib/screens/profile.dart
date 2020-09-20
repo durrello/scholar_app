@@ -24,7 +24,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     hintText: 'Durrell Gemuh'
                 ),
               ),
-             // trailing: Icon(Icons.markunread),
             ),
 
             Divider(),
@@ -37,7 +36,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     hintText: 'gemuhd@gmail.com'
                 ),
               ),
-             // trailing: Icon(Icons.markunread),
             ),
 
             Divider(),
@@ -50,7 +48,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     hintText: 'www.me.com'
                 ),
               ),
-              //trailing: Icon(Icons.done_all),
             ),
 
             Divider(),
@@ -63,7 +60,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     hintText: 'Buea, Cameroon'
                 ),
               ),
-            //  trailing: Icon(Icons.markunread),
             ),
 
             Divider(),
@@ -89,7 +85,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     hintText: 'Change your avatar'
                 ),
               ),
-             // trailing: Icon(Icons.markunread),
             ),
 
             Divider(),
@@ -102,7 +97,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     hintText: ' Brief summary about you'
                 ),
               ),
-             // trailing: Icon(Icons.done_all),
             ),
 
 

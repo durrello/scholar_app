@@ -47,19 +47,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
-  //date picker
-//  Future<Null> selectDate(BuildContext context) async {
-//    DateTime _date = DateTime.now();
-//    final DateTime picked = await showDatePicker(context: context, initialDate: _date, firstDate: DateTime(1980), lastDate: DateTime(2000));
-//
-//    if(picked != null && picked != _date){
-//      setState(() {
-//        _date = picked;
-//      });
-//      print(_date.toString());
-//    }
-//  }
-
+//name validation function
   Widget _buildFullNames() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Full Names'),
@@ -74,12 +62,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
     );
   }
 
-//  Widget _buildDate(){
-//    return Container(
-//      child: IconButton(icon: Icon(Icons.alarm), onPressed: () => {selectDate(context)}),
-//    );
-//  }
-
+//ralation validation function
   Widget _buildWhomToYou() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Who to you?'),
@@ -94,6 +77,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
     );
   }
 
+//education validation function
   Widget _buildEducation() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Education'),
@@ -108,6 +92,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
     );
   }
 
+//occupation validation function
   Widget _buildOccupation() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Occupation'),
@@ -122,6 +107,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
     );
   }
 
+//address validation function
   Widget _buildAddress() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Address'),
@@ -136,6 +122,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
     );
   }
 
+//nationality function
   Widget _buildNationality(){
     return Row(
       children: [
@@ -178,6 +165,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
     );
   }
 
+//state or region validation function
   Widget _buildStateRegion() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'State or Region'),
@@ -192,6 +180,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
     );
   }
 
+//city validation function
   Widget _buildCity() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'City'),
@@ -206,6 +195,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
     );
   }
 
+//phone validation function
   Widget _buildPhone() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Phone Number'),
@@ -221,6 +211,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
       },
     );  }
 
+//mobile validation function
   Widget _buildMobile() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Mobile Phone Number'),
@@ -236,7 +227,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
       },
     );  }
 
-
+//email validation function
   Widget _buildEmail() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Email'),

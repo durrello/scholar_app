@@ -54,33 +54,9 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
   int religion = 1;
   int country = 1;
 
-
-//date time picker
-
-
-//  DateTime pickedDate;
-//  @override
-//  void initState() {
-//    // TODO: implement initState
-//    super.initState();
-//    pickedDate = DateTime.now();
-//  }
-
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
-  //date picker
-//  Future<Null> selectDate(BuildContext context) async {
-//    DateTime _date = DateTime.now();
-//    final DateTime picked = await showDatePicker(context: context, initialDate: _date, firstDate: DateTime(1980), lastDate: DateTime(2000));
-//
-//    if(picked != null && picked != _date){
-//      setState(() {
-//        _date = picked;
-//      });
-//      print(_date.toString());
-//    }
-//  }
-
+//profile validation function
   Widget _buildProfileTitle() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Profile Title'),
@@ -95,12 +71,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
     );
   }
 
-//  Widget _buildDate(){
-//    return Container(
-//      child: IconButton(icon: Icon(Icons.alarm), onPressed: () => {selectDate(context)}),
-//    );
-//  }
-
+//first name validation function
   Widget _buildFirstName() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'First Name'),
@@ -115,6 +86,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
     );
   }
 
+//middle validation function
   Widget _buildMiddleName() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Middle Name'),
@@ -129,6 +101,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
     );
   }
 
+//last name validation function
   Widget _buildLastName() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Last Name'),
@@ -143,6 +116,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
     );
   }
 
+//gender function
   Widget _buildGender(){
     return Row(
       children: [
@@ -169,27 +143,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
     );
   }
 
-
-
-
-
-//  Widget _buildDateOfBirth(){
-//    return Row(
-//      children: [
-//        Text("Date of Birth"),
-//        Spacer(),
-////             FlatButton(
-////                 onPressed: (){
-////                   _pickedDate(context);
-////                 },
-////             //    child: Text("${pickedDate.day}, ${pickedDate.month}, ${pickedDate.year}")),
-////
-////        Icon(Icons.arrow_drop_down),
-////
-////      ],
-////    );
-//  }
-
+//date function
   DateTime _date = DateTime.now();
 
   Future<Null> _selectDate(BuildContext context) async {
@@ -207,7 +161,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
     }
   }
 
-
+//date of birth validation function
   _buildDateOfBirth(){
   return  Row(
         children: [
@@ -220,7 +174,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
       );
   }
 
-
+//place of birth validation function
   Widget _buildBirthPlace() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Place of Birth'),
@@ -235,6 +189,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
       },
     );  }
 
+//nationality function
   Widget _buildNationality(){
     return Row(
       children: [
@@ -277,6 +232,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
     );
   }
 
+//blood group function
   Widget _buildBloodGroup(){
     return Row(
       children: [
@@ -312,6 +268,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
     );
   }
 
+//mother tongue validation function
   Widget _buildMotherTongue() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Mother Tongue'),
@@ -325,6 +282,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
       },
     );  }
 
+//religion function
   Widget _buildReligion(){
     return Row(
       children: [
@@ -367,6 +325,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
     );
   }
 
+//qualification validation function
   Widget _buildQualification() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Current Qualification'),
@@ -382,7 +341,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
     );  }
 
 
-    //contact information
+//address validation function
   Widget _buildPresentAddress() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Present Address'),
@@ -397,6 +356,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
     );
   }
 
+//permanent address validation function
   Widget _buildPermanentAddress() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Permanent Address'),
@@ -411,6 +371,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
     );
   }
 
+//country function
   Widget _buildCountry(){
     return Row(
       children: [
@@ -453,6 +414,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
     );
   }
 
+//state or city validation function
   Widget _buildStateRegion() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'State or Region'),
@@ -467,6 +429,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
     );
   }
 
+//city validation function
   Widget _buildCity() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'City'),
@@ -481,6 +444,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
     );
   }
 
+//phone validation function
   Widget _buildPhone() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Phone Number'),
@@ -496,6 +460,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
       },
     );  }
 
+//mobile validation function
   Widget _buildMobile() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Mobile Phone Number'),
@@ -511,7 +476,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
       },
     );  }
 
-
+//email validation function
   Widget _buildEmail() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Email'),

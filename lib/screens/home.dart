@@ -18,7 +18,6 @@ import 'package:scholar_app/screens/settings.dart';
 //imported files
 import 'package:hexcolor/hexcolor.dart';
 
-
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -27,7 +26,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    //defining the image carousel
     return Scaffold(
         appBar: new AppBar(
           elevation: 0.0,
@@ -431,7 +429,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                       return  Alert(
                                           context: context,
                                           title: "Pay Application Fees",
-                                         // desc: "Clicking here takes you to sign/login with facebook, implement using firebase, or facebook auth",
                                           buttons: [
                                             DialogButton(child: Text("Continue"), onPressed: () {Navigator.pop(context);}),
                                           ],

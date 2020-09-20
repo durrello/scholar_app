@@ -49,7 +49,6 @@ class LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-     // appBar: AppBar(title: Text("LOGIN")),
       body: Center(
         child: Container(
           child: ListView(

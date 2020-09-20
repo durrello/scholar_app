@@ -25,6 +25,7 @@ class SignupScreenState extends State<SignupScreen> {
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
 
+//name validation function
   Widget _buildNameField() {
     return Container(
       margin: EdgeInsets.fromLTRB(0, 30, 0, 5),
@@ -43,6 +44,7 @@ class SignupScreenState extends State<SignupScreen> {
     );
   }
 
+//email validation function
   Widget _buildEmailField() {
     return Container(
       margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
@@ -67,6 +69,7 @@ class SignupScreenState extends State<SignupScreen> {
     );
   }
 
+//phone validation function
   Widget _buildPhone() {
     return Container(
       margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
@@ -85,6 +88,7 @@ class SignupScreenState extends State<SignupScreen> {
       ),
     );  }
 
+//password validation function
   Widget _buildPassword() {
     return Container(
       margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
@@ -104,6 +108,7 @@ class SignupScreenState extends State<SignupScreen> {
       ),
     );  }
 
+//user validation function
   Widget _buildUsername() {
     return Container(
       margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
@@ -120,6 +125,7 @@ class SignupScreenState extends State<SignupScreen> {
       ),
     );  }
 
+//campus validation function
   Widget _buildCampus() {
     return Container(
       margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
@@ -140,12 +146,9 @@ class SignupScreenState extends State<SignupScreen> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-    //  appBar: AppBar(title: Text("SIGN UP"), backgroundColor: Hexcolor("98C429"),),
       body: Container(
-       // margin: EdgeInsets.all(10),
         child: ListView(
           children: [
-            //
             Container(
               alignment: Alignment.center,
               child: Row(
@@ -160,7 +163,6 @@ class SignupScreenState extends State<SignupScreen> {
             Form(
                 key: _formkey,
                 child: Column(
-                  // mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     _buildNameField(),
                     _buildEmailField(),
@@ -184,10 +186,7 @@ class SignupScreenState extends State<SignupScreen> {
                         },),
                     ),
 
-                    
                     _buildConnectWith(),
-
-
                   ],
                 )),
           ],
@@ -199,8 +198,7 @@ class SignupScreenState extends State<SignupScreen> {
 }
 
 
-
-
+//connect with social media function
 Widget _buildConnectWith(){
   return Container(
     margin: EdgeInsets.fromLTRB(50, 0, 50, 0),

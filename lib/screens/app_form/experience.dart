@@ -40,19 +40,7 @@ class ExperienceScreenState extends State<ExperienceScreen> {
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
-  //date picker
-//  Future<Null> selectDate(BuildContext context) async {
-//    DateTime _date = DateTime.now();
-//    final DateTime picked = await showDatePicker(context: context, initialDate: _date, firstDate: DateTime(1980), lastDate: DateTime(2000));
-//
-//    if(picked != null && picked != _date){
-//      setState(() {
-//        _date = picked;
-//      });
-//      print(_date.toString());
-//    }
-//  }
-
+//company validation function
   Widget _buildCompany() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Company'),
@@ -67,12 +55,7 @@ class ExperienceScreenState extends State<ExperienceScreen> {
     );
   }
 
-//  Widget _buildDate(){
-//    return Container(
-//      child: IconButton(icon: Icon(Icons.alarm), onPressed: () => {selectDate(context)}),
-//    );
-//  }
-
+//role validation function
   Widget _buildRole() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'What was/is your role'),
@@ -87,6 +70,8 @@ class ExperienceScreenState extends State<ExperienceScreen> {
     );
   }
 
+
+//date and time function
   DateTime _dateFrom = DateTime.now();
   DateTime _dateTo = DateTime.now();
 
@@ -137,7 +122,7 @@ class ExperienceScreenState extends State<ExperienceScreen> {
     );
   }
 
-
+//work description validation function
   Widget _buildWork_desc() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Work description'),
@@ -152,6 +137,7 @@ class ExperienceScreenState extends State<ExperienceScreen> {
     );
   }
 
+//programs function
   Widget _buildPrograms(){
     return Row(
       children: [

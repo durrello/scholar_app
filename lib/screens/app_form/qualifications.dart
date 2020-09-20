@@ -35,19 +35,7 @@ class QualificationScreenState extends State<QualificationScreen> {
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
-  //date picker
-//  Future<Null> selectDate(BuildContext context) async {
-//    DateTime _date = DateTime.now();
-//    final DateTime picked = await showDatePicker(context: context, initialDate: _date, firstDate: DateTime(1980), lastDate: DateTime(2000));
-//
-//    if(picked != null && picked != _date){
-//      setState(() {
-//        _date = picked;
-//      });
-//      print(_date.toString());
-//    }
-//  }
-
+//institution validation function
   Widget _buildInstitution() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Company'),
@@ -62,12 +50,7 @@ class QualificationScreenState extends State<QualificationScreen> {
     );
   }
 
-//  Widget _buildDate(){
-//    return Container(
-//      child: IconButton(icon: Icon(Icons.alarm), onPressed: () => {selectDate(context)}),
-//    );
-//  }
-
+//date validation function
   Widget _buildFrom_to() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'From to'),
@@ -82,6 +65,7 @@ class QualificationScreenState extends State<QualificationScreen> {
     );
   }
 
+//qualification function
   Widget _buildQualification(){
     return Row(
       children: [
@@ -124,6 +108,7 @@ class QualificationScreenState extends State<QualificationScreen> {
     );
   }
 
+//programs function
   Widget _buildPrograms(){
     return Row(
       children: [
