@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:scholar_app/screens/home.dart';
+import 'package:scholar_app/screens/signup.dart';
 
 class LoginScreen extends StatefulWidget {
+  //getting data from sign up screen
+  String email;
+  LoginScreen({this.email});
+
   @override
   State<StatefulWidget> createState() {
-    return LoginScreenState();
+    return LoginScreenState(email);
   }
 
 }
 class LoginScreenState extends State<LoginScreen> {
+  String email;
+  LoginScreenState(this.email);
+
 
   String _email;
   String _password;
@@ -15,21 +24,11 @@ class LoginScreenState extends State<LoginScreen> {
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
   Widget _buildEmailField() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Email', border: OutlineInputBorder()),
-      keyboardType: TextInputType.emailAddress,
-      validator: (String value){
-        if(value.isEmpty){
-          return 'Email is required';
-        }
-        if(!RegExp(r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$').hasMatch(value)){
-          return 'Please Enter a valid Email';
-        } return null;
-      },
-      onSaved: (String value){
-        _email = value;
-      },
-    );  }
+    return ListTile(
+      title: Text("Email"),
+      subtitle: Text('${email}'),
+    ); 
+  }
 
   Widget _buildPassword() {
     return TextFormField(
@@ -84,6 +83,8 @@ class LoginScreenState extends State<LoginScreen> {
 
                             }else{
                               _formkey.currentState.save(),
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (BuildContext context) => HomeScreen()))
                             }
 
                           },)

@@ -3,13 +3,17 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:scholar_app/screens/login.dart';
 
 class SignupScreen extends StatefulWidget {
+
   @override
   State<StatefulWidget> createState() {
     return SignupScreenState();
   }
 
 }
+
+
 class SignupScreenState extends State<SignupScreen> {
+  String email;
 
   String _name;
   String _email;
@@ -19,6 +23,7 @@ class SignupScreenState extends State<SignupScreen> {
   String _campus;
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+
 
   Widget _buildNameField() {
     return TextFormField(
@@ -31,6 +36,7 @@ class SignupScreenState extends State<SignupScreen> {
       onSaved: (String value){
         _name = value;
       },
+
     );
   }
 
@@ -48,6 +54,9 @@ class SignupScreenState extends State<SignupScreen> {
       },
       onSaved: (String value){
         _email = value;
+      },
+      onChanged: (text){
+        email = text;
       },
     );  }
 
@@ -79,6 +88,7 @@ class SignupScreenState extends State<SignupScreen> {
       onSaved: (String value){
         _password = value;
       },
+
     );  }
 
   Widget _buildUsername() {
@@ -153,8 +163,8 @@ class SignupScreenState extends State<SignupScreen> {
 
                         }else{
                           _formkey.currentState.save(),
-                          Navigator.of(context).pushReplacement(MaterialPageRoute(
-                              builder: (BuildContext context) => LoginScreen()))
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (BuildContext context) => LoginScreen(email : email )))
                         }
                       },)
                   ],
