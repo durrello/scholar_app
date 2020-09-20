@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:scholar_app/screens/login.dart';
 
@@ -10,7 +11,6 @@ class SignupScreen extends StatefulWidget {
   }
 
 }
-
 
 class SignupScreenState extends State<SignupScreen> {
   String email;
@@ -26,95 +26,114 @@ class SignupScreenState extends State<SignupScreen> {
 
 
   Widget _buildNameField() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Name', border: OutlineInputBorder()),
-      validator: (String value){
-        if(value.isEmpty){
-          return 'Name is required';
-        }
-      },
-      onSaved: (String value){
-        _name = value;
-      },
+    return Container(
+      margin: EdgeInsets.fromLTRB(0, 30, 0, 5),
+      child: TextFormField(
+        decoration: InputDecoration(labelText: 'Name', border: OutlineInputBorder()),
+        validator: (String value){
+          if(value.isEmpty){
+            return 'Name is required';
+          }
+        },
+        onSaved: (String value){
+          _name = value;
+        },
 
+      ),
     );
   }
 
   Widget _buildEmailField() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Email', border: OutlineInputBorder()),
-      keyboardType: TextInputType.emailAddress,
-      validator: (String value){
-        if(value.isEmpty){
-          return 'Email is required';
-        }
-        if(!RegExp(r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$').hasMatch(value)){
-          return 'Please Enter a valid Email';
-        } return null;
-      },
-      onSaved: (String value){
-        _email = value;
-      },
-      onChanged: (text){
-        email = text;
-      },
-    );  }
+    return Container(
+      margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
+      child: TextFormField(
+        decoration: InputDecoration(labelText: 'Email', border: OutlineInputBorder()),
+        keyboardType: TextInputType.emailAddress,
+        validator: (String value){
+          if(value.isEmpty){
+            return 'Email is required';
+          }
+          if(!RegExp(r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$').hasMatch(value)){
+            return 'Please Enter a valid Email';
+          } return null;
+        },
+        onSaved: (String value){
+          _email = value;
+        },
+        onChanged: (text){
+          email = text;
+        },
+      ),
+    );
+  }
 
   Widget _buildPhone() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Enter Phone Number', border: OutlineInputBorder()),
-      keyboardType: TextInputType.phone,
-      // ignore: missing_return
-      validator: (String value){
-        if(value.isEmpty){
-          return 'Phone Number is required';
-        }
-      },
-      onSaved: (String value){
-        _phone = value;
-      },
+    return Container(
+      margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
+      child: TextFormField(
+        decoration: InputDecoration(labelText: 'Enter Phone Number', border: OutlineInputBorder()),
+        keyboardType: TextInputType.phone,
+        // ignore: missing_return
+        validator: (String value){
+          if(value.isEmpty){
+            return 'Phone Number is required';
+          }
+        },
+        onSaved: (String value){
+          _phone = value;
+        },
+      ),
     );  }
 
   Widget _buildPassword() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Password', border: OutlineInputBorder()),
-      keyboardType: TextInputType.visiblePassword,
-      // ignore: missing_return
-      validator: (String value){
-        if(value.isEmpty){
-          return 'Password is required';
-        }
-      },
-      onSaved: (String value){
-        _password = value;
-      },
+    return Container(
+      margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
+      child: TextFormField(
+        decoration: InputDecoration(labelText: 'Password', border: OutlineInputBorder()),
+        keyboardType: TextInputType.visiblePassword,
+        // ignore: missing_return
+        validator: (String value){
+          if(value.isEmpty){
+            return 'Password is required';
+          }
+        },
+        onSaved: (String value){
+          _password = value;
+        },
 
+      ),
     );  }
 
   Widget _buildUsername() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Username', border: OutlineInputBorder()),
-      validator: (String value){
-        if(value.isEmpty){
-          return 'Username is required';
-        }
-      },
-      onSaved: (String value){
-        _username = value;
-      },
+    return Container(
+      margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
+      child: TextFormField(
+        decoration: InputDecoration(labelText: 'Username', border: OutlineInputBorder()),
+        validator: (String value){
+          if(value.isEmpty){
+            return 'Username is required';
+          }
+        },
+        onSaved: (String value){
+          _username = value;
+        },
+      ),
     );  }
 
   Widget _buildCampus() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Campus', border: OutlineInputBorder()),
-      validator: (String value){
-        if(value.isEmpty){
-          return 'Campus is required';
-        }
-      },
-      onSaved: (String value){
-        _name = value;
-      },
+    return Container(
+      margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
+      child: TextFormField(
+        decoration: InputDecoration(labelText: 'Campus', border: OutlineInputBorder()),
+        validator: (String value){
+          if(value.isEmpty){
+            return 'Campus is required';
+          }
+        },
+        onSaved: (String value){
+          _name = value;
+        },
+      ),
     );  }
 
   @override
@@ -144,29 +163,31 @@ class SignupScreenState extends State<SignupScreen> {
                   // mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     _buildNameField(),
-                    Divider(),
                     _buildEmailField(),
-                    Divider(),
                     _buildPassword(),
-                    Divider(),
                     _buildPhone(),
-                    Divider(),
                     _buildUsername(),
-                    Divider(),
                     _buildCampus(),
-                    Divider(),
 
-                    RaisedButton(
-                      child: Text("Submit", style: TextStyle(color: Colors.green, fontSize: 16)),
-                      onPressed: () => {
-                        if(!_formkey.currentState.validate()){
+                    Container(
+                      margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                      child: RaisedButton(
+                        child: Text("Submit", style: TextStyle(color: Colors.green, fontSize: 16)),
+                        onPressed: () => {
+                          if(!_formkey.currentState.validate()){
 
-                        }else{
-                          _formkey.currentState.save(),
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (BuildContext context) => LoginScreen(email : email )))
-                        }
-                      },)
+                          }else{
+                            _formkey.currentState.save(),
+                            Navigator.of(context).pushReplacement(MaterialPageRoute(
+                                builder: (BuildContext context) => LoginScreen(email : email )))
+                          }
+                        },),
+                    ),
+
+                    
+                    _buildConnectWith(),
+
+
                   ],
                 )),
           ],
@@ -179,3 +200,53 @@ class SignupScreenState extends State<SignupScreen> {
 
 
 
+
+Widget _buildConnectWith(){
+  return Container(
+    margin: EdgeInsets.fromLTRB(50, 0, 50, 0),
+    alignment: Alignment.center,
+    child: Column(
+      children: [
+        Container(
+            alignment: Alignment.center,
+            margin: EdgeInsets.all(20),
+            child: Text("SIGNUP WITH", textAlign: TextAlign.center,)),
+        Row(
+          children: [
+            InkWell(
+              onTap: () {} ,
+              child: Column(
+                children: [
+                  Image.asset('assets/images/gg.png', height: 40, width: 40,),
+                  Text("Google"),
+
+                ],
+              ),
+            ),
+
+            Spacer(),
+            InkWell(
+              onTap:() {},
+              child: Column(
+                children: [
+                  Image.asset('assets/images/fb.png', height: 40, width: 40,),
+                  Text("FaceBook"),
+                ],
+              ),
+            ),
+            Spacer(),
+            InkWell(
+              onTap:() {},
+              child: Column(
+                children: [
+                  Image.asset('assets/images/tt.jpeg', height: 40, width: 40,),
+                  Text("Twitter"),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ],
+    ),
+  );
+}

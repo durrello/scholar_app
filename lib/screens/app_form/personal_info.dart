@@ -55,7 +55,17 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
   int country = 1;
 
 
+//date time picker
+  DateTime _date = DateTime.now();
 
+
+//  DateTime pickedDate;
+//  @override
+//  void initState() {
+//    // TODO: implement initState
+//    super.initState();
+//    pickedDate = DateTime.now();
+//  }
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
@@ -159,6 +169,49 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
       ],
     );
   }
+
+
+
+
+
+//  Widget _buildDateOfBirth(){
+//    return Row(
+//      children: [
+//        Text("Date of Birth"),
+//        Spacer(),
+////             FlatButton(
+////                 onPressed: (){
+////                   _pickedDate(context);
+////                 },
+////             //    child: Text("${pickedDate.day}, ${pickedDate.month}, ${pickedDate.year}")),
+////
+////        Icon(Icons.arrow_drop_down),
+////
+////      ],
+////    );
+//  }
+
+  Future<Null> _selectDate(BuildContext context) async {
+    final DateTime picked = await showDatePicker(
+        context: context,
+        initialDate: _date,
+        firstDate: DateTime(2000),
+        lastDate: DateTime(2020)
+    );
+    if( picked != null && picked != _date){
+      print('Date selected: ${_date.toString()}');
+      setState(() {
+        _date = picked;
+      });
+    }
+  }
+
+
+  _buildDateOfBirth(){
+  return  FlatButton(onPressed: () {_selectDate(context);},
+        child: Text("Select Date"));
+  }
+
 
   Widget _buildBirthPlace() {
     return TextFormField(
@@ -489,7 +542,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
                     _buildMiddleName(),
                     _buildLastName(),
                     _buildGender(),
-                 //   _buildDate(),
+                    _buildDateOfBirth(),
                     _buildBirthPlace(),
                     _buildNationality(),
                     _buildBloodGroup(),

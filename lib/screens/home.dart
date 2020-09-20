@@ -424,7 +424,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                               
                               Container(
-                                margin: EdgeInsets.all(50),
+                                margin: EdgeInsets.all(10),
                                 child: FlatButton(
                                     color: Hexcolor("#98C429"),
                                     onPressed: () {
@@ -463,13 +463,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ),
                                       ).show();
                                     },
-                                    child: Row(
-                                      children: [
-                                        Spacer(),
-                                        Text("SUBMIT",),
-                                        Spacer(),
-                                      ],
-                                    )
+                                    child: Text("SUBMIT",),
+
                                 ),
                               ),
                       
