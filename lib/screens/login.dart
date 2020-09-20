@@ -16,7 +16,7 @@ class LoginScreenState extends State<LoginScreen> {
 
   Widget _buildEmailField() {
     return TextFormField(
-      decoration: InputDecoration(labelText: 'Email'),
+      decoration: InputDecoration(labelText: 'Email', border: OutlineInputBorder()),
       keyboardType: TextInputType.emailAddress,
       validator: (String value){
         if(value.isEmpty){
@@ -33,7 +33,7 @@ class LoginScreenState extends State<LoginScreen> {
 
   Widget _buildPassword() {
     return TextFormField(
-      decoration: InputDecoration(labelText: 'Password'),
+      decoration: InputDecoration(labelText: 'Password', border: OutlineInputBorder()),
       keyboardType: TextInputType.visiblePassword,
       validator: (String value){
         if(value.isEmpty){
@@ -49,31 +49,50 @@ class LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      appBar: AppBar(title: Text("LOGIN")),
+     // appBar: AppBar(title: Text("LOGIN")),
       body: Center(
         child: Container(
-          margin: EdgeInsets.all(10),
-          child: Form(
-              key: _formkey,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  _buildEmailField(),
-                  _buildPassword(),
+          child: ListView(
+            shrinkWrap: true,
+            children: [
+              Container(
+                child: Row(
+                  children: [
+                    Spacer(),
+                    Image.asset('assets/images/logo.png', height: 100, width: 100,),
+                    Spacer(),
+                  ],
+                ),
+              ),
+              Divider(),
 
-                  RaisedButton(
-                    child: Text("Submit", style: TextStyle(color: Colors.green, fontSize: 16)),
-                    onPressed: () => {
-                      if(!_formkey.currentState.validate()){
+              Container(
+                alignment: Alignment.center,
+                child: Form(
+                    key: _formkey,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        _buildEmailField(),
+                        Divider(),
+                        _buildPassword(),
 
-                      }else{
-                        _formkey.currentState.save(),
-                      }
+                        RaisedButton(
+                          child: Text("Submit", style: TextStyle(color: Colors.green, fontSize: 16)),
+                          onPressed: () => {
+                            if(!_formkey.currentState.validate()){
 
-                    },)
+                            }else{
+                              _formkey.currentState.save(),
+                            }
 
-                ],
-              )),
+                          },)
+
+                      ],
+                    )),
+              ),
+            ],
+          )
         ),
       ),
     );

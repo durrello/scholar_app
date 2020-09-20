@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:scholar_app/screens/home.dart';
+import 'package:scholar_app/screens/signup.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -20,7 +21,7 @@ class Splash extends State<SplashScreen>  {
     Timer(
         Duration(seconds: 3),
             () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (BuildContext context) => HomeScreen())));
+                builder: (BuildContext context) => SignupScreen())));
 
     var assetsImage = new AssetImage(
         'assets/images/logo.png'); //<- Creates an object that fetches an image.
