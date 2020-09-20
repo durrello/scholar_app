@@ -87,19 +87,56 @@ class ExperienceScreenState extends State<ExperienceScreen> {
     );
   }
 
-  Widget _buildFrom_to() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'From to'),
-      validator: (String value){
-        if(value.isEmpty){
-          return 'From which year to which year';
-        }
-      },
-      onSaved: (String value){
-        _name = value;
-      },
+  DateTime _dateFrom = DateTime.now();
+  DateTime _dateTo = DateTime.now();
+
+  Future<Null> _selectDateFrom(BuildContext context) async {
+    final DateTime picked = await showDatePicker(
+        context: context,
+        initialDate: _dateFrom,
+        firstDate: DateTime(DateTime.now().year-5),
+        lastDate: DateTime(DateTime.now().year+5)
+    );
+    if( picked != null && picked != _dateFrom){
+      print('Selected: ${_dateFrom.toString()}');
+      setState(() {
+        _dateFrom = picked;
+      });
+    }
+  }
+
+  Future<Null> _selectDateTo(BuildContext context) async {
+    final DateTime picked = await showDatePicker(
+        context: context,
+        initialDate: _dateTo,
+        firstDate: DateTime(DateTime.now().year-5),
+        lastDate: DateTime(DateTime.now().year+5)
+    );
+    if( picked != null && picked != _dateTo){
+      print('Selected: ${_dateTo.toString()}');
+      setState(() {
+        _dateTo = picked;
+      });
+    }
+  }
+
+
+  _buildFrom_to(){
+    return  Row(
+      children: [
+        Text("From:", style: TextStyle(fontWeight: FontWeight.bold),),
+        FlatButton(
+            onPressed: () {_selectDateFrom(context);},
+            child: Text('${_dateFrom.month}, ${_dateFrom.year}')),
+        Spacer(),
+        Text("To"),
+        FlatButton(
+            onPressed: () {_selectDateTo(context);},
+            child: Text('${_dateTo.month}, ${_dateTo.year}')),
+      ],
     );
   }
+
 
   Widget _buildWork_desc() {
     return TextFormField(
@@ -184,7 +221,7 @@ class ExperienceScreenState extends State<ExperienceScreen> {
                   )),
 
               Padding(
-                padding: EdgeInsets.all(40),
+                padding: EdgeInsets.fromLTRB(10, 40, 10, 0),
                 child: Row(
                   children: [
                     RaisedButton(

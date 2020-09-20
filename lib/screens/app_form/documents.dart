@@ -69,7 +69,7 @@ class DocumentScreenState extends State<DocumentScreen> {
   Widget _buildPrograms(){
     return Row(
       children: [
-        Text("Related Academic Program"), Spacer(),
+        Text("Academic Program"), Spacer(),
         DropdownButton(
             value: programs,
             items: [
@@ -145,9 +145,6 @@ class DocumentScreenState extends State<DocumentScreen> {
                   child: Column(
                     // mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
-                          margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
-                          child: Text("Qualification Details", style: TextStyle(fontWeight: FontWeight.bold),)),
                       _buildDocumentTitle(),
                       _buildPrograms(),
                       _buildUploadFile(),
@@ -156,7 +153,7 @@ class DocumentScreenState extends State<DocumentScreen> {
                   )),
 
               Padding(
-                padding: EdgeInsets.all(40),
+                padding: EdgeInsets.fromLTRB(10, 40, 10, 0),
                 child: Row(
                   children: [
                     RaisedButton(

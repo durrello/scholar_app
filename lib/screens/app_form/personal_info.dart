@@ -570,13 +570,11 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
                     _buildMobile(),
                     _buildEmail()
 
-
-
                   ],
                 )),
 
             Padding(
-              padding: EdgeInsets.all(40),
+              padding: EdgeInsets.all(10),
               child: Row(
                 children: [
                   RaisedButton(
@@ -589,7 +587,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
                         buttons: [
                           DialogButton(child: Text("Yes"), onPressed: () {Navigator.of(context).push(MaterialPageRoute(
                               builder: (BuildContext context) => HomeScreen()));}, color: Colors.grey,),
-                          DialogButton(child: Text("No, Continue", style: TextStyle(color: Colors.white),), onPressed: () {Navigator.pop(context);}, color: Hexcolor("#98C429"),)
+                          DialogButton(child: Text("No, Continue", style: TextStyle(color: Colors.white), textAlign: TextAlign.center,), onPressed: () {Navigator.pop(context);}, color: Hexcolor("#98C429"),)
                         ],
                       ).show();
                     },

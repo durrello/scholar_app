@@ -191,7 +191,7 @@ class QualificationScreenState extends State<QualificationScreen> {
                   )),
 
               Padding(
-                padding: EdgeInsets.all(40),
+                padding: EdgeInsets.fromLTRB(10, 40, 10, 0),
                 child: Row(
                   children: [
                     RaisedButton(
