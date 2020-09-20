@@ -56,7 +56,6 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
 
 
 //date time picker
-  DateTime _date = DateTime.now();
 
 
 //  DateTime pickedDate;
@@ -191,15 +190,17 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
 ////    );
 //  }
 
+  DateTime _date = DateTime.now();
+
   Future<Null> _selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(
         context: context,
         initialDate: _date,
-        firstDate: DateTime(2000),
-        lastDate: DateTime(2020)
+        firstDate: DateTime(DateTime.now().year-5),
+        lastDate: DateTime(DateTime.now().year+5)
     );
     if( picked != null && picked != _date){
-      print('Date selected: ${_date.toString()}');
+      print('Selected: ${_date.toString()}');
       setState(() {
         _date = picked;
       });
@@ -208,8 +209,15 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
 
 
   _buildDateOfBirth(){
-  return  FlatButton(onPressed: () {_selectDate(context);},
-        child: Text("Select Date"));
+  return  Row(
+        children: [
+          Text("Date of Birth"),
+          Spacer(),
+          FlatButton(
+              onPressed: () {_selectDate(context);},
+              child: Text('${_date.day}, ${_date.month}, ${_date.year}')),
+        ],
+      );
   }
 
 
