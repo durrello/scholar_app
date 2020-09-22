@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "257930226653",
+    "firebase_url": "https://scholar-7c931.firebaseio.com",
+    "project_id": "scholar-7c931",
+    "storage_bucket": "scholar-7c931.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257930226653:android:bab069532438153c176434",
+        "android_client_info": {
+          "package_name": "com.example.scholar_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "257930226653-4cs5e9f675h0ahp3b3vl1rdqbb8d0lrr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.scholar_app",
+            "certificate_hash": "7e447160ca2cfca1cacd389c419c953daa53797d"
+          }
+        },
+        {
+          "client_id": "257930226653-8461lpoj0qige8b4q1puugb5od150nek.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQ6NFKKVsWct0jNZ0hogLuZIlupRjsRqI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "257930226653-8461lpoj0qige8b4q1puugb5od150nek.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -5,6 +5,11 @@ import 'package:scholar_app/screens/home.dart';
 import 'package:scholar_app/screens/retrieve_password.dart';
 import 'package:scholar_app/screens/signup.dart';
 
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:flutter_twitter_login/flutter_twitter_login.dart';
+
+
+
 class LoginScreen extends StatefulWidget {
   //getting data from sign up screen
   String email;
@@ -17,6 +22,9 @@ class LoginScreen extends StatefulWidget {
 
 }
 class LoginScreenState extends State<LoginScreen> {
+  //google login
+  bool _isLoggedIn = false;
+  //
   String email;
   LoginScreenState(this.email);
 
@@ -34,6 +42,35 @@ class LoginScreenState extends State<LoginScreen> {
       initialIcon =  Icon(Icons.check_box, color: Hexcolor("#98C429"),);
     });
   }
+
+  //login with google
+
+
+  GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
+
+  _login() async{
+    try{
+      await _googleSignIn.signIn();
+      setState(() {
+        _isLoggedIn = true;
+      });
+    } catch (err){
+      print(err);
+    }
+  }
+
+  _logout(){
+    _googleSignIn.signOut();
+    setState(() {
+      _isLoggedIn = false;
+    });
+  }
+
+  //end login
+
+  //twitter loggin
+
+  //end twitter login
 
   String _email;
   String _password;
@@ -75,7 +112,7 @@ class LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      body: Center(
+      body:  _isLoggedIn ? HomeScreen() :  Center(
         child: Container(
           child: ListView(
             shrinkWrap: true,
@@ -148,7 +185,56 @@ class LoginScreenState extends State<LoginScreen> {
                         
                         Divider(),
 
-                        _buildConnectWith(),
+                    Container(
+                      margin: EdgeInsets.fromLTRB(50, 0, 50, 0),
+                      alignment: Alignment.center,
+                      child: Column(
+                        children: [
+                          Container(
+                              alignment: Alignment.center,
+                              margin: EdgeInsets.all(5),
+                              child: Text("LOGIN WITH", textAlign: TextAlign.center,)),
+                          Row(
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  _login();
+                                },
+                                child: Column(
+                                  children: [
+                                    Image.asset('assets/images/gg.png', height: 40, width: 40,),
+                                    Text("Google"),
+
+                                  ],
+                                ),
+                              ),
+
+                              Spacer(),
+                              InkWell(
+                                onTap: () {},
+                                child: Column(
+                                  children: [
+                                    Image.asset('assets/images/fb.png', height: 40, width: 40,),
+                                    Text("FaceBook"),
+                                  ],
+                                ),
+                              ),
+                              Spacer(),
+
+                              InkWell(
+                                onTap: () {},
+                                child: Column(
+                                  children: [
+                                    Image.asset('assets/images/tt.jpeg', height: 40, width: 40,),
+                                    Text("Twitter"),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
 
                         Divider(),
 
@@ -178,53 +264,5 @@ class LoginScreenState extends State<LoginScreen> {
 }
 
 
-Widget _buildConnectWith(){
-  return Container(
-    margin: EdgeInsets.fromLTRB(50, 0, 50, 0),
-    alignment: Alignment.center,
-    child: Column(
-      children: [
-        Container(
-            alignment: Alignment.center,
-            margin: EdgeInsets.all(5),
-            child: Text("LOGIN WITH", textAlign: TextAlign.center,)),
-        Row(
-          children: [
-            InkWell(
-              onTap: () {},
-              child: Column(
-                children: [
-                  Image.asset('assets/images/gg.png', height: 40, width: 40,),
-                  Text("Google"),
 
-                ],
-              ),
-            ),
 
-            Spacer(),
-            InkWell(
-              onTap: () {},
-              child: Column(
-                children: [
-                  Image.asset('assets/images/fb.png', height: 40, width: 40,),
-                  Text("FaceBook"),
-                ],
-              ),
-            ),
-            Spacer(),
-
-            InkWell(
-              onTap: () {},
-              child: Column(
-                children: [
-                  Image.asset('assets/images/tt.jpeg', height: 40, width: 40,),
-                  Text("Twitter"),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ],
-    ),
-  );
-}
