@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:scholar_app/screens/account.dart';
+import 'package:scholar_app/screens/app_form/application_details.dart';
 import 'package:scholar_app/screens/app_form/apply.dart';
 import 'package:scholar_app/screens/app_form/documents.dart';
 import 'package:scholar_app/screens/app_form/experience.dart';
@@ -388,35 +389,38 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
 
-                      Card(
-                        margin: EdgeInsets.fromLTRB(5, 10, 10, 5),
-                        elevation: 5,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Stack(
-                                overflow: Overflow.visible,
-                                children: [
-                                  Image.asset('assets/images/letters.png', height: 100, width: 100, ),
-                                  new Positioned(
-                                      top: -20,
-                                      right: -20,
-                                      child: new Container(
-                                        decoration: new BoxDecoration(
-                                            borderRadius: new BorderRadius.circular(4.0)),
-                                        width: 25,
-                                        height: 25,
-                                        alignment: Alignment.center,
-                                        child: Icon(Icons.search, color: Hexcolor("#8eab46"), size: 30,),
-                                      )),
-                                ],
-                              ),
-                              Text("Application Letters",),
-                            ],
+                      InkWell(
+                        onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new ApplicationScreen())),
+                        child: Card(
+                          margin: EdgeInsets.fromLTRB(5, 10, 10, 5),
+                          elevation: 5,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Stack(
+                                  overflow: Overflow.visible,
+                                  children: [
+                                    Image.asset('assets/images/letters.png', height: 100, width: 100, ),
+                                    new Positioned(
+                                        top: -20,
+                                        right: -20,
+                                        child: new Container(
+                                          decoration: new BoxDecoration(
+                                              borderRadius: new BorderRadius.circular(4.0)),
+                                          width: 25,
+                                          height: 25,
+                                          alignment: Alignment.center,
+                                          child: Icon(Icons.search, color: Hexcolor("#8eab46"), size: 30,),
+                                        )),
+                                  ],
+                                ),
+                                Text("Application Details",),
+                              ],
+                            ),
                           ),
                         ),
                       ),

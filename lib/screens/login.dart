@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:scholar_app/screens/home.dart';
+import 'package:scholar_app/screens/retrieve_password.dart';
 import 'package:scholar_app/screens/signup.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -18,6 +20,20 @@ class LoginScreenState extends State<LoginScreen> {
   String email;
   LoginScreenState(this.email);
 
+  String forgot = "";
+  Icon initialIcon =  Icon(Icons.crop_square, color: Colors.grey,);
+
+  void showForgot(){
+    setState(() {
+      forgot = "Forgot Password";
+    });
+  }
+  
+  void changeIcon (){
+    setState(() {
+      initialIcon =  Icon(Icons.check_box, color: Hexcolor("#98C429"),);
+    });
+  }
 
   String _email;
   String _password;
@@ -25,24 +41,34 @@ class LoginScreenState extends State<LoginScreen> {
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
   Widget _buildEmailField() {
-    return ListTile(
-      title: Text("Email"),
-      subtitle: Text('${email}'),
-    ); 
+    return TextFormField(
+      decoration: InputDecoration(labelText: 'Email', border: OutlineInputBorder()),
+      keyboardType: TextInputType.emailAddress,
+      validator: (String value){
+        // ignore: missing_return
+        if(value.isEmpty){
+          return 'Email is require';
+        }
+      },
+    );
   }
 
   Widget _buildPassword() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Password', border: OutlineInputBorder()),
-      keyboardType: TextInputType.visiblePassword,
-      validator: (String value){
-        if(value.isEmpty){
-          return 'Password is required';
-        }
-      },
-      onSaved: (String value){
-        _password = value;
-      },
+    return Container(
+      margin: EdgeInsets.fromLTRB(0, 5, 0, 10),
+      child: TextFormField(
+        decoration: InputDecoration(labelText: 'Password', border: OutlineInputBorder()),
+        keyboardType: TextInputType.visiblePassword,
+        obscureText: true,
+        validator: (String value){
+          if(value.isEmpty){
+            return 'Password is required';
+          }
+        },
+        onSaved: (String value){
+          _password = value;
+        },
+      ),
     );  }
 
   @override
@@ -73,13 +99,44 @@ class LoginScreenState extends State<LoginScreen> {
                         _buildEmailField(),
                         _buildPassword(),
 
+
+                    Container(
+                      child: Row(
+                        children: [
+                          InkWell(
+                            onTap: (){
+                              changeIcon();
+                            },
+                            child: Row(
+                              children: [
+                                initialIcon,
+                                Text("Remember me"),
+                              ],
+                            ),
+                          ),
+
+                          Spacer(),
+
+                          InkWell(
+                            onTap: () =>
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (BuildContext context) => RetrivePasswordScreen()))
+                            ,
+                            child: Container(
+                              child: Text('$forgot'),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
                         Container(
-                          margin: EdgeInsets.fromLTRB(0, 30, 0, 10),
+                          margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
                           child: RaisedButton(
-                            child: Text("Submit", style: TextStyle(color: Colors.green, fontSize: 16)),
+                            child: Text("LOGIN", style: TextStyle(color: Colors.green, fontSize: 16)),
                             onPressed: () => {
                               if(!_formkey.currentState.validate()){
-
+                                showForgot(),
                               }else{
                                 _formkey.currentState.save(),
                   Navigator.of(context).push(MaterialPageRoute(
@@ -88,10 +145,25 @@ class LoginScreenState extends State<LoginScreen> {
 
                             },),
                         ),
+                        
                         Divider(),
 
                         _buildConnectWith(),
 
+                        Divider(),
+
+                        Container(
+                          margin: EdgeInsets.all(15),
+                          child:InkWell(
+                                onTap: () =>
+                                    Navigator.of(context).push(MaterialPageRoute(
+                                        builder: (BuildContext context) => SignupScreen()))
+                                ,
+                                child: Container(
+                                  child: Text("Don't have an account?"),
+                                ),
+                              ),
+                        ),
 
                       ],
                     )),
@@ -106,7 +178,6 @@ class LoginScreenState extends State<LoginScreen> {
 }
 
 
-
 Widget _buildConnectWith(){
   return Container(
     margin: EdgeInsets.fromLTRB(50, 0, 50, 0),
@@ -115,7 +186,7 @@ Widget _buildConnectWith(){
       children: [
         Container(
             alignment: Alignment.center,
-            margin: EdgeInsets.all(20),
+            margin: EdgeInsets.all(5),
             child: Text("LOGIN WITH", textAlign: TextAlign.center,)),
         Row(
           children: [

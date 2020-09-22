@@ -14,7 +14,6 @@ class SignupScreen extends StatefulWidget {
 
 class SignupScreenState extends State<SignupScreen> {
   String email;
-
   String _name;
   String _email;
   String _phone;
@@ -164,6 +163,28 @@ class SignupScreenState extends State<SignupScreen> {
                 key: _formkey,
                 child: Column(
                   children: [
+                    Row(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.fromLTRB(10, 20, 0, 0),
+                          child: RaisedButton(
+                            color: Hexcolor("#98C429"),
+                            child: Text("Sign Up", style: TextStyle(color: Colors.white, fontSize: 16)),
+                            onPressed: () => {},),
+                        ),
+
+                        Container(
+                          margin: EdgeInsets.fromLTRB(20, 20, 0, 0),
+                          child: RaisedButton(
+                            child: Text("Login", style: TextStyle(color: Colors.green, fontSize: 16)),
+                            onPressed: () => {
+                              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                                  builder: (BuildContext context) => LoginScreen()))
+                            },),
+                        ),
+                      ],
+                    ),
+
                     _buildNameField(),
                     _buildEmailField(),
                     _buildPassword(),
@@ -174,7 +195,7 @@ class SignupScreenState extends State<SignupScreen> {
                     Container(
                       margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
                       child: RaisedButton(
-                        child: Text("Submit", style: TextStyle(color: Colors.green, fontSize: 16)),
+                        child: Text("SIGNUP", style: TextStyle(color: Colors.green, fontSize: 16)),
                         onPressed: () => {
                           if(!_formkey.currentState.validate()){
 
@@ -212,7 +233,9 @@ Widget _buildConnectWith(){
         Row(
           children: [
             InkWell(
-              onTap: () {} ,
+              onTap: () {
+
+              } ,
               child: Column(
                 children: [
                   Image.asset('assets/images/gg.png', height: 40, width: 40,),
@@ -234,7 +257,7 @@ Widget _buildConnectWith(){
             ),
             Spacer(),
             InkWell(
-              onTap:() {},
+             // onTap:() => _showSnackBar(context),
               child: Column(
                 children: [
                   Image.asset('assets/images/tt.jpeg', height: 40, width: 40,),
@@ -248,3 +271,21 @@ Widget _buildConnectWith(){
     ),
   );
 }
+
+void _showSnackBar(BuildContext context) {
+  Scaffold.of(context).showSnackBar(
+    SnackBar(content: Text("Not yet implemented")),
+  );
+}
+
+//Widget _buildSignUpLogin(){
+//  Container(
+//    margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+//    child: RaisedButton(
+//      child: Text("Submit", style: TextStyle(color: Colors.green, fontSize: 16)),
+//      onPressed: () => {
+//        Navigator.of(context).pushReplacement(MaterialPageRoute(
+//            builder: (BuildContext context) => LoginScreen()))
+//        },),
+//  );
+//}

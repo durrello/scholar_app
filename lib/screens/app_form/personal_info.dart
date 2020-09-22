@@ -15,6 +15,11 @@ class PersonalInfoScreen extends StatefulWidget {
 }
 class PersonalInfoScreenState extends State<PersonalInfoScreen> {
 
+  //pass data
+  String profiletitle;
+
+  //end
+
   String _name;
   String _phone;
   String _password;
@@ -67,6 +72,9 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
       },
       onSaved: (String value){
         _name = value;
+      },
+      onChanged: (text){
+        profiletitle = text;
       },
     );
   }
@@ -568,8 +576,8 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
 
                       }else{
                         _formkey.currentState.save(),
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (BuildContext context) => GuardianInfoScreen()))
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                            builder: (BuildContext context) => GuardianInfoScreen())),
                       }
 
                     },)

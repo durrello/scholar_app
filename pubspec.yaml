@@ -32,6 +32,8 @@ dependencies:
   hexcolor: ^1.0.4
   flutter_launcher_icons: ^0.8.0
   rflutter_alert:
+  flushbar: ^1.9.1
+  google_sign_in: ^4.5.3
 
 dev_dependencies:
   flutter_test:
@@ -65,7 +67,6 @@ flutter:
     - assets/images/qualification.png
     - assets/images/work.png
     - assets/images/parents.png
-    - assets/images/parents.jpeg
     - assets/images/docs.png
     - assets/images/letters.png
     - assets/images/preview.png
