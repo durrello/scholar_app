@@ -158,7 +158,6 @@ class SignupScreenState extends State<SignupScreen> {
                 ],
               ),
             ),
-            Divider(),
             Form(
                 key: _formkey,
                 child: Column(
@@ -174,7 +173,7 @@ class SignupScreenState extends State<SignupScreen> {
                         ),
 
                         Container(
-                          margin: EdgeInsets.fromLTRB(20, 20, 0, 0),
+                          margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
                           child: RaisedButton(
                             child: Text("Login", style: TextStyle(color: Colors.green, fontSize: 16)),
                             onPressed: () => {
