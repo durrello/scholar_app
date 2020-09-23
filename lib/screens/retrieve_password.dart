@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -12,10 +11,9 @@ class RetrivePasswordScreen extends StatefulWidget {
   _RetrivePasswordState createState() {
     return _RetrivePasswordState();
   }
-
 }
-class _RetrivePasswordState extends State<RetrivePasswordScreen> {
 
+class _RetrivePasswordState extends State<RetrivePasswordScreen> {
   String _email;
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
@@ -24,20 +22,24 @@ class _RetrivePasswordState extends State<RetrivePasswordScreen> {
     return Container(
       margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
       child: TextFormField(
-        decoration: InputDecoration(labelText: 'Email', border: OutlineInputBorder()),
+        decoration:
+            InputDecoration(labelText: 'Email', border: OutlineInputBorder()),
         keyboardType: TextInputType.emailAddress,
-        validator: (String value){
-          if(value.isEmpty){
+        validator: (String value) {
+          if (value.isEmpty) {
             return 'Email is required';
           }
-          if(!RegExp(r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$').hasMatch(value)){
+          if (!RegExp(
+                  r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+              .hasMatch(value)) {
             return 'Please Enter a valid Email';
-          } return null;
+          }
+          return null;
         },
-        onSaved: (String value){
+        onSaved: (String value) {
           _email = value;
         },
-        onChanged: (text){
+        onChanged: (text) {
           _email = text;
         },
       ),
@@ -51,77 +53,77 @@ class _RetrivePasswordState extends State<RetrivePasswordScreen> {
       body: Center(
         child: Container(
             child: ListView(
-              shrinkWrap: true,
+          shrinkWrap: true,
+          children: [
+            Row(
               children: [
-                Row(
-                  children: [
-                    Spacer(),
-                    Image.asset('assets/images/logo.png', height: 100, width: 100,),
-                    Spacer(),
-                  ],
+                Spacer(),
+                Image.asset(
+                  'assets/images/logo.png',
+                  height: 100,
+                  width: 100,
                 ),
-                Divider(),
-
-                Container(
-                  alignment: Alignment.center,
-                  child: Form(
-                      key: _formkey,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          _buildEmailField(),
-                          Container(
-                            margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                            child:  FlatButton(
-                              color: Colors.grey,
-                              splashColor:  Hexcolor("#98C429"),
-                              onPressed: () {
-                                if(!_formkey.currentState.validate()){
-
-                                }else{
-                                  _formkey.currentState.save();
-                                return  Alert(
+                Spacer(),
+              ],
+            ),
+            Divider(),
+            Container(
+              alignment: Alignment.center,
+              child: Form(
+                  key: _formkey,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      _buildEmailField(),
+                      Container(
+                        margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                        child: FlatButton(
+                          color: Colors.grey,
+                          splashColor: Hexcolor("#98C429"),
+                          onPressed: () {
+                            if (!_formkey.currentState.validate()) {
+                              Scaffold.of(context).showSnackBar(SnackBar(
+                                  content: Text("Successfully retrieved password")));
+                            } else {
+                              _formkey.currentState.save();
+                              return Alert(
                                 context: context,
                                 title: "Enter Verification code",
                                 buttons: [
-                                DialogButton(child: Text("Verify"), onPressed: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (BuildContext context) => HomeScreen()));
-                                }),
+                                  DialogButton(
+                                      child: Text("Verify"),
+                                      onPressed: () {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder:
+                                                    (BuildContext context) =>
+                                                        HomeScreen()));
+                                      }),
                                 ],
                                 content: Form(
-                                child: Column(
-                                children: [
-                                TextFormField(
-                                decoration: InputDecoration(
-                                labelText: "Code", border: OutlineInputBorder()
+                                  child: Column(
+                                    children: [
+                                      TextFormField(
+                                        decoration: InputDecoration(
+                                            labelText: "Code",
+                                            border: OutlineInputBorder()),
+                                        keyboardType: TextInputType.number,
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                                keyboardType: TextInputType.number,
-                                ),
-                                ],
-                                ),
-                                ),
-                                ).show();
-                              }
-                              },
-                              child: Text("SUBMIT"),
-
-                            ),
-                          ),
-
-
-                        ],
-                      )),
-                ),
-              ],
-            )
-        ),
+                              ).show();
+                            }
+                          },
+                          child: Text("SUBMIT"),
+                        ),
+                      ),
+                    ],
+                  )),
+            ),
+          ],
+        )),
       ),
     );
   }
-
 }
-
-
-
-

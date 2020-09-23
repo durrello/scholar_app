@@ -222,7 +222,9 @@ class LoginScreenState extends State<LoginScreen> {
                               Spacer(),
 
                               InkWell(
-                                onTap: () {},
+                                onTap: () {
+                                  Scaffold.of(context).showSnackBar(SnackBar(content: Text("Not yet implemented")));
+                                },
                                 child: Column(
                                   children: [
                                     Image.asset('assets/images/tt.jpeg', height: 40, width: 40,),
