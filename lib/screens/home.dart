@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:scholar_app/components/drawer_option.dart';
 import 'package:scholar_app/screens/account.dart';
 import 'package:scholar_app/screens/app_form/application_details.dart';
 import 'package:scholar_app/screens/app_form/apply.dart';
@@ -77,83 +78,49 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
 
               //body
-              InkWell(
-                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new HomeScreen())),
-                child: ListTile(
-                  title: Text("Admissions"),
-                  leading: Icon(
-                    Icons.home,
-                    color: Hexcolor("#8eab46"),
-                  ),
+
+              DrawerOption(
+                text: "Admissions",
+                iconData: Icons.home,
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new HomeScreen())),
                 ),
+
+              DrawerOption(
+                text: "Notifications",
+                iconData: Icons.notifications,
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new NotificationScreen())),
               ),
 
-              InkWell(
-                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new NotificationScreen())),
-                child: ListTile(
-                  title: Text("Notifications"),
-                  leading: Icon(
-                    Icons.notifications,
-                    color: Hexcolor("#8eab46"),
-                  ),
-                ),
+              DrawerOption(
+                text: "Profile",
+                iconData: Icons.person,
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new ProfileScreen())),
               ),
 
-              InkWell(
-                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new ProfileScreen())),
-                child: ListTile(
-                  title: Text("Profile"),
-                  leading: Icon(
-                    Icons.person,
-                    color: Hexcolor("#8eab46"),
-                  ),
-                ),
+              DrawerOption(
+                text: "Account",
+                iconData: Icons.account_box,
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new AccountScreen())),
               ),
 
-              InkWell(
-                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new AccountScreen())),
-                child: ListTile(
-                  title: Text("Account"),
-                  leading: Icon(
-                    Icons.account_box,
-                    color: Hexcolor("#8eab46"),
-                  ),
-                ),
+              DrawerOption(
+                text: "Connect With",
+                iconData: Icons.sync,
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new Connect_with())),
               ),
 
-              InkWell(
-                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new Connect_with())),
-                child: ListTile(
-                  title: Text("Connect With"),
-                  leading: Icon(
-                    Icons.sync,
-                    color: Hexcolor("#8eab46"),
-                  ),
-                ),
+              DrawerOption(
+                text: "Settings",
+                iconData: Icons.settings,
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new SettingsScreen())),
               ),
 
-              InkWell(
-                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new SettingsScreen())),
-                child: ListTile(
-                  title: Text("Settings"),
-                  leading: Icon(
-                    Icons.settings,
-                    color: Hexcolor("#8eab46"),
-                  ),
-                ),
+              DrawerOption(
+                text: "Logout",
+                iconData: Icons.close,
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new HomeScreen())),
               ),
-
               Divider(),
-              InkWell(
-                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new HomeScreen())),
-                child: ListTile(
-                  title: Text("Logout"),
-                  leading: Icon(
-                    Icons.close,
-                    color: Hexcolor("#8eab46"),
-                  ),
-                ),
-              ),
 
 
             ],
