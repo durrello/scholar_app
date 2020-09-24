@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:scholar_app/screens/app_form/application_details.dart';
 import 'package:scholar_app/screens/app_form/qualifications.dart';
 import 'package:scholar_app/screens/home/home.dart';
 
@@ -14,19 +15,11 @@ class DocumentScreen extends StatefulWidget {
 }
 class DocumentScreenState extends State<DocumentScreen> {
 
-  String _name;
-  String _phone;
-  String _password;
-  String _username;
-  String _campus;
-  String _email;
-  String Title;
-  String Programs;
+  String _title;
 
-
-  //gender dropdown initial state
-  int qualification = 1;
+  //dropdown initial state
   int programs = 1;
+  int upload = 1;
 
 
 
@@ -42,7 +35,7 @@ class DocumentScreenState extends State<DocumentScreen> {
         }
       },
       onSaved: (String value){
-        _name = value;
+        _title = value;
       },
     );
   }
@@ -94,7 +87,7 @@ class DocumentScreenState extends State<DocumentScreen> {
       children: [
         Text("Upload File"), Spacer(),
         DropdownButton(
-            value: programs,
+            value: upload,
             items: [
               DropdownMenuItem(
                 child: Text("Computer Engineering"),
@@ -104,7 +97,7 @@ class DocumentScreenState extends State<DocumentScreen> {
             ],
             onChanged: (value) {
               setState(() {
-                programs = value;
+                upload = value;
               });
             }),
 
@@ -129,7 +122,6 @@ class DocumentScreenState extends State<DocumentScreen> {
                       _buildDocumentTitle(),
                       _buildPrograms(),
                       _buildUploadFile(),
-
                     ],
                   )),
 
@@ -164,9 +156,8 @@ class DocumentScreenState extends State<DocumentScreen> {
                         }else{
                           _formkey.currentState.save(),
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (BuildContext context) => QualificationScreen()))
+                              builder: (BuildContext context) => ApplicationScreen()))
                         }
-
                       },)
                   ],
                 ),

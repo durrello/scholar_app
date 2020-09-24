@@ -5,6 +5,7 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:scholar_app/screens/app_form/guardians.dart';
 import 'package:scholar_app/screens/app_form/qualifications.dart';
 import 'package:scholar_app/screens/home/home.dart';
+import 'package:scholar_app/screens/preview.dart';
 
 class ApplicationScreen extends StatefulWidget {
   @override
@@ -15,39 +16,12 @@ class ApplicationScreen extends StatefulWidget {
 }
 class ApplicationScreenState extends State<ApplicationScreen> {
 
-  String _name;
-  String _phone;
-  String _password;
-  String _username;
-  String _campus;
-  String _email;
-
-  String Campus;
-  String Program;
-  String Birth_Place;
-  String Nationality;
-  String Blood_Group;
-  String Mother_Tongue;
-  String Religion;
-  String Current_Qualification;
-
-
-  String Present_address;
-  String Permanent_address;
-  String Country;
-  String State_Region;
-  String City;
-  String Phone;
-  String Mobile;
-  String Personal_Email;
-
-
-
-  //gender dropdown initial state
-  String dropdownValue = 'One';
+  //dropdown initial state
   int campus = 1;
-  int nationality = 1;
   int program = 1;
+  int profile = 1;
+  int study_mode = 1;
+  int nationality = 1;
   int religion = 1;
   int country = 1;
 
@@ -75,7 +49,6 @@ class ApplicationScreenState extends State<ApplicationScreen> {
                 campus = value;
               });
             }),
-
       ],
     );
   }
@@ -117,7 +90,6 @@ class ApplicationScreenState extends State<ApplicationScreen> {
                 program = value;
               });
             }),
-
       ],
     );
   }
@@ -128,7 +100,7 @@ class ApplicationScreenState extends State<ApplicationScreen> {
       children: [
         Text("Profile"), Spacer(),
         DropdownButton(
-            value: program,
+            value: profile,
             items: [
               DropdownMenuItem(
                 child: Text("Profile A"),
@@ -141,7 +113,7 @@ class ApplicationScreenState extends State<ApplicationScreen> {
             ],
             onChanged: (value) {
               setState(() {
-                program = value;
+                profile = value;
               });
             }),
 
@@ -154,7 +126,7 @@ class ApplicationScreenState extends State<ApplicationScreen> {
       children: [
         Text("Study Mode"), Spacer(),
         DropdownButton(
-            value: program,
+            value: study_mode,
             items: [
               DropdownMenuItem(
                 child: Text("Distance learning"),
@@ -167,7 +139,7 @@ class ApplicationScreenState extends State<ApplicationScreen> {
             ],
             onChanged: (value) {
               setState(() {
-                program = value;
+                study_mode = value;
               });
             }),
 
@@ -210,7 +182,6 @@ class ApplicationScreenState extends State<ApplicationScreen> {
     }
   }
 
-
   _buildFrom_to(){
     return  Row(
       children: [
@@ -226,7 +197,6 @@ class ApplicationScreenState extends State<ApplicationScreen> {
       ],
     );
   }
-
 
 
   @override
@@ -283,7 +253,7 @@ class ApplicationScreenState extends State<ApplicationScreen> {
                         }else{
                           _formkey.currentState.save(),
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (BuildContext context) => GuardianInfoScreen()))
+                              builder: (BuildContext context) => PreviewScreen()))
                         }
 
                       },)

@@ -14,29 +14,12 @@ class ExperienceScreen extends StatefulWidget {
 }
 class ExperienceScreenState extends State<ExperienceScreen> {
 
-  String _name;
-  String _phone;
-  String _password;
-  String _username;
-  String _campus;
-  String _email;
-  String Company;
-  String Role;
-  String From_to;
-  String Work_desc;
-  String Programs;
+  String _company;
+  String _role;
+  String _wordDesc;
 
-
-  //gender dropdown initial state
-  String dropdownValue = 'One';
-  int gender = 1;
-  int nationality = 1;
-  int blood_group = 1;
-  int religion = 1;
-  int country = 1;
-
-
-
+  //dropdown initial state
+  int programs = 1;
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
@@ -50,7 +33,7 @@ class ExperienceScreenState extends State<ExperienceScreen> {
         }
       },
       onSaved: (String value){
-        _name = value;
+        _company = value;
       },
     );
   }
@@ -65,7 +48,7 @@ class ExperienceScreenState extends State<ExperienceScreen> {
         }
       },
       onSaved: (String value){
-        _name = value;
+        _role = value;
       },
     );
   }
@@ -105,7 +88,6 @@ class ExperienceScreenState extends State<ExperienceScreen> {
     }
   }
 
-
   _buildFrom_to(){
     return  Row(
       children: [
@@ -132,7 +114,7 @@ class ExperienceScreenState extends State<ExperienceScreen> {
         }
       },
       onSaved: (String value){
-        _name = value;
+        _wordDesc = value;
       },
     );
   }
@@ -143,7 +125,7 @@ class ExperienceScreenState extends State<ExperienceScreen> {
       children: [
         Text("Programs"), Spacer(),
         DropdownButton(
-            value: nationality,
+            value: programs,
             items: [
               DropdownMenuItem(
                 child: Text("Computer Engineering"),
@@ -172,10 +154,9 @@ class ExperienceScreenState extends State<ExperienceScreen> {
             ],
             onChanged: (value) {
               setState(() {
-                nationality = value;
+                programs = value;
               });
             }),
-
       ],
     );
   }
@@ -194,7 +175,7 @@ class ExperienceScreenState extends State<ExperienceScreen> {
                   child: Column(
                     // mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Guardian Details", style: TextStyle(fontWeight: FontWeight.bold),),
+                      Text("Work Experience", style: TextStyle(fontWeight: FontWeight.bold),),
                       _buildCompany(),
                       _buildRole(),
                       _buildFrom_to(),

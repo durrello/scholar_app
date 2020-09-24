@@ -16,34 +16,18 @@ class GuardianInfoScreen extends StatefulWidget {
 class GuardianInfoScreenState extends State<GuardianInfoScreen> {
 
   String _name;
+  String _toWhom;
+  String _education;
+  String _occupation;
+  String _address;
+  String _stateRegion;
+  String _city;
   String _phone;
-  String _password;
-  String _username;
-  String _campus;
+  String _mobile;
   String _email;
-  String Full_Names;
-  String Who_to_you;
-  String Education;
-  String Occupation;
-  String Address;
-  String Nationality;
-  String State_Region;
-  String City;
-  String Phone;
-  String Mobile;
-  String Personal_Email;
-
 
   //gender dropdown initial state
-  String dropdownValue = 'One';
-  int gender = 1;
   int nationality = 1;
-  int blood_group = 1;
-  int religion = 1;
-  int country = 1;
-
-
-
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
@@ -62,7 +46,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
     );
   }
 
-//ralation validation function
+//relation validation function
   Widget _buildWhomToYou() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Who to you?'),
@@ -72,7 +56,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
         }
       },
       onSaved: (String value){
-        _name = value;
+        _toWhom = value;
       },
     );
   }
@@ -87,7 +71,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
         }
       },
       onSaved: (String value){
-        _name = value;
+        _education = value;
       },
     );
   }
@@ -102,7 +86,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
         }
       },
       onSaved: (String value){
-        _name = value;
+        _occupation = value;
       },
     );
   }
@@ -117,7 +101,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
         }
       },
       onSaved: (String value){
-        _name = value;
+        _address = value;
       },
     );
   }
@@ -175,7 +159,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
         }
       },
       onSaved: (String value){
-        _name = value;
+        _stateRegion = value;
       },
     );
   }
@@ -190,7 +174,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
         }
       },
       onSaved: (String value){
-        _name = value;
+        _city = value;
       },
     );
   }
@@ -223,7 +207,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
         }
       },
       onSaved: (String value){
-        _phone = value;
+        _mobile = value;
       },
     );  }
 

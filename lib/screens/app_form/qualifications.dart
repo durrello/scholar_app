@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:scholar_app/screens/app_form/documents.dart';
 import 'package:scholar_app/screens/app_form/qualifications.dart';
 import 'package:scholar_app/screens/home/home.dart';
 
@@ -14,17 +15,8 @@ class QualificationScreen extends StatefulWidget {
 }
 class QualificationScreenState extends State<QualificationScreen> {
 
-  String _name;
-  String _phone;
-  String _password;
-  String _username;
-  String _campus;
-  String _email;
-  String Institution;
-  String From_to;
-  String Qualification;
-  String Programs;
-
+  String _institution;
+  String _fromTo;
 
   //gender dropdown initial state
   int qualification = 1;
@@ -45,7 +37,7 @@ class QualificationScreenState extends State<QualificationScreen> {
         }
       },
       onSaved: (String value){
-        _name = value;
+        _institution = value;
       },
     );
   }
@@ -60,7 +52,7 @@ class QualificationScreenState extends State<QualificationScreen> {
         }
       },
       onSaved: (String value){
-        _name = value;
+        _fromTo = value;
       },
     );
   }
@@ -206,7 +198,7 @@ class QualificationScreenState extends State<QualificationScreen> {
                         }else{
                           _formkey.currentState.save(),
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (BuildContext context) => QualificationScreen()))
+                              builder: (BuildContext context) => DocumentScreen()))
                         }
 
                       },)

@@ -20,39 +20,23 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
 
   //end
 
-  String _name;
+
+  String _profileTitle;
+  String _Fname;
+  String _Mname;
+  String _Lname;
+  String _birthPlace;
+  String _motherTongue;
+  String _qualification;
+  String _presentAddress;
+  String _permanentAddress;
+  String _stateRegion;
+  String _city;
   String _phone;
-  String _password;
-  String _username;
-  String _campus;
+  String _mobile;
   String _email;
-  String Profile_Title;
-  String First_name;
-  String Middle_name;
-  String Last_name;
-  String Gender;
-  String Date_of_birth;
-  String Birth_Place;
-  String Nationality;
-  String Blood_Group;
-  String Mother_Tongue;
-  String Religion;
-  String Current_Qualification;
 
-
-  String Present_address;
-  String Permanent_address;
-  String Country;
-  String State_Region;
-  String City;
-  String Phone;
-  String Mobile;
-  String Personal_Email;
-
-
-
-  //gender dropdown initial state
-  String dropdownValue = 'One';
+  //dropdown initial state
   int gender = 1;
   int nationality = 1;
   int blood_group = 1;
@@ -71,7 +55,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
         }
       },
       onSaved: (String value){
-        _name = value;
+        _profileTitle = value;
       },
       onChanged: (text){
         profiletitle = text;
@@ -89,7 +73,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
         }
       },
       onSaved: (String value){
-        _name = value;
+        _Fname = value;
       },
     );
   }
@@ -104,7 +88,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
         }
       },
       onSaved: (String value){
-        _name = value;
+        _Mname = value;
       },
     );
   }
@@ -119,7 +103,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
         }
       },
       onSaved: (String value){
-        _name = value;
+        _Lname = value;
       },
     );
   }
@@ -193,7 +177,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
         }
       },
       onSaved: (String value){
-        _password = value;
+        _birthPlace = value;
       },
     );  }
 
@@ -286,7 +270,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
         }
       },
       onSaved: (String value){
-        _username = value;
+        _motherTongue = value;
       },
     );  }
 
@@ -344,10 +328,9 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
         }
       },
       onSaved: (String value){
-        _phone = value;
+        _qualification = value;
       },
     );  }
-
 
 //address validation function
   Widget _buildPresentAddress() {
@@ -359,7 +342,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
         }
       },
       onSaved: (String value){
-        _name = value;
+        _presentAddress = value;
       },
     );
   }
@@ -374,7 +357,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
         }
       },
       onSaved: (String value){
-        _name = value;
+        _permanentAddress = value;
       },
     );
   }
@@ -383,7 +366,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
   Widget _buildCountry(){
     return Row(
       children: [
-        Text("Nationality"), Spacer(),
+        Text("Country"), Spacer(),
         DropdownButton(
             value: country,
             items: [
@@ -432,7 +415,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
         }
       },
       onSaved: (String value){
-        _name = value;
+        _stateRegion = value;
       },
     );
   }
@@ -447,7 +430,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
         }
       },
       onSaved: (String value){
-        _name = value;
+        _city = value;
       },
     );
   }
@@ -480,7 +463,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
         }
       },
       onSaved: (String value){
-        _phone = value;
+        _mobile = value;
       },
     );  }
 
@@ -579,7 +562,6 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
                             builder: (BuildContext context) => GuardianInfoScreen())),
                       }
-
                     },)
                 ],
               ),
