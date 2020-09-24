@@ -15,6 +15,7 @@ class RetrivePasswordScreen extends StatefulWidget {
 
 class _RetrivePasswordState extends State<RetrivePasswordScreen> {
   String _email;
+  String _code;
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
@@ -44,6 +45,51 @@ class _RetrivePasswordState extends State<RetrivePasswordScreen> {
         },
       ),
     );
+  }
+
+
+  Widget Verify() {
+    Alert(
+      context: context,
+      title: "Enter Verification code",
+      content: Form(
+        child: Column(
+          children: [
+            TextFormField(
+              decoration: InputDecoration(
+                  labelText: "Code",
+                  border: OutlineInputBorder()),
+              keyboardType: TextInputType.number,
+              validator: (String value){
+                // ignore: missing_return
+                if(value.isEmpty){
+                  return 'Code is require';
+                } if(value.length < 6 && value.length > 6){
+                  return 'Enter a valid code';
+                };
+              },
+              onSaved: (String value){
+                _code = value;
+              },
+            ),
+          ],
+        ),
+      ),
+      buttons: [
+        DialogButton(
+            child: Text("Verify"),
+            onPressed: () {
+              if(!_formkey.currentState.validate()){
+
+              }else{
+                _formkey.currentState.save();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => HomeScreen()));
+              }
+
+            }),
+      ],
+    ).show();
   }
 
   @override
@@ -82,37 +128,9 @@ class _RetrivePasswordState extends State<RetrivePasswordScreen> {
                           splashColor: Hexcolor("#98C429"),
                           onPressed: () {
                             if (!_formkey.currentState.validate()) {
-                              Scaffold.of(context).showSnackBar(SnackBar(
-                                  content: Text("Successfully retrieved password")));
+
                             } else {
-                              _formkey.currentState.save();
-                              return Alert(
-                                context: context,
-                                title: "Enter Verification code",
-                                buttons: [
-                                  DialogButton(
-                                      child: Text("Verify"),
-                                      onPressed: () {
-                                        Navigator.of(context).push(
-                                            MaterialPageRoute(
-                                                builder:
-                                                    (BuildContext context) =>
-                                                        HomeScreen()));
-                                      }),
-                                ],
-                                content: Form(
-                                  child: Column(
-                                    children: [
-                                      TextFormField(
-                                        decoration: InputDecoration(
-                                            labelText: "Code",
-                                            border: OutlineInputBorder()),
-                                        keyboardType: TextInputType.number,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ).show();
+                              return Verify();
                             }
                           },
                           child: Text("SUBMIT"),
@@ -127,3 +145,4 @@ class _RetrivePasswordState extends State<RetrivePasswordScreen> {
     );
   }
 }
+

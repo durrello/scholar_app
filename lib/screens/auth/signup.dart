@@ -165,7 +165,7 @@ class SignupScreenState extends State<SignupScreen> {
                     Row(
                       children: [
                         Container(
-                          margin: EdgeInsets.fromLTRB(10, 20, 0, 0),
+                          margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
                           child: RaisedButton(
                             color: Hexcolor("#98C429"),
                             child: Text("Sign Up", style: TextStyle(color: Colors.white, fontSize: 16)),
@@ -221,7 +221,7 @@ class SignupScreenState extends State<SignupScreen> {
 //connect with social media function
 Widget _buildConnectWith(){
   return Container(
-    margin: EdgeInsets.fromLTRB(50, 0, 50, 0),
+    margin: EdgeInsets.fromLTRB(50, 0, 50, 20),
     alignment: Alignment.center,
     child: Column(
       children: [

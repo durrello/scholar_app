@@ -87,6 +87,9 @@ class LoginScreenState extends State<LoginScreen> {
           return 'Email is require';
         }
       },
+      onSaved: (String value){
+        _email = value;
+      },
     );
   }
 
@@ -138,6 +141,7 @@ class LoginScreenState extends State<LoginScreen> {
 
 
                     Container(
+                      margin: EdgeInsets.all(10),
                       child: Row(
                         children: [
                           InkWell(
@@ -192,7 +196,7 @@ class LoginScreenState extends State<LoginScreen> {
                         children: [
                           Container(
                               alignment: Alignment.center,
-                              margin: EdgeInsets.all(5),
+                              margin: EdgeInsets.fromLTRB(0, 20, 0, 10),
                               child: Text("LOGIN WITH", textAlign: TextAlign.center,)),
                           Row(
                             children: [
@@ -241,7 +245,7 @@ class LoginScreenState extends State<LoginScreen> {
                         Divider(),
 
                         Container(
-                          margin: EdgeInsets.all(15),
+                          margin: EdgeInsets.fromLTRB(0, 15, 0, 40),
                           child:InkWell(
                                 onTap: () =>
                                     Navigator.of(context).push(MaterialPageRoute(
