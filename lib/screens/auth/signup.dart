@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:scholar_app/screens/login.dart';
+import 'package:scholar_app/screens/auth/login.dart';
 
 class SignupScreen extends StatefulWidget {
 

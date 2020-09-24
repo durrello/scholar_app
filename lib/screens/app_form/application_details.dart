@@ -4,7 +4,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:scholar_app/screens/app_form/guardians.dart';
 import 'package:scholar_app/screens/app_form/qualifications.dart';
-import 'package:scholar_app/screens/home.dart';
+import 'package:scholar_app/screens/home/home.dart';
 
 class ApplicationScreen extends StatefulWidget {
   @override
