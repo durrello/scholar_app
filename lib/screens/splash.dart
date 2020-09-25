@@ -1,7 +1,15 @@
-import 'dart:async';
 
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:scholar_app/screens/auth/signup.dart';
+
+
+//third party
+
+//providers
+
+//screen
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -11,32 +19,15 @@ class SplashScreen extends StatefulWidget {
 class Splash extends State<SplashScreen>  {
 
   @override
-  void initState() {
-    super.initState();
-
-  }
-  @override
   Widget build(BuildContext context) {
-    Timer(
-        Duration(seconds: 3),
-            () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (BuildContext context) => SignupScreen())));
 
-    var assetsImage = new AssetImage('assets/images/logo.png'); //<- Creates an object that fetches an image.
-    var image = new Image(
-        image: assetsImage,
-        height:200); //<- Creates a widget that displays an image.
-
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Container(
-          decoration: new BoxDecoration(color: Colors.white),
-          child: new Center(
-            child: image,
-          ),
-        ), //<- place where the image appears
-      ),
+    return AnimatedSplashScreen(
+      splash: 'assets/images/logo.png',
+      duration: 3000,
+      nextScreen: SignupScreen(),
+      splashTransition: SplashTransition.rotationTransition,
+      pageTransitionType: PageTransitionType.scale,
     );
   }
 }
+
