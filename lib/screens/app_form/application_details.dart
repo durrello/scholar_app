@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
-import 'package:scholar_app/screens/app_form/guardians.dart';
-import 'package:scholar_app/screens/app_form/qualifications.dart';
 import 'package:scholar_app/screens/home/home.dart';
 import 'package:scholar_app/screens/preview.dart';
 
@@ -20,7 +18,7 @@ class ApplicationScreenState extends State<ApplicationScreen> {
   int campus = 1;
   int program = 1;
   int profile = 1;
-  int study_mode = 1;
+  int studyMode = 1;
   int nationality = 1;
   int religion = 1;
   int country = 1;
@@ -126,7 +124,7 @@ class ApplicationScreenState extends State<ApplicationScreen> {
       children: [
         Text("Study Mode"), Spacer(),
         DropdownButton(
-            value: study_mode,
+            value: studyMode,
             items: [
               DropdownMenuItem(
                 child: Text("Distance learning"),
@@ -139,7 +137,7 @@ class ApplicationScreenState extends State<ApplicationScreen> {
             ],
             onChanged: (value) {
               setState(() {
-                study_mode = value;
+                studyMode = value;
               });
             }),
 
@@ -201,7 +199,6 @@ class ApplicationScreenState extends State<ApplicationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
         appBar: AppBar(title: Text("Application Details"), backgroundColor: Hexcolor("#98C429"),),
         body: Container(

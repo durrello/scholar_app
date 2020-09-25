@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:scholar_app/screens/app_form/personal_info.dart';
 
 class ApplyScreen extends StatefulWidget {

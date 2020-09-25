@@ -6,7 +6,6 @@ import 'package:scholar_app/screens/auth/retrieve_password.dart';
 import 'package:scholar_app/screens/auth/signup.dart';
 
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:flutter_twitter_login/flutter_twitter_login.dart';
 
 
 

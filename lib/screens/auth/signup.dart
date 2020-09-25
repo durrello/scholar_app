@@ -143,7 +143,6 @@ class SignupScreenState extends State<SignupScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       body: Container(
         child: ListView(
@@ -268,12 +267,6 @@ Widget _buildConnectWith(){
         ),
       ],
     ),
-  );
-}
-
-void _showSnackBar(BuildContext context) {
-  Scaffold.of(context).showSnackBar(
-    SnackBar(content: Text("Not yet implemented")),
   );
 }
 

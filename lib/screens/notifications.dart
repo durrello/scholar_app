@@ -13,7 +13,6 @@ class NotificationScreenState extends State<NotificationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       appBar: AppBar(title: Text("Notifications"), backgroundColor: Hexcolor("#98C429"),),
       body: ListView(

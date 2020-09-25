@@ -3,7 +3,6 @@ import 'package:flutter/rendering.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:scholar_app/screens/app_form/experience.dart';
-import 'package:scholar_app/screens/app_form/qualifications.dart';
 import 'package:scholar_app/screens/home/home.dart';
 
 class GuardianInfoScreen extends StatefulWidget {
@@ -232,7 +231,6 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
         appBar: AppBar(title: Text("Guardian"), backgroundColor: Hexcolor("#98C429"),),
         body: Container(
