@@ -37,8 +37,9 @@ dependencies:
   http: ^0.12.0+2
   flutter_facebook_login: ^1.2.0
   flutter_twitter_login: ^1.1.0
-  intro_screen_onboarding_flutter: ^0.1.5
   animated_splash_screen: ^1.0.1
+  sk_onboarding_screen: ^1.0.1
+  flutter_overboard: ^1.1.5
 
 dev_dependencies:
   flutter_test:
@@ -78,6 +79,8 @@ flutter:
     - assets/images/fb.png
     - assets/images/gg.png
     - assets/images/tt.jpeg
+    - assets/images/get.png
+    - assets/images/Icon.png
 
   #   - images/a_dot_ham.jpeg
 
