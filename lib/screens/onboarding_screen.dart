@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_overboard/flutter_overboard.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:scholar_app/screens/home/home.dart';
+import 'package:scholar_app/screens/auth/signup.dart';
 
 class OnboardingScreen extends StatefulWidget {
   OnboardingScreen({Key key, this.title}) : super(key: key);
@@ -27,7 +27,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             content: Text("Skip clicked"),
           ));
         },
-        finishCallback: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new HomeScreen())),
+        finishCallback: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new SignupScreen())),
       ),
     );
   }
