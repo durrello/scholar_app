@@ -78,7 +78,7 @@ class SignupScreenState extends State<SignupScreen> {
         validator: (String value){
           if(value.isEmpty){
             return 'Phone Number is required';
-          }
+          } 
         },
         onSaved: (String value){
           phone = value;

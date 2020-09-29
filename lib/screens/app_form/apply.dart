@@ -19,18 +19,12 @@ class _ApplyScreenState extends State<ApplyScreen> {
               children: [
                 Column (
                   children: [
-                    Text("Completed Applications",  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
+                    Text("Applications In Progress",  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
 
                     Divider(),
                     ListTile(
-                      title: Text("Durrell Gemuh", style: TextStyle(fontWeight: FontWeight.bold),),
-                      subtitle: Text("First Name: Durrell \nLast Name: Gemuh"),
-                      trailing: Icon(Icons.rotate_left, color: Hexcolor("#98C429"),),
-                    ),
-
-                    ListTile(
-                      title: Text("Durrell Gemuh", style: TextStyle(fontWeight: FontWeight.bold),),
-                      subtitle: Text("First Name: Durrell \nLast Name: Gemuh"),
+                      title: Text("Jonh Doe", style: TextStyle(fontWeight: FontWeight.bold),),
+                      subtitle: Text("First Name: John \nLast Name: Doe"),
                       trailing: Icon(Icons.rotate_left, color: Hexcolor("#98C429"),),
                     ),
                   ],
@@ -61,20 +55,8 @@ class _ApplyScreenState extends State<ApplyScreen> {
 
                   Divider(),
                   ListTile(
-                    title: Text("Durrell Gemuh", style: TextStyle(fontWeight: FontWeight.bold),),
-                    subtitle: Text("First Name: Durrell \nLast Name: Gemuh"),
-                    trailing: Icon(Icons.delete, color: Colors.redAccent),
-                  ),
-
-                  ListTile(
-                    title: Text("Durrell Gemuh", style: TextStyle(fontWeight: FontWeight.bold),),
-                    subtitle: Text("First Name: Durrell \nLast Name: Gemuh"),
-                    trailing: Icon(Icons.delete, color: Colors.redAccent),
-                  ),
-
-                  ListTile(
-                    title: Text("Durrell Gemuh", style: TextStyle(fontWeight: FontWeight.bold),),
-                    subtitle: Text("First Name: Durrell \nLast Name: Gemuh"),
+                    title: Text("Jonh Doe", style: TextStyle(fontWeight: FontWeight.bold),),
+                    subtitle: Text("First Name: John \nLast Name: Doe"),
                     trailing: Icon(Icons.delete, color: Colors.redAccent),
                   ),
                 ],

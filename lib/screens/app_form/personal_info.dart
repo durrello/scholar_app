@@ -487,7 +487,6 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       appBar: AppBar(title: Text("Personal Details"), backgroundColor: Hexcolor("#98C429"),),
       body: Container(
