@@ -3,7 +3,6 @@ import 'package:flutter/rendering.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:scholar_app/screens/app_form/documents.dart';
-import 'package:scholar_app/screens/app_form/qualifications.dart';
 import 'package:scholar_app/screens/home/home.dart';
 
 class QualificationScreen extends StatefulWidget {
@@ -15,8 +14,8 @@ class QualificationScreen extends StatefulWidget {
 }
 class QualificationScreenState extends State<QualificationScreen> {
 
-  String _institution;
-  String _fromTo;
+  String institution;
+  String fromTo;
 
   //gender dropdown initial state
   int qualification = 1;
@@ -37,13 +36,13 @@ class QualificationScreenState extends State<QualificationScreen> {
         }
       },
       onSaved: (String value){
-        _institution = value;
+        institution = value;
       },
     );
   }
 
 //date validation function
-  Widget _buildFrom_to() {
+  Widget buildFromTo() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'From to'),
       validator: (String value){
@@ -52,7 +51,7 @@ class QualificationScreenState extends State<QualificationScreen> {
         }
       },
       onSaved: (String value){
-        _fromTo = value;
+        fromTo = value;
       },
     );
   }
@@ -145,7 +144,6 @@ class QualificationScreenState extends State<QualificationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
         appBar: AppBar(title: Text("Qualifications"), backgroundColor: Hexcolor("#98C429"),),
         body: Container(
@@ -161,7 +159,7 @@ class QualificationScreenState extends State<QualificationScreen> {
                           margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
                           child: Text("Qualification Details", style: TextStyle(fontWeight: FontWeight.bold),)),
                       _buildInstitution(),
-                      _buildFrom_to(),
+                      buildFromTo(),
                       _buildQualification(),
                       _buildPrograms(),
                     ],

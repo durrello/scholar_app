@@ -14,16 +14,16 @@ class GuardianInfoScreen extends StatefulWidget {
 }
 class GuardianInfoScreenState extends State<GuardianInfoScreen> {
 
-  String _name;
-  String _toWhom;
-  String _education;
-  String _occupation;
-  String _address;
-  String _stateRegion;
-  String _city;
-  String _phone;
-  String _mobile;
-  String _email;
+  String name;
+  String toWhom;
+  String education;
+  String occupation;
+  String address;
+  String stateRegion;
+  String city;
+  String phone;
+  String mobile;
+  String email;
 
   //gender dropdown initial state
   int nationality = 1;
@@ -40,7 +40,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
         }
       },
       onSaved: (String value){
-        _name = value;
+        name = value;
       },
     );
   }
@@ -55,7 +55,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
         }
       },
       onSaved: (String value){
-        _toWhom = value;
+        toWhom = value;
       },
     );
   }
@@ -70,7 +70,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
         }
       },
       onSaved: (String value){
-        _education = value;
+        education = value;
       },
     );
   }
@@ -85,7 +85,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
         }
       },
       onSaved: (String value){
-        _occupation = value;
+        occupation = value;
       },
     );
   }
@@ -100,7 +100,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
         }
       },
       onSaved: (String value){
-        _address = value;
+        address = value;
       },
     );
   }
@@ -158,7 +158,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
         }
       },
       onSaved: (String value){
-        _stateRegion = value;
+        stateRegion = value;
       },
     );
   }
@@ -173,7 +173,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
         }
       },
       onSaved: (String value){
-        _city = value;
+        city = value;
       },
     );
   }
@@ -190,7 +190,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
         }
       },
       onSaved: (String value){
-        _phone = value;
+        phone = value;
       },
     );  }
 
@@ -206,7 +206,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
         }
       },
       onSaved: (String value){
-        _mobile = value;
+        mobile = value;
       },
     );  }
 
@@ -224,7 +224,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
         } return null;
       },
       onSaved: (String value){
-        _email = value;
+        email = value;
       },
     );  }
 

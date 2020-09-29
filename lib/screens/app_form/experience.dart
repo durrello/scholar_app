@@ -14,9 +14,9 @@ class ExperienceScreen extends StatefulWidget {
 }
 class ExperienceScreenState extends State<ExperienceScreen> {
 
-  String _company;
-  String _role;
-  String _wordDesc;
+  String company;
+  String role;
+  String wordDesc;
 
   //dropdown initial state
   int programs = 1;
@@ -33,7 +33,7 @@ class ExperienceScreenState extends State<ExperienceScreen> {
         }
       },
       onSaved: (String value){
-        _company = value;
+        company = value;
       },
     );
   }
@@ -48,7 +48,7 @@ class ExperienceScreenState extends State<ExperienceScreen> {
         }
       },
       onSaved: (String value){
-        _role = value;
+        role = value;
       },
     );
   }
@@ -88,7 +88,7 @@ class ExperienceScreenState extends State<ExperienceScreen> {
     }
   }
 
-  _buildFrom_to(){
+  buildFromTo(){
     return  Row(
       children: [
         Text("From:", style: TextStyle(fontWeight: FontWeight.bold),),
@@ -105,7 +105,7 @@ class ExperienceScreenState extends State<ExperienceScreen> {
   }
 
 //work description validation function
-  Widget _buildWork_desc() {
+  Widget buildWorkDesc() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Work description'),
       validator: (String value){
@@ -114,7 +114,7 @@ class ExperienceScreenState extends State<ExperienceScreen> {
         }
       },
       onSaved: (String value){
-        _wordDesc = value;
+        wordDesc = value;
       },
     );
   }
@@ -177,8 +177,8 @@ class ExperienceScreenState extends State<ExperienceScreen> {
                       Text("Work Experience", style: TextStyle(fontWeight: FontWeight.bold),),
                       _buildCompany(),
                       _buildRole(),
-                      _buildFrom_to(),
-                      _buildWork_desc(),
+                      buildFromTo(),
+                      buildWorkDesc(),
                       Container(
                           margin: EdgeInsets.fromLTRB(0, 30, 0, 5),
                           child: Text("Relation with Academics", style: TextStyle(fontWeight: FontWeight.bold),)),

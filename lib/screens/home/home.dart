@@ -113,7 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
               DrawerOption(
                 text: "Connect With",
                 iconData: Icons.sync,
-                onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new Connect_with())),
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new ConnectWith())),
               ),
 
               DrawerOption(

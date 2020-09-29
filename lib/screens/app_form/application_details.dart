@@ -180,7 +180,7 @@ class ApplicationScreenState extends State<ApplicationScreen> {
     }
   }
 
-  _buildFrom_to(){
+  buildFromTo(){
     return  Row(
       children: [
         Text("From:", style: TextStyle(fontWeight: FontWeight.bold),),
@@ -215,7 +215,7 @@ class ApplicationScreenState extends State<ApplicationScreen> {
                       _buildPrograms(),
                       _buildProfile(),
                       _buildStudyMode(),
-                      _buildFrom_to(),
+                      buildFromTo(),
                     ],
                   )),
 

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
-class Connect_with extends StatefulWidget {
+class ConnectWith extends StatefulWidget {
   @override
-  _Connect_withState createState() => _Connect_withState();
+  _ConnectWithState createState() => _ConnectWithState();
 }
 
-class _Connect_withState extends State<Connect_with> {
+class _ConnectWithState extends State<ConnectWith> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

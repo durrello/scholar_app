@@ -3,7 +3,6 @@ import 'package:flutter/rendering.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:scholar_app/screens/home/home.dart';
-import 'package:scholar_app/screens/auth/signup.dart';
 
 class RetrivePasswordScreen extends StatefulWidget {
   //getting data from sign up screen
@@ -14,8 +13,8 @@ class RetrivePasswordScreen extends StatefulWidget {
 }
 
 class _RetrivePasswordState extends State<RetrivePasswordScreen> {
-  String _email;
-  String _code;
+  String email;
+  String code;
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
@@ -38,17 +37,17 @@ class _RetrivePasswordState extends State<RetrivePasswordScreen> {
           return null;
         },
         onSaved: (String value) {
-          _email = value;
+          email = value;
         },
         onChanged: (text) {
-          _email = text;
+          email = text;
         },
       ),
     );
   }
 
 
-  Widget Verify() {
+  Widget verify() {
     Alert(
       context: context,
       title: "Enter Verification code",
@@ -66,10 +65,10 @@ class _RetrivePasswordState extends State<RetrivePasswordScreen> {
                   return 'Code is require';
                 } if(value.length < 6 && value.length > 6){
                   return 'Enter a valid code';
-                };
+                }
               },
               onSaved: (String value){
-                _code = value;
+                code = value;
               },
             ),
           ],
@@ -94,7 +93,6 @@ class _RetrivePasswordState extends State<RetrivePasswordScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       body: Center(
         child: Container(
@@ -130,7 +128,7 @@ class _RetrivePasswordState extends State<RetrivePasswordScreen> {
                             if (!_formkey.currentState.validate()) {
 
                             } else {
-                              return Verify();
+                              return verify();
                             }
                           },
                           child: Text("SUBMIT"),

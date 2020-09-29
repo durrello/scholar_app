@@ -14,12 +14,11 @@ class SignupScreen extends StatefulWidget {
 
 class SignupScreenState extends State<SignupScreen> {
   String email;
-  String _name;
-  String _email;
-  String _phone;
-  String _password;
-  String _username;
-  String _campus;
+  String name;
+  String emailHere;
+  String phone;
+  String password;
+  String username;
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
@@ -36,7 +35,7 @@ class SignupScreenState extends State<SignupScreen> {
           }
         },
         onSaved: (String value){
-          _name = value;
+          name = value;
         },
 
       ),
@@ -59,7 +58,7 @@ class SignupScreenState extends State<SignupScreen> {
           } return null;
         },
         onSaved: (String value){
-          _email = value;
+          emailHere = value;
         },
         onChanged: (text){
           email = text;
@@ -82,7 +81,7 @@ class SignupScreenState extends State<SignupScreen> {
           }
         },
         onSaved: (String value){
-          _phone = value;
+          phone = value;
         },
       ),
     );  }
@@ -101,7 +100,7 @@ class SignupScreenState extends State<SignupScreen> {
           }
         },
         onSaved: (String value){
-          _password = value;
+          password = value;
         },
 
       ),
@@ -119,7 +118,7 @@ class SignupScreenState extends State<SignupScreen> {
           }
         },
         onSaved: (String value){
-          _username = value;
+          username = value;
         },
       ),
     );  }
@@ -136,7 +135,7 @@ class SignupScreenState extends State<SignupScreen> {
           }
         },
         onSaved: (String value){
-          _name = value;
+          name = value;
         },
       ),
     );  }

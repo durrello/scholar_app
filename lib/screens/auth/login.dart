@@ -11,7 +11,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginScreen extends StatefulWidget {
   //getting data from sign up screen
-  String email;
+  final String email;
   LoginScreen({this.email});
 
   @override
@@ -24,7 +24,6 @@ class LoginScreenState extends State<LoginScreen> {
   //google login
   bool _isLoggedIn = false;
   //
-  String email;
   LoginScreenState(this.email);
 
   String forgot = "";
@@ -58,7 +57,7 @@ class LoginScreenState extends State<LoginScreen> {
     }
   }
 
-  _logout(){
+  logOut(){
     _googleSignIn.signOut();
     setState(() {
       _isLoggedIn = false;
@@ -71,8 +70,8 @@ class LoginScreenState extends State<LoginScreen> {
 
   //end twitter login
 
-  String _email;
-  String _password;
+  String email;
+  String password;
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
@@ -87,7 +86,7 @@ class LoginScreenState extends State<LoginScreen> {
         }
       },
       onSaved: (String value){
-        _email = value;
+        email = value;
       },
     );
   }
@@ -105,14 +104,13 @@ class LoginScreenState extends State<LoginScreen> {
           }
         },
         onSaved: (String value){
-          _password = value;
+          password = value;
         },
       ),
     );  }
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       body:  _isLoggedIn ? HomeScreen() :  Center(
         child: Container(

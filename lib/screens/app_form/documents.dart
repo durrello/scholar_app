@@ -16,7 +16,7 @@ class DocumentScreen extends StatefulWidget {
 }
 class DocumentScreenState extends State<DocumentScreen> {
 
-  String _title;
+  String title;
 
   //dropdown initial state
   int programs = 1;
@@ -36,7 +36,7 @@ class DocumentScreenState extends State<DocumentScreen> {
         }
       },
       onSaved: (String value){
-        _title = value;
+        title = value;
       },
     );
   }
@@ -86,7 +86,7 @@ class DocumentScreenState extends State<DocumentScreen> {
   String _fileName;
   String _path;
   Map<String, String> _paths;
-  String _extension;
+  String extension;
   bool _loadingPath = false;
   bool _multiPick = false;
   bool _hasValidMime = false;
@@ -96,7 +96,7 @@ class DocumentScreenState extends State<DocumentScreen> {
   @override
   void initState() {
     super.initState();
-    _controller.addListener(() => _extension = _controller.text);
+    _controller.addListener(() => extension = _controller.text);
   }
 
   void _openFileExplorer() async {
@@ -178,10 +178,7 @@ class DocumentScreenState extends State<DocumentScreen> {
                                       new Divider(),
                             )),
                           )
-                        : new Container(
-                          padding: const EdgeInsets.only(bottom: 30.0),
-                            height: MediaQuery.of(context).size.height * 0.50,
-                        ),
+                        : new Container(),
               ),
             ],
           )),
