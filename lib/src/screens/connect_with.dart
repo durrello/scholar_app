@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:scholar_app/src/commons.dart';
 
 class ConnectWith extends StatefulWidget {
   @override
@@ -11,7 +11,7 @@ class _ConnectWithState extends State<ConnectWith> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Connect With"), backgroundColor: Hexcolor("#98C429"),),
+      appBar: AppBar(title: Text("Connect With"), backgroundColor: primary,),
       body:  Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(

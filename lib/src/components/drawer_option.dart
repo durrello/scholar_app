@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
+import 'package:scholar_app/src/commons.dart';
 
 class DrawerOption extends StatelessWidget {
   final String text;
@@ -15,7 +15,7 @@ class DrawerOption extends StatelessWidget {
       onTap: onPressed,
       child: ListTile(
         title: Text(text),
-        leading: Icon(iconData, color: Hexcolor("#8eab46"),),
+        leading: Icon(iconData, color: primary,),
 
     ));
   }

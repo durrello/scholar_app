@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
+import 'package:scholar_app/src/commons.dart';
 
 class PreviewScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Application Preview"), backgroundColor: Hexcolor("#98C429"),),
+      appBar: AppBar(title: Text("Application Preview"), backgroundColor: primary,),
       body: Container(
         child: ListView(
           children: [

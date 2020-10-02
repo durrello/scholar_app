@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
+import 'package:scholar_app/src/commons.dart';
 
 class HomeCard extends StatelessWidget {
 
@@ -38,7 +38,7 @@ class HomeCard extends StatelessWidget {
                         width: 25,
                         height: 25,
                         alignment: Alignment.center,
-                        child: Icon(iconData, color: colors ?? Hexcolor("#8eab46"), size: 30,),
+                        child: Icon(iconData, color: colors ?? primary, size: 30,),
                       )),
                 ],
               ),

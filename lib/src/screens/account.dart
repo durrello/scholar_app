@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:scholar_app/src/commons.dart';
 
 class AccountScreen extends StatefulWidget {
   @override
@@ -11,13 +11,13 @@ class _AccountScreenState extends State<AccountScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Account"), backgroundColor: Hexcolor("#98C429"),),
+      appBar: AppBar(title: Text("Account"), backgroundColor: primary,),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView(
           children: [
             ListTile(
-              leading: Icon(Icons.alternate_email, color: Hexcolor("#98C429"),),
+              leading: Icon(Icons.alternate_email, color: primary,),
               title: Text("Email"),
               subtitle:  TextField(
                 decoration: InputDecoration(
@@ -29,7 +29,7 @@ class _AccountScreenState extends State<AccountScreen> {
             Divider(),
 
             ListTile(
-              leading: Icon(Icons.person, color: Hexcolor("#98C429"),),
+              leading: Icon(Icons.person, color: primary,),
               title: Text("Username"),
               subtitle:  TextField(
                 decoration: InputDecoration(
@@ -42,7 +42,7 @@ class _AccountScreenState extends State<AccountScreen> {
             Divider(),
 
             ListTile(
-              leading: Icon(Icons.lock_open, color: Hexcolor("#98C429"),),
+              leading: Icon(Icons.lock_open, color: primary,),
               title: Text("Old password"),
               subtitle:  TextField(
                 decoration: InputDecoration(
@@ -52,7 +52,7 @@ class _AccountScreenState extends State<AccountScreen> {
             ),
 
             ListTile(
-              leading: Icon(Icons.lock_outline, color: Hexcolor("#98C429"),),
+              leading: Icon(Icons.lock_outline, color: primary,),
               title: Text("New password"),
               subtitle:  TextField(
                 decoration: InputDecoration(
@@ -63,7 +63,7 @@ class _AccountScreenState extends State<AccountScreen> {
             ),
 
             ListTile(
-              leading: Icon(Icons.lock_outline, color: Hexcolor("#98C429"),),
+              leading: Icon(Icons.lock_outline, color: primary,),
               title: Text("Confirm password"),
               subtitle:  TextField(
                 decoration: InputDecoration(
@@ -76,7 +76,7 @@ class _AccountScreenState extends State<AccountScreen> {
             Divider(),
 
             FlatButton(
-                color: Hexcolor("#98C429"),
+                color: primary,
                 onPressed: () {
                   return  Alert(
                       context: context,

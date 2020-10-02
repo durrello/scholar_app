@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:scholar_app/src/commons.dart';
 import 'package:scholar_app/src/screens/language.dart';
 import 'package:settings_ui/settings_ui.dart';
 
@@ -16,7 +17,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Settings'), backgroundColor: Hexcolor("#98C429"),),
+      appBar: AppBar(title: Text('Settings'), backgroundColor: primary,),
       body: SettingsList(
         // backgroundColor: Colors.orange,
         sections: [
@@ -28,7 +29,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               SettingsTile(
                 title: 'Language',
                 subtitle: 'English',
-                leading: Icon(Icons.language, color: Hexcolor("#98C429"),),
+                leading: Icon(Icons.language, color: primary,),
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (BuildContext context) => LanguagesScreen()));
@@ -46,9 +47,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
           SettingsSection(
            // title: 'Account',
             tiles: [
-              SettingsTile(title: 'Phone number', leading: Icon(Icons.phone, color: Hexcolor("#98C429"),)),
-              SettingsTile(title: 'Email', leading: Icon(Icons.email, color: Hexcolor("#98C429"),)),
-              SettingsTile(title: 'Sign out', leading: Icon(Icons.exit_to_app, color: Hexcolor("#98C429"),)),
+              SettingsTile(title: 'Phone number', leading: Icon(Icons.phone, color: primary,)),
+              SettingsTile(title: 'Email', leading: Icon(Icons.email, color: primary,)),
+              SettingsTile(title: 'Sign out', leading: Icon(Icons.exit_to_app, color: primary,)),
             ],
           ),
           SettingsSection(
@@ -57,14 +58,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
               SettingsTile.switchTile(
                 title: 'Change password',
-                leading: Icon(Icons.lock, color: Hexcolor("#98C429"),),
+                leading: Icon(Icons.lock, color: primary,),
                 switchValue: false,
                 onToggle: (bool value) {},
               ),
               SettingsTile.switchTile(
                 title: 'Enable Notifications',
                 enabled: notificationsEnabled,
-                leading: Icon(Icons.notifications_active, color: Hexcolor("#98C429"),),
+                leading: Icon(Icons.notifications_active, color: primary,),
                 switchValue: true,
                 onToggle: (value) {},
               ),
@@ -74,7 +75,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 //            title: 'Misc',
             tiles: [
               SettingsTile(
-                  title: 'Terms of Service', leading: Icon(Icons.description, color: Hexcolor("#98C429"))),
+                  title: 'Terms of Service', leading: Icon(Icons.description, color: primary)),
             ],
           ),
           CustomSection(
@@ -86,12 +87,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     'assets/images/settings.png',
                     height: 50,
                     width: 50,
-                    color: Hexcolor("#98C429"),
+                    color: primary,
                   ),
                 ),
                 Text(
                   'Version: 1.0.0',
-                  style: TextStyle(color: Hexcolor("#98C429")),
+                  style: TextStyle(color: primary),
                 ),
               ],
             ),

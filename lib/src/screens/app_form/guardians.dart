@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:scholar_app/src/commons.dart';
 import 'package:scholar_app/src/screens/app_form/experience.dart';
 import 'package:scholar_app/src/screens/home/home.dart';
 
@@ -232,7 +232,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Guardian"), backgroundColor: Hexcolor("#98C429"),),
+        appBar: AppBar(title: Text("Guardian"), backgroundColor: primary,),
         body: Container(
           margin: EdgeInsets.all(7),
           child: ListView(
@@ -262,7 +262,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
                 child: Row(
                   children: [
                     RaisedButton(
-                      child: Text("Save and Exit", style: TextStyle(color: Colors.green, fontSize: 16)),
+                      child: Text("Save and Exit", style: TextStyle(color: green, fontSize: 16)),
                       onPressed: () {
                         return  Alert(
                           context: context,
@@ -270,8 +270,8 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
                           desc: "By clicking yes your information will be saved",
                           buttons: [
                             DialogButton(child: Text("Yes"), onPressed: () {Navigator.of(context).push(MaterialPageRoute(
-                                builder: (BuildContext context) => HomeScreen()));}, color: Colors.grey,),
-                            DialogButton(child: Text("No, Continue", style: TextStyle(color: Colors.white),), onPressed: () {Navigator.pop(context);}, color: Hexcolor("#98C429"),)
+                                builder: (BuildContext context) => HomeScreen()));}, color: grey,),
+                            DialogButton(child: Text("No, Continue", style: TextStyle(color: white),), onPressed: () {Navigator.pop(context);}, color: primary,)
                           ],
                         ).show();
                       },
@@ -281,7 +281,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
                     Spacer(),
 
                     RaisedButton(
-                      child: Text("Continue", style: TextStyle(color: Colors.green, fontSize: 16)),
+                      child: Text("Continue", style: TextStyle(color: green, fontSize: 16)),
                       onPressed: () => {
                         if(!_formkey.currentState.validate()){
 

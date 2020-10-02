@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
+import 'package:scholar_app/src/commons.dart';
 import 'package:settings_ui/settings_ui.dart';
 
 class LanguagesScreen extends StatefulWidget {
@@ -60,7 +60,7 @@ class _LanguagesScreenState extends State<LanguagesScreen> {
 
   Widget trailingWidget(int index) {
     return (languageIndex == index)
-        ? Icon(Icons.check, color: Hexcolor("#98C429"))
+        ? Icon(Icons.check, color: primary)
         : Icon(null);
   }
 

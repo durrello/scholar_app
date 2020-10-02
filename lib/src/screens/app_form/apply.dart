@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:scholar_app/src/commons.dart';
 import 'package:scholar_app/src/screens/app_form/personal_info.dart';
 
 class ApplyScreen extends StatefulWidget {
@@ -11,7 +12,7 @@ class _ApplyScreenState extends State<ApplyScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Apply"), backgroundColor: Hexcolor("#98C429"),
+      appBar: AppBar(title: Text("Apply"), backgroundColor: primary,
       ),
       body:  Padding(
             padding: const EdgeInsets.all(8.0),
@@ -25,7 +26,7 @@ class _ApplyScreenState extends State<ApplyScreen> {
                     ListTile(
                       title: Text("Jonh Doe", style: TextStyle(fontWeight: FontWeight.bold),),
                       subtitle: Text("First Name: John \nLast Name: Doe"),
-                      trailing: Icon(Icons.rotate_left, color: Hexcolor("#98C429"),),
+                      trailing: Icon(Icons.rotate_left, color: primary,),
                     ),
                   ],
                 ),
@@ -33,7 +34,7 @@ class _ApplyScreenState extends State<ApplyScreen> {
                 Divider(),
 
                 FlatButton(
-                    color: Hexcolor("#98C429"),
+                    color: primary,
                     onPressed: () => {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (BuildContext context) => PersonalInfoScreen()))
@@ -57,7 +58,7 @@ class _ApplyScreenState extends State<ApplyScreen> {
                   ListTile(
                     title: Text("Jonh Doe", style: TextStyle(fontWeight: FontWeight.bold),),
                     subtitle: Text("First Name: John \nLast Name: Doe"),
-                    trailing: Icon(Icons.delete, color: Colors.redAccent),
+                    trailing: Icon(Icons.delete, color: red),
                   ),
                 ],
               ),
