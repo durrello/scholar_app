@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:scholar_app/screens/app_form/personal_info.dart';
+import 'package:scholar_app/src/screens/app_form/personal_info.dart';
 
 class ApplyScreen extends StatefulWidget {
   @override

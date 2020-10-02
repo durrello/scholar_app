@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
-import 'package:scholar_app/screens/app_form/guardians.dart';
-import 'package:scholar_app/screens/home/home.dart';
-
+import 'package:scholar_app/src/screens/app_form/guardians.dart';
+import 'package:scholar_app/src/screens/home/home.dart';
 class PersonalInfoScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {

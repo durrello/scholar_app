@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:scholar_app/src/screens/language.dart';
 import 'package:settings_ui/settings_ui.dart';
 
-import 'package:scholar_app/screens/language.dart';
 
 class SettingsScreen extends StatefulWidget {
   @override

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
-import 'package:scholar_app/screens/home/home.dart';
-import 'package:scholar_app/screens/preview.dart';
+import 'package:scholar_app/src/screens/home/home.dart';
+import 'package:scholar_app/src/screens/preview.dart';
 
 class ApplicationScreen extends StatefulWidget {
   @override

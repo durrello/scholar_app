@@ -5,27 +5,27 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:scholar_app/src/components/drawer_option.dart';
+import 'package:scholar_app/src/screens/account.dart';
+import 'package:scholar_app/src/screens/app_form/application_details.dart';
+import 'package:scholar_app/src/screens/app_form/apply.dart';
+import 'package:scholar_app/src/screens/app_form/documents.dart';
+import 'package:scholar_app/src/screens/app_form/experience.dart';
+import 'package:scholar_app/src/screens/app_form/guardians.dart';
+import 'package:scholar_app/src/screens/app_form/personal_info.dart';
+import 'package:scholar_app/src/screens/app_form/qualifications.dart';
+import 'package:scholar_app/src/screens/connect_with.dart';
+import 'package:scholar_app/src/screens/home/home_card.dart';
+import 'package:scholar_app/src/screens/notifications.dart';
+import 'package:scholar_app/src/screens/preview.dart';
+import 'package:scholar_app/src/screens/profile.dart';
+import 'package:scholar_app/src/screens/settings.dart';
 
 
 //importing screens and reusable components
 //reusable components
-import 'package:scholar_app/components/drawer_option.dart';
 
 //screen
-import 'package:scholar_app/screens/account.dart';
-import 'package:scholar_app/screens/app_form/application_details.dart';
-import 'package:scholar_app/screens/app_form/apply.dart';
-import 'package:scholar_app/screens/app_form/documents.dart';
-import 'package:scholar_app/screens/app_form/experience.dart';
-import 'package:scholar_app/screens/app_form/guardians.dart';
-import 'package:scholar_app/screens/app_form/personal_info.dart';
-import 'package:scholar_app/screens/app_form/qualifications.dart';
-import 'package:scholar_app/screens/connect_with.dart';
-import 'package:scholar_app/screens/home/home_card.dart';
-import 'package:scholar_app/screens/notifications.dart';
-import 'package:scholar_app/screens/preview.dart';
-import 'package:scholar_app/screens/profile.dart';
-import 'package:scholar_app/screens/settings.dart';
 
 class HomeScreen extends StatefulWidget {
   @override

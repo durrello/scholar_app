@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_overboard/flutter_overboard.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:scholar_app/screens/auth/signup.dart';
+import 'package:scholar_app/src/screens/auth/signup.dart';
 
 class OnboardingScreen extends StatefulWidget {
   OnboardingScreen({Key key, this.title}) : super(key: key);

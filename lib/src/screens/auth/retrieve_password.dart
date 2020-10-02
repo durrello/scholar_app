@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
-import 'package:scholar_app/screens/home/home.dart';
+import 'package:scholar_app/src/screens/home/home.dart';
 
 class RetrivePasswordScreen extends StatefulWidget {
   //getting data from sign up screen

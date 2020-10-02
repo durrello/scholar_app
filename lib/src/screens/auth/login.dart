@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:scholar_app/screens/home/home.dart';
-import 'package:scholar_app/screens/auth/retrieve_password.dart';
-import 'package:scholar_app/screens/auth/signup.dart';
 
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:scholar_app/src/screens/auth/retrieve_password.dart';
+import 'package:scholar_app/src/screens/auth/signup.dart';
+import 'package:scholar_app/src/screens/home/home.dart';
 
 
 

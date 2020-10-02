@@ -2,32 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
-import 'package:scholar_app/screens/app_form/documents.dart';
-import 'package:scholar_app/screens/home/home.dart';
+import 'package:scholar_app/src/screens/app_form/qualifications.dart';
+import 'package:scholar_app/src/screens/home/home.dart';
 
-class QualificationScreen extends StatefulWidget {
+class ExperienceScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return QualificationScreenState();
+    return ExperienceScreenState();
   }
 
 }
-class QualificationScreenState extends State<QualificationScreen> {
+class ExperienceScreenState extends State<ExperienceScreen> {
 
-  String institution;
-  String fromTo;
+  String company;
+  String role;
+  String wordDesc;
 
-  //gender dropdown initial state
-  int qualification = 1;
+  //dropdown initial state
   int programs = 1;
-
-
-
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
-//institution validation function
-  Widget _buildInstitution() {
+//company validation function
+  Widget _buildCompany() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Company'),
       validator: (String value){
@@ -36,66 +33,89 @@ class QualificationScreenState extends State<QualificationScreen> {
         }
       },
       onSaved: (String value){
-        institution = value;
+        company = value;
       },
     );
   }
 
-//date validation function
-  Widget buildFromTo() {
+//role validation function
+  Widget _buildRole() {
     return TextFormField(
-      decoration: InputDecoration(labelText: 'From to'),
+      decoration: InputDecoration(labelText: 'What was/is your role'),
       validator: (String value){
         if(value.isEmpty){
-          return 'From which year to which year';
+          return 'Role is Required';
         }
       },
       onSaved: (String value){
-        fromTo = value;
+        role = value;
       },
     );
   }
 
-//qualification function
-  Widget _buildQualification(){
-    return Row(
-      children: [
-        Text("Qualifications"), Spacer(),
-        DropdownButton(
-            value: qualification,
-            items: [
-              DropdownMenuItem(
-                child: Text("Bachelors Degree"),
-                value: 1,
-              ),
-              DropdownMenuItem(
-                child: Text("Nursing"),
-                value: 2,
-              ),
-              DropdownMenuItem(
-                child: Text("Medical Doctor"),
-                value: 3,
-              ),
-              DropdownMenuItem(
-                child: Text("Pharmacist"),
-                value: 4,
-              ),
-              DropdownMenuItem(
-                child: Text("Chemist"),
-                value: 5,
-              ),
-              DropdownMenuItem(
-                child: Text("Yahoo Boy"),
-                value: 6,
-              ),
-            ],
-            onChanged: (value) {
-              setState(() {
-                qualification = value;
-              });
-            }),
 
+//date and time function
+  DateTime _dateFrom = DateTime.now();
+  DateTime _dateTo = DateTime.now();
+
+  Future<Null> _selectDateFrom(BuildContext context) async {
+    final DateTime picked = await showDatePicker(
+        context: context,
+        initialDate: _dateFrom,
+        firstDate: DateTime(DateTime.now().year-5),
+        lastDate: DateTime(DateTime.now().year+5)
+    );
+    if( picked != null && picked != _dateFrom){
+      print('Selected: ${_dateFrom.toString()}');
+      setState(() {
+        _dateFrom = picked;
+      });
+    }
+  }
+
+  Future<Null> _selectDateTo(BuildContext context) async {
+    final DateTime picked = await showDatePicker(
+        context: context,
+        initialDate: _dateTo,
+        firstDate: DateTime(DateTime.now().year-5),
+        lastDate: DateTime(DateTime.now().year+5)
+    );
+    if( picked != null && picked != _dateTo){
+      print('Selected: ${_dateTo.toString()}');
+      setState(() {
+        _dateTo = picked;
+      });
+    }
+  }
+
+  buildFromTo(){
+    return  Row(
+      children: [
+        Text("From:", style: TextStyle(fontWeight: FontWeight.bold),),
+        FlatButton(
+            onPressed: () {_selectDateFrom(context);},
+            child: Text('${_dateFrom.month}, ${_dateFrom.year}')),
+        Spacer(),
+        Text("To"),
+        FlatButton(
+            onPressed: () {_selectDateTo(context);},
+            child: Text('${_dateTo.month}, ${_dateTo.year}')),
       ],
+    );
+  }
+
+//work description validation function
+  Widget buildWorkDesc() {
+    return TextFormField(
+      decoration: InputDecoration(labelText: 'Work description'),
+      validator: (String value){
+        if(value.isEmpty){
+          return 'Description is required';
+        }
+      },
+      onSaved: (String value){
+        wordDesc = value;
+      },
     );
   }
 
@@ -137,7 +157,6 @@ class QualificationScreenState extends State<QualificationScreen> {
                 programs = value;
               });
             }),
-
       ],
     );
   }
@@ -145,7 +164,7 @@ class QualificationScreenState extends State<QualificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Qualifications"), backgroundColor: Hexcolor("#98C429"),),
+        appBar: AppBar(title: Text("Work Experience"), backgroundColor: Hexcolor("#98C429"),),
         body: Container(
           margin: EdgeInsets.all(7),
           child: ListView(
@@ -155,12 +174,14 @@ class QualificationScreenState extends State<QualificationScreen> {
                   child: Column(
                     // mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
-                          margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
-                          child: Text("Qualification Details", style: TextStyle(fontWeight: FontWeight.bold),)),
-                      _buildInstitution(),
+                      Text("Work Experience", style: TextStyle(fontWeight: FontWeight.bold),),
+                      _buildCompany(),
+                      _buildRole(),
                       buildFromTo(),
-                      _buildQualification(),
+                      buildWorkDesc(),
+                      Container(
+                          margin: EdgeInsets.fromLTRB(0, 30, 0, 5),
+                          child: Text("Relation with Academics", style: TextStyle(fontWeight: FontWeight.bold),)),
                       _buildPrograms(),
                     ],
                   )),
@@ -196,7 +217,7 @@ class QualificationScreenState extends State<QualificationScreen> {
                         }else{
                           _formkey.currentState.save(),
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (BuildContext context) => DocumentScreen()))
+                              builder: (BuildContext context) => QualificationScreen()))
                         }
 
                       },)
