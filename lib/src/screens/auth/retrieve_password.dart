@@ -20,10 +20,10 @@ class _RetrivePasswordState extends State<RetrivePasswordScreen> {
 
   Widget _buildEmailField() {
     return Container(
-      margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
+      margin: EdgeInsets.fromLTRB(10, 5, 10, 10),
       child: TextFormField(
         decoration:
-            InputDecoration(labelText: 'Email', border: OutlineInputBorder()),
+            InputDecoration(labelText: 'Email',),
         keyboardType: TextInputType.emailAddress,
         validator: (String value) {
           if (value.isEmpty) {
@@ -46,7 +46,6 @@ class _RetrivePasswordState extends State<RetrivePasswordScreen> {
     );
   }
 
-
   Widget verify() {
     Alert(
       context: context,
@@ -56,18 +55,18 @@ class _RetrivePasswordState extends State<RetrivePasswordScreen> {
           children: [
             TextFormField(
               decoration: InputDecoration(
-                  labelText: "Code",
-                  border: OutlineInputBorder()),
+                  labelText: "Code", border: OutlineInputBorder()),
               keyboardType: TextInputType.number,
-              validator: (String value){
+              validator: (String value) {
                 // ignore: missing_return
-                if(value.isEmpty){
+                if (value.isEmpty) {
                   return 'Code is require';
-                } if(value.length < 6 && value.length > 6){
+                }
+                if (value.length < 6 && value.length > 6) {
                   return 'Enter a valid code';
                 }
               },
-              onSaved: (String value){
+              onSaved: (String value) {
                 code = value;
               },
             ),
@@ -78,14 +77,12 @@ class _RetrivePasswordState extends State<RetrivePasswordScreen> {
         DialogButton(
             child: Text("Verify"),
             onPressed: () {
-              if(!_formkey.currentState.validate()){
-
-              }else{
+              if (!_formkey.currentState.validate()) {
+              } else {
                 _formkey.currentState.save();
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => HomeScreen()));
               }
-
             }),
       ],
     ).show();
@@ -126,7 +123,6 @@ class _RetrivePasswordState extends State<RetrivePasswordScreen> {
                           splashColor: Hexcolor("#98C429"),
                           onPressed: () {
                             if (!_formkey.currentState.validate()) {
-
                             } else {
                               return verify();
                             }
@@ -143,4 +139,3 @@ class _RetrivePasswordState extends State<RetrivePasswordScreen> {
     );
   }
 }
-

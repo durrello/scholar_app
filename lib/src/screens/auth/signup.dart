@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:hexcolor/hexcolor.dart';
+
+import 'package:scholar_app/src/commons.dart';
+import 'package:scholar_app/src/models/campus.dart';
 import 'package:scholar_app/src/screens/auth/login.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -26,9 +28,9 @@ class SignupScreenState extends State<SignupScreen> {
 //name validation function
   Widget _buildNameField() {
     return Container(
-      margin: EdgeInsets.fromLTRB(0, 30, 0, 5),
+      margin: EdgeInsets.fromLTRB(10, 5, 10, 10),
       child: TextFormField(
-        decoration: InputDecoration(labelText: 'Name', border: OutlineInputBorder()),
+        decoration: InputDecoration(labelText: 'Name',),
         validator: (String value){
           if(value.isEmpty){
             return 'Name is required';
@@ -45,9 +47,9 @@ class SignupScreenState extends State<SignupScreen> {
 //email validation function
   Widget _buildEmailField() {
     return Container(
-      margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
+      margin: EdgeInsets.fromLTRB(10, 5, 10, 10),
       child: TextFormField(
-        decoration: InputDecoration(labelText: 'Email', border: OutlineInputBorder()),
+        decoration: InputDecoration(labelText: 'Email',),
         keyboardType: TextInputType.emailAddress,
         validator: (String value){
           if(value.isEmpty){
@@ -70,9 +72,9 @@ class SignupScreenState extends State<SignupScreen> {
 //phone validation function
   Widget _buildPhone() {
     return Container(
-      margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
+      margin: EdgeInsets.fromLTRB(10, 5, 10, 10),
       child: TextFormField(
-        decoration: InputDecoration(labelText: 'Enter Phone Number', border: OutlineInputBorder()),
+        decoration: InputDecoration(labelText: 'Enter Phone Number',),
         keyboardType: TextInputType.phone,
         // ignore: missing_return
         validator: (String value){
@@ -89,9 +91,9 @@ class SignupScreenState extends State<SignupScreen> {
 //password validation function
   Widget _buildPassword() {
     return Container(
-      margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
+      margin: EdgeInsets.fromLTRB(10, 5, 10, 10),
       child: TextFormField(
-        decoration: InputDecoration(labelText: 'Password', border: OutlineInputBorder()),
+        decoration: InputDecoration(labelText: 'Password',),
         keyboardType: TextInputType.visiblePassword,
         // ignore: missing_return
         validator: (String value){
@@ -109,9 +111,9 @@ class SignupScreenState extends State<SignupScreen> {
 //user validation function
   Widget _buildUsername() {
     return Container(
-      margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
+      margin: EdgeInsets.fromLTRB(10, 5, 10, 10),
       child: TextFormField(
-        decoration: InputDecoration(labelText: 'Username', border: OutlineInputBorder()),
+        decoration: InputDecoration(labelText: 'Username',),
         validator: (String value){
           if(value.isEmpty){
             return 'Username is required';
@@ -123,22 +125,6 @@ class SignupScreenState extends State<SignupScreen> {
       ),
     );  }
 
-//campus validation function
-  Widget _buildCampus() {
-    return Container(
-      margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
-      child: TextFormField(
-        decoration: InputDecoration(labelText: 'Campus', border: OutlineInputBorder()),
-        validator: (String value){
-          if(value.isEmpty){
-            return 'Campus is required';
-          }
-        },
-        onSaved: (String value){
-          name = value;
-        },
-      ),
-    );  }
 
   @override
   Widget build(BuildContext context) {
@@ -165,7 +151,7 @@ class SignupScreenState extends State<SignupScreen> {
                         Container(
                           margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
                           child: RaisedButton(
-                            color: Hexcolor("#98C429"),
+                            color: primary,
                             child: Text("Sign Up", style: TextStyle(color: Colors.white, fontSize: 16)),
                             onPressed: () => {},),
                         ),
@@ -173,7 +159,7 @@ class SignupScreenState extends State<SignupScreen> {
                         Container(
                           margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
                           child: RaisedButton(
-                            child: Text("Login", style: TextStyle(color: Colors.green, fontSize: 16)),
+                            child: Text("Login", style: TextStyle(color: green, fontSize: 16)),
                             onPressed: () => {
                               Navigator.of(context).pushReplacement(MaterialPageRoute(
                                   builder: (BuildContext context) => LoginScreen()))
@@ -187,12 +173,12 @@ class SignupScreenState extends State<SignupScreen> {
                     _buildPassword(),
                     _buildPhone(),
                     _buildUsername(),
-                    _buildCampus(),
+                    Campus(),
 
                     Container(
                       margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
                       child: RaisedButton(
-                        child: Text("SIGNUP", style: TextStyle(color: Colors.green, fontSize: 16)),
+                        child: Text("SIGNUP", style: TextStyle(color: green, fontSize: 16)),
                         onPressed: () => {
                           if(!_formkey.currentState.validate()){
 
@@ -268,15 +254,3 @@ Widget _buildConnectWith(){
     ),
   );
 }
-
-//Widget _buildSignUpLogin(){
-//  Container(
-//    margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
-//    child: RaisedButton(
-//      child: Text("Submit", style: TextStyle(color: Colors.green, fontSize: 16)),
-//      onPressed: () => {
-//        Navigator.of(context).pushReplacement(MaterialPageRoute(
-//            builder: (BuildContext context) => LoginScreen()))
-//        },),
-//  );
-//}

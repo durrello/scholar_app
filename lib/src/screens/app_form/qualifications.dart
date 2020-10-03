@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:scholar_app/src/commons.dart';
+
+//imported screens
 import 'package:scholar_app/src/screens/app_form/documents.dart';
+
+//imported custom widgets and commons
+import 'package:scholar_app/src/commons.dart';
 import 'package:scholar_app/src/widgets/CustomHeader.dart';
 import 'package:scholar_app/src/widgets/exit_continue_buttons.dart';
+
+//imported models
+import 'package:scholar_app/src/models/date_from_to.dart';
+import 'package:scholar_app/src/models/programs.dart';
+import 'package:scholar_app/src/models/qualifications.dart';
+
 
 class QualificationScreen extends StatefulWidget {
   @override
@@ -14,15 +24,7 @@ class QualificationScreen extends StatefulWidget {
 }
 class QualificationScreenState extends State<QualificationScreen> {
 
-  String institution;
-  String fromTo;
-
-  //gender dropdown initial state
-  int qualification = 1;
-  int programs = 1;
-
-
-
+  String company;
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
@@ -36,111 +38,11 @@ class QualificationScreenState extends State<QualificationScreen> {
         }
       },
       onSaved: (String value){
-        institution = value;
+        company = value;
       },
     );
   }
 
-//date validation function
-  Widget buildFromTo() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'From to'),
-      validator: (String value){
-        if(value.isEmpty){
-          return 'From which year to which year';
-        }
-      },
-      onSaved: (String value){
-        fromTo = value;
-      },
-    );
-  }
-
-//qualification function
-  Widget _buildQualification(){
-    return Row(
-      children: [
-        Text("Qualifications"), Spacer(),
-        DropdownButton(
-            value: qualification,
-            items: [
-              DropdownMenuItem(
-                child: Text("Bachelors Degree"),
-                value: 1,
-              ),
-              DropdownMenuItem(
-                child: Text("Nursing"),
-                value: 2,
-              ),
-              DropdownMenuItem(
-                child: Text("Medical Doctor"),
-                value: 3,
-              ),
-              DropdownMenuItem(
-                child: Text("Pharmacist"),
-                value: 4,
-              ),
-              DropdownMenuItem(
-                child: Text("Chemist"),
-                value: 5,
-              ),
-              DropdownMenuItem(
-                child: Text("Yahoo Boy"),
-                value: 6,
-              ),
-            ],
-            onChanged: (value) {
-              setState(() {
-                qualification = value;
-              });
-            }),
-
-      ],
-    );
-  }
-
-//programs function
-  Widget _buildPrograms(){
-    return Row(
-      children: [
-        Text("Programs"), Spacer(),
-        DropdownButton(
-            value: programs,
-            items: [
-              DropdownMenuItem(
-                child: Text("Computer Engineering"),
-                value: 1,
-              ),
-              DropdownMenuItem(
-                child: Text("Nursing"),
-                value: 2,
-              ),
-              DropdownMenuItem(
-                child: Text("Medical Doctor"),
-                value: 3,
-              ),
-              DropdownMenuItem(
-                child: Text("Pharmacist"),
-                value: 4,
-              ),
-              DropdownMenuItem(
-                child: Text("Chemist"),
-                value: 5,
-              ),
-              DropdownMenuItem(
-                child: Text("Yahoo Boy"),
-                value: 6,
-              ),
-            ],
-            onChanged: (value) {
-              setState(() {
-                programs = value;
-              });
-            }),
-
-      ],
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -159,9 +61,9 @@ class QualificationScreenState extends State<QualificationScreen> {
                           margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
                           child: CustomHeader(text: "Qualification Details")),
                       _buildInstitution(),
-                      buildFromTo(),
-                      _buildQualification(),
-                      _buildPrograms(),
+                      DateFromTo(),
+                      Qualifications(),
+                      Programs(),
                     ],
                   )),
 

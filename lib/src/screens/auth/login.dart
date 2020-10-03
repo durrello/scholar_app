@@ -2,10 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hexcolor/hexcolor.dart';
 
+//imported 3rd party packages
 import 'package:google_sign_in/google_sign_in.dart';
+
+//imported screens
 import 'package:scholar_app/src/screens/auth/retrieve_password.dart';
 import 'package:scholar_app/src/screens/auth/signup.dart';
 import 'package:scholar_app/src/screens/home/home.dart';
+
+//imported custom widgets and commons
+import 'package:scholar_app/src/commons.dart';
+
 
 
 
@@ -21,13 +28,14 @@ class LoginScreen extends StatefulWidget {
 
 }
 class LoginScreenState extends State<LoginScreen> {
+
   //google login
   bool _isLoggedIn = false;
   //
   LoginScreenState(this.email);
 
   String forgot = "";
-  Icon initialIcon =  Icon(Icons.crop_square, color: Colors.grey,);
+  Icon initialIcon =  Icon(Icons.crop_square, color: grey,);
 
   void showForgot(){
     setState(() {
@@ -37,7 +45,7 @@ class LoginScreenState extends State<LoginScreen> {
   
   void changeIcon (){
     setState(() {
-      initialIcon =  Icon(Icons.check_box, color: Hexcolor("#98C429"),);
+      initialIcon =  Icon(Icons.check_box, color: primary,);
     });
   }
 
@@ -66,36 +74,35 @@ class LoginScreenState extends State<LoginScreen> {
 
   //end login
 
-  //twitter loggin
-
-  //end twitter login
-
   String email;
   String password;
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
   Widget _buildEmailField() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Email', border: OutlineInputBorder()),
-      keyboardType: TextInputType.emailAddress,
-      validator: (String value){
-        // ignore: missing_return
-        if(value.isEmpty){
-          return 'Email is require';
-        }
-      },
-      onSaved: (String value){
-        email = value;
-      },
+    return Container(
+      margin: EdgeInsets.fromLTRB(10, 5, 10, 10),
+      child: TextFormField(
+        decoration: InputDecoration(labelText: 'Email',),
+        keyboardType: TextInputType.emailAddress,
+        validator: (String value){
+          // ignore: missing_return
+          if(value.isEmpty){
+            return 'Email is require';
+          }
+        },
+        onSaved: (String value){
+          email = value;
+        },
+      ),
     );
   }
 
   Widget _buildPassword() {
     return Container(
-      margin: EdgeInsets.fromLTRB(0, 5, 0, 10),
+      margin: EdgeInsets.fromLTRB(10, 5, 10, 10),
       child: TextFormField(
-        decoration: InputDecoration(labelText: 'Password', border: OutlineInputBorder()),
+        decoration: InputDecoration(labelText: 'Password',),
         keyboardType: TextInputType.visiblePassword,
         obscureText: true,
         validator: (String value){
@@ -171,7 +178,7 @@ class LoginScreenState extends State<LoginScreen> {
                         Container(
                           margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
                           child: RaisedButton(
-                            child: Text("LOGIN", style: TextStyle(color: Colors.green, fontSize: 16)),
+                            child: Text("LOGIN", style: TextStyle(color: green, fontSize: 16)),
                             onPressed: () => {
                               if(!_formkey.currentState.validate()){
                                 showForgot(),

@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:scholar_app/src/commons.dart';
+
+//imported screens
 import 'package:scholar_app/src/screens/app_form/guardians.dart';
+
+//imported custom widgets and commons
+import 'package:scholar_app/src/commons.dart';
 import 'package:scholar_app/src/widgets/CustomHeader.dart';
 import 'package:scholar_app/src/widgets/exit_continue_buttons.dart';
+
+//imported models
+import 'package:scholar_app/src/models/blood_group.dart';
+import 'package:scholar_app/src/models/country.dart';
+import 'package:scholar_app/src/models/gender.dart';
+import 'package:scholar_app/src/models/nationality.dart';
+import 'package:scholar_app/src/models/religion.dart';
+
 class PersonalInfoScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -12,12 +24,6 @@ class PersonalInfoScreen extends StatefulWidget {
 
 }
 class PersonalInfoScreenState extends State<PersonalInfoScreen> {
-
-  //pass data
-  String profiletitle;
-
-  //end
-
 
   String profileTitle;
   String firstName;
@@ -34,13 +40,6 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
   String mobile;
   String email;
 
-  //dropdown initial state
-  int gender = 1;
-  int nationality = 1;
-  int bloodGroup = 1;
-  int religion = 1;
-  int country = 1;
-
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
 //profile validation function
@@ -54,9 +53,6 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
       },
       onSaved: (String value){
         profileTitle = value;
-      },
-      onChanged: (text){
-        profiletitle = text;
       },
     );
   }
@@ -106,32 +102,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
     );
   }
 
-//gender function
-  Widget _buildGender(){
-    return Row(
-      children: [
-        Text("Gender"), Spacer(),
-        DropdownButton(
-            value: gender,
-            items: [
-              DropdownMenuItem(
-                child: Text("Male"),
-                value: 1,
-              ),
-              DropdownMenuItem(
-                child: Text("Female"),
-                value: 2,
-              ),
-            ],
-            onChanged: (value) {
-              setState(() {
-                gender = value;
-              });
-            }),
 
-      ],
-    );
-  }
 
 //date function
   DateTime _date = DateTime.now();
@@ -179,85 +150,6 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
       },
     );  }
 
-//nationality function
-  Widget _buildNationality(){
-    return Row(
-      children: [
-        Text("Nationality"), Spacer(),
-        DropdownButton(
-            value: nationality,
-            items: [
-              DropdownMenuItem(
-                child: Text("Cameroonian"),
-                value: 1,
-              ),
-              DropdownMenuItem(
-                child: Text("Malian"),
-                value: 2,
-              ),
-              DropdownMenuItem(
-                child: Text("Nigerian"),
-                value: 3,
-              ),
-              DropdownMenuItem(
-                child: Text("American"),
-                value: 4,
-              ),
-              DropdownMenuItem(
-                child: Text("Asian"),
-                value: 5,
-              ),
-              DropdownMenuItem(
-                child: Text("Swedish"),
-                value: 6,
-              ),
-            ],
-            onChanged: (value) {
-              setState(() {
-                nationality = value;
-              });
-            }),
-
-      ],
-    );
-  }
-
-//blood group function
-  Widget _buildBloodGroup(){
-    return Row(
-      children: [
-        Text("Blood Group"), Spacer(),
-        DropdownButton(
-            value: bloodGroup,
-            items: [
-              DropdownMenuItem(
-                child: Text("Group A"),
-                value: 1,
-              ),
-              DropdownMenuItem(
-                child: Text("Group B"),
-                value: 2,
-              ),
-
-              DropdownMenuItem(
-                child: Text("Group AB"),
-                value: 3,
-              ),
-
-              DropdownMenuItem(
-                child: Text("Group O"),
-                value: 4,
-              ),
-            ],
-            onChanged: (value) {
-              setState(() {
-                bloodGroup = value;
-              });
-            }),
-      ],
-    );
-  }
-
 //mother tongue validation function
   Widget _buildMotherTongue() {
     return TextFormField(
@@ -272,48 +164,6 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
       },
     );  }
 
-//religion function
-  Widget _buildReligion(){
-    return Row(
-      children: [
-        Text("Religion"), Spacer(),
-        DropdownButton(
-            value: religion,
-            items: [
-              DropdownMenuItem(
-                child: Text("Christianity"),
-                value: 1,
-              ),
-              DropdownMenuItem(
-                child: Text("Islam"),
-                value: 2,
-              ),
-              DropdownMenuItem(
-                child: Text("Hinduism"),
-                value: 3,
-              ),
-              DropdownMenuItem(
-                child: Text("Buddhism"),
-                value: 4,
-              ),
-              DropdownMenuItem(
-                child: Text("Judaism"),
-                value: 5,
-              ),
-              DropdownMenuItem(
-                child: Text("Sikhism"),
-                value: 6,
-              ),
-            ],
-            onChanged: (value) {
-              setState(() {
-                religion = value;
-              });
-            }),
-
-      ],
-    );
-  }
 
 //qualification validation function
   Widget _buildQualification() {
@@ -360,48 +210,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
     );
   }
 
-//country function
-  Widget _buildCountry(){
-    return Row(
-      children: [
-        Text("Country"), Spacer(),
-        DropdownButton(
-            value: country,
-            items: [
-              DropdownMenuItem(
-                child: Text("Cameroon"),
-                value: 1,
-              ),
-              DropdownMenuItem(
-                child: Text("Nigeria"),
-                value: 2,
-              ),
-              DropdownMenuItem(
-                child: Text("France"),
-                value: 3,
-              ),
-              DropdownMenuItem(
-                child: Text("China"),
-                value: 4,
-              ),
-              DropdownMenuItem(
-                child: Text("Italy"),
-                value: 5,
-              ),
-              DropdownMenuItem(
-                child: Text("Sweden"),
-                value: 6,
-              ),
-            ],
-            onChanged: (value) {
-              setState(() {
-                country = value;
-              });
-            }),
 
-      ],
-    );
-  }
 
 //state or city validation function
   Widget _buildStateRegion() {
@@ -502,13 +311,13 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
                     _buildFirstName(),
                     _buildMiddleName(),
                     _buildLastName(),
-                    _buildGender(),
+                    Gender(),
                     _buildDateOfBirth(),
                     _buildBirthPlace(),
-                    _buildNationality(),
-                    _buildBloodGroup(),
+                    Nationality(),
+                    BloodGroup(),
                     _buildMotherTongue(),
-                    _buildReligion(),
+                    Religion(),
                     _buildQualification(),
                     Divider(),
                     Container(
@@ -516,7 +325,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
                         child: CustomHeader(text: "Contact Details"),),
                     _buildPresentAddress(),
                     _buildPermanentAddress(),
-                    _buildCountry(),
+                    Country(),
                     _buildStateRegion(),
                     _buildCity(),
                     _buildPhone(),

@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:scholar_app/src/commons.dart';
+
+//imported screens
 import 'package:scholar_app/src/screens/app_form/experience.dart';
+
+//imported custom widgets and commons
+import 'package:scholar_app/src/commons.dart';
 import 'package:scholar_app/src/widgets/CustomHeader.dart';
 import 'package:scholar_app/src/widgets/exit_continue_buttons.dart';
+
+//imported models
+import 'package:scholar_app/src/models/nationality.dart';
+
 
 class GuardianInfoScreen extends StatefulWidget {
   @override
@@ -25,8 +33,6 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
   String mobile;
   String email;
 
-  //gender dropdown initial state
-  int nationality = 1;
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
@@ -105,48 +111,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
     );
   }
 
-//nationality function
-  Widget _buildNationality(){
-    return Row(
-      children: [
-        Text("Nationality"), Spacer(),
-        DropdownButton(
-            value: nationality,
-            items: [
-              DropdownMenuItem(
-                child: Text("Cameroonian"),
-                value: 1,
-              ),
-              DropdownMenuItem(
-                child: Text("Malian"),
-                value: 2,
-              ),
-              DropdownMenuItem(
-                child: Text("Nigerian"),
-                value: 3,
-              ),
-              DropdownMenuItem(
-                child: Text("American"),
-                value: 4,
-              ),
-              DropdownMenuItem(
-                child: Text("Asian"),
-                value: 5,
-              ),
-              DropdownMenuItem(
-                child: Text("Swedish"),
-                value: 6,
-              ),
-            ],
-            onChanged: (value) {
-              setState(() {
-                nationality = value;
-              });
-            }),
 
-      ],
-    );
-  }
 
 //state or region validation function
   Widget _buildStateRegion() {
@@ -240,7 +205,6 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
               Form(
                   key: _formkey,
                   child: Column(
-                    // mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       CustomHeader(text: "Guardian Details"),
                       _buildFullNames(),
@@ -248,7 +212,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
                       _buildEducation(),
                       _buildOccupation(),
                       _buildAddress(),
-                      _buildNationality(),
+                      Nationality(),
                       _buildStateRegion(),
                       _buildCity(),
                       _buildPhone(),

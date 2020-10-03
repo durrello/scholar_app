@@ -1,11 +1,20 @@
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+
+//imported 3rd party
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/services.dart';
-import 'package:scholar_app/src/commons.dart';
+
+//imported screens
 import 'package:scholar_app/src/screens/app_form/application_details.dart';
+
+//imported custom widgets and commons
 import 'package:scholar_app/src/widgets/CustomHeader.dart';
 import 'package:scholar_app/src/widgets/exit_continue_buttons.dart';
+import 'package:scholar_app/src/commons.dart';
+
+//imported models
+import 'package:scholar_app/src/models/programs.dart';
 
 class DocumentScreen extends StatefulWidget {
   @override
@@ -18,7 +27,6 @@ class DocumentScreenState extends State<DocumentScreen> {
   String title;
 
   //dropdown initial state
-  int programs = 1;
   int upload = 1;
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
@@ -34,48 +42,6 @@ class DocumentScreenState extends State<DocumentScreen> {
       onSaved: (String value) {
         title = value;
       },
-    );
-  }
-
-  Widget _buildPrograms() {
-    return Row(
-      children: [
-        Text("Academic Program"),
-        Spacer(),
-        DropdownButton(
-            value: programs,
-            items: [
-              DropdownMenuItem(
-                child: Text("Computer Engineering"),
-                value: 1,
-              ),
-              DropdownMenuItem(
-                child: Text("Nursing"),
-                value: 2,
-              ),
-              DropdownMenuItem(
-                child: Text("Medical Doctor"),
-                value: 3,
-              ),
-              DropdownMenuItem(
-                child: Text("Pharmacist"),
-                value: 4,
-              ),
-              DropdownMenuItem(
-                child: Text("Chemist"),
-                value: 5,
-              ),
-              DropdownMenuItem(
-                child: Text("Yahoo Boy"),
-                value: 6,
-              ),
-            ],
-            onChanged: (value) {
-              setState(() {
-                programs = value;
-              });
-            }),
-      ],
     );
   }
 
@@ -199,7 +165,7 @@ class DocumentScreenState extends State<DocumentScreen> {
                     // mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       _buildDocumentTitle(),
-                      _buildPrograms(),
+                      Programs(),
                       _buildUploadFile(),
                     ],
                   )),

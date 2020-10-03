@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+
+//imported custom widgets and commons
 import 'package:scholar_app/src/commons.dart';
-import 'package:scholar_app/src/screens/app_form/personal_info.dart';
 import 'package:scholar_app/src/widgets/CustomHeader.dart';
 import 'package:scholar_app/src/widgets/CustomText.dart';
+
+//imported screens
+import 'package:scholar_app/src/screens/app_form/personal_info.dart';
+
 
 class ApplyScreen extends StatefulWidget {
   @override

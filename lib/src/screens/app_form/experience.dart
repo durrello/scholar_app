@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:scholar_app/src/commons.dart';
+
+//imported screens
 import 'package:scholar_app/src/screens/app_form/qualifications.dart';
+
+//imported custom widgets and commons
 import 'package:scholar_app/src/widgets/CustomHeader.dart';
-import 'package:scholar_app/src/widgets/CustomText.dart';
 import 'package:scholar_app/src/widgets/exit_continue_buttons.dart';
+import 'package:scholar_app/src/commons.dart';
+
+//imported models
+import 'package:scholar_app/src/models/date_from_to.dart';
+import 'package:scholar_app/src/models/programs.dart';
 
 class ExperienceScreen extends StatefulWidget {
   @override
@@ -53,63 +60,7 @@ class ExperienceScreenState extends State<ExperienceScreen> {
     );
   }
 
-//date and time function
-  DateTime _dateFrom = DateTime.now();
-  DateTime _dateTo = DateTime.now();
 
-  Future<Null> _selectDateFrom(BuildContext context) async {
-    final DateTime picked = await showDatePicker(
-        context: context,
-        initialDate: _dateFrom,
-        firstDate: DateTime(DateTime.now().year - 5),
-        lastDate: DateTime(DateTime.now().year + 5));
-    if (picked != null && picked != _dateFrom) {
-      print('Selected: ${_dateFrom.toString()}');
-      setState(() {
-        _dateFrom = picked;
-      });
-    }
-  }
-
-  Future<Null> _selectDateTo(BuildContext context) async {
-    final DateTime picked = await showDatePicker(
-        context: context,
-        initialDate: _dateTo,
-        firstDate: DateTime(DateTime.now().year - 5),
-        lastDate: DateTime(DateTime.now().year + 5));
-    if (picked != null && picked != _dateTo) {
-      print('Selected: ${_dateTo.toString()}');
-      setState(() {
-        _dateTo = picked;
-      });
-    }
-  }
-
-  buildFromTo() {
-    return Row(
-      children: [
-        CustomText(
-          text: "From:",
-          weight: FontWeight.bold,
-        ),
-        FlatButton(
-            onPressed: () {
-              _selectDateFrom(context);
-            },
-            child: Text('${_dateFrom.month}, ${_dateFrom.year}')),
-        Spacer(),
-        CustomText(
-          text: "To:",
-          weight: FontWeight.bold,
-        ),
-        FlatButton(
-            onPressed: () {
-              _selectDateTo(context);
-            },
-            child: Text('${_dateTo.month}, ${_dateTo.year}')),
-      ],
-    );
-  }
 
 //work description validation function
   Widget buildWorkDesc() {
@@ -126,48 +77,7 @@ class ExperienceScreenState extends State<ExperienceScreen> {
     );
   }
 
-//programs function
-  Widget _buildPrograms() {
-    return Row(
-      children: [
-        Text("Programs"),
-        Spacer(),
-        DropdownButton(
-            value: programs,
-            items: [
-              DropdownMenuItem(
-                child: Text("Computer Engineering"),
-                value: 1,
-              ),
-              DropdownMenuItem(
-                child: Text("Nursing"),
-                value: 2,
-              ),
-              DropdownMenuItem(
-                child: Text("Medical Doctor"),
-                value: 3,
-              ),
-              DropdownMenuItem(
-                child: Text("Pharmacist"),
-                value: 4,
-              ),
-              DropdownMenuItem(
-                child: Text("Chemist"),
-                value: 5,
-              ),
-              DropdownMenuItem(
-                child: Text("Yahoo Boy"),
-                value: 6,
-              ),
-            ],
-            onChanged: (value) {
-              setState(() {
-                programs = value;
-              });
-            }),
-      ],
-    );
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -188,12 +98,12 @@ class ExperienceScreenState extends State<ExperienceScreen> {
                       CustomHeader(text: "Work Experience"),
                       _buildCompany(),
                       _buildRole(),
-                      buildFromTo(),
+                      DateFromTo(),
                       buildWorkDesc(),
                       Container(
                           margin: EdgeInsets.fromLTRB(0, 30, 0, 5),
                           child: CustomHeader(text: "Relation with Academics")),
-                      _buildPrograms(),
+                      Programs(),
                     ],
                   )),
               Buttons(
