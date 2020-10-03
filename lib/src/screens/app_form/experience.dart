@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:scholar_app/src/commons.dart';
 import 'package:scholar_app/src/screens/app_form/qualifications.dart';
-import 'package:scholar_app/src/screens/home/home.dart';
 import 'package:scholar_app/src/widgets/CustomHeader.dart';
 import 'package:scholar_app/src/widgets/CustomText.dart';
+import 'package:scholar_app/src/widgets/exit_continue_buttons.dart';
 
 class ExperienceScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return ExperienceScreenState();
   }
-
 }
-class ExperienceScreenState extends State<ExperienceScreen> {
 
+class ExperienceScreenState extends State<ExperienceScreen> {
   String company;
   String role;
   String wordDesc;
@@ -29,12 +27,12 @@ class ExperienceScreenState extends State<ExperienceScreen> {
   Widget _buildCompany() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Company'),
-      validator: (String value){
-        if(value.isEmpty && value.length < 6){
+      validator: (String value) {
+        if (value.isEmpty && value.length < 6) {
           return 'Company is required';
         }
       },
-      onSaved: (String value){
+      onSaved: (String value) {
         company = value;
       },
     );
@@ -44,17 +42,16 @@ class ExperienceScreenState extends State<ExperienceScreen> {
   Widget _buildRole() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'What was/is your role'),
-      validator: (String value){
-        if(value.isEmpty){
+      validator: (String value) {
+        if (value.isEmpty) {
           return 'Role is Required';
         }
       },
-      onSaved: (String value){
+      onSaved: (String value) {
         role = value;
       },
     );
   }
-
 
 //date and time function
   DateTime _dateFrom = DateTime.now();
@@ -64,10 +61,9 @@ class ExperienceScreenState extends State<ExperienceScreen> {
     final DateTime picked = await showDatePicker(
         context: context,
         initialDate: _dateFrom,
-        firstDate: DateTime(DateTime.now().year-5),
-        lastDate: DateTime(DateTime.now().year+5)
-    );
-    if( picked != null && picked != _dateFrom){
+        firstDate: DateTime(DateTime.now().year - 5),
+        lastDate: DateTime(DateTime.now().year + 5));
+    if (picked != null && picked != _dateFrom) {
       print('Selected: ${_dateFrom.toString()}');
       setState(() {
         _dateFrom = picked;
@@ -79,10 +75,9 @@ class ExperienceScreenState extends State<ExperienceScreen> {
     final DateTime picked = await showDatePicker(
         context: context,
         initialDate: _dateTo,
-        firstDate: DateTime(DateTime.now().year-5),
-        lastDate: DateTime(DateTime.now().year+5)
-    );
-    if( picked != null && picked != _dateTo){
+        firstDate: DateTime(DateTime.now().year - 5),
+        lastDate: DateTime(DateTime.now().year + 5));
+    if (picked != null && picked != _dateTo) {
       print('Selected: ${_dateTo.toString()}');
       setState(() {
         _dateTo = picked;
@@ -90,17 +85,27 @@ class ExperienceScreenState extends State<ExperienceScreen> {
     }
   }
 
-  buildFromTo(){
-    return  Row(
+  buildFromTo() {
+    return Row(
       children: [
-        CustomText(text: "From:", weight: FontWeight.bold,),
+        CustomText(
+          text: "From:",
+          weight: FontWeight.bold,
+        ),
         FlatButton(
-            onPressed: () {_selectDateFrom(context);},
+            onPressed: () {
+              _selectDateFrom(context);
+            },
             child: Text('${_dateFrom.month}, ${_dateFrom.year}')),
         Spacer(),
-        CustomText(text: "To:", weight: FontWeight.bold,),
+        CustomText(
+          text: "To:",
+          weight: FontWeight.bold,
+        ),
         FlatButton(
-            onPressed: () {_selectDateTo(context);},
+            onPressed: () {
+              _selectDateTo(context);
+            },
             child: Text('${_dateTo.month}, ${_dateTo.year}')),
       ],
     );
@@ -110,22 +115,23 @@ class ExperienceScreenState extends State<ExperienceScreen> {
   Widget buildWorkDesc() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Work description'),
-      validator: (String value){
-        if(value.isEmpty){
+      validator: (String value) {
+        if (value.isEmpty) {
           return 'Description is required';
         }
       },
-      onSaved: (String value){
+      onSaved: (String value) {
         wordDesc = value;
       },
     );
   }
 
 //programs function
-  Widget _buildPrograms(){
+  Widget _buildPrograms() {
     return Row(
       children: [
-        Text("Programs"), Spacer(),
+        Text("Programs"),
+        Spacer(),
         DropdownButton(
             value: programs,
             items: [
@@ -166,7 +172,10 @@ class ExperienceScreenState extends State<ExperienceScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Work Experience"), backgroundColor: primary,),
+        appBar: AppBar(
+          title: Text("Work Experience"),
+          backgroundColor: primary,
+        ),
         body: Container(
           margin: EdgeInsets.all(7),
           child: ListView(
@@ -187,52 +196,20 @@ class ExperienceScreenState extends State<ExperienceScreen> {
                       _buildPrograms(),
                     ],
                   )),
-
-              Padding(
-                padding: EdgeInsets.fromLTRB(10, 40, 10, 0),
-                child: Row(
-                  children: [
-                    RaisedButton(
-                      child: Text("Save and Exit", style: TextStyle(color: green, fontSize: 16)),
-                      onPressed: () {
-                        return  Alert(
-                          context: context,
-                          title: "Confirm",
-                          desc: "By clicking yes your information will be saved",
-                          buttons: [
-                            DialogButton(child: Text("Yes"), onPressed: () {Navigator.of(context).push(MaterialPageRoute(
-                                builder: (BuildContext context) => HomeScreen()));}, color: grey,),
-                            DialogButton(child: Text("No, Continue", style: TextStyle(color: white),), onPressed: () {Navigator.pop(context);}, color: primary,)
-                          ],
-                        ).show();
-                      },
-
-                    ),
-
-                    Spacer(),
-
-                    RaisedButton(
-                      child: Text("Continue", style: TextStyle(color: green, fontSize: 16)),
-                      onPressed: () => {
-                        if(!_formkey.currentState.validate()){
-
-                        }else{
-                          _formkey.currentState.save(),
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (BuildContext context) => QualificationScreen()))
-                        }
-
-                      },)
-                  ],
-                ),
-              )
+              Buttons(
+                  onPressed: () => {
+                        if (!_formkey.currentState.validate())
+                          {}
+                        else
+                          {
+                            _formkey.currentState.save(),
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    QualificationScreen())),
+                          }
+                      }),
             ],
           ),
-        )
-    );
+        ));
   }
-
 }
-
-
-

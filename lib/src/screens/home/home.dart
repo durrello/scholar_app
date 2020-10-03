@@ -5,7 +5,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:scholar_app/src/components/drawer_option.dart';
 import 'package:scholar_app/src/screens/account.dart';
 import 'package:scholar_app/src/screens/app_form/application_details.dart';
 import 'package:scholar_app/src/screens/app_form/apply.dart';
@@ -20,6 +19,7 @@ import 'package:scholar_app/src/screens/notifications.dart';
 import 'package:scholar_app/src/screens/preview.dart';
 import 'package:scholar_app/src/screens/profile.dart';
 import 'package:scholar_app/src/screens/settings.dart';
+import 'package:scholar_app/src/widgets/drawer_option.dart';
 
 
 //importing screens and reusable components
@@ -194,7 +194,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         image: Image.asset('assets/images/letters.png', height: 100, width: 100, ),
                         onPressed: () =>  Navigator.of(context).push(MaterialPageRoute(builder: (context) => new ApplicationScreen())),
                       ),
-
 
                               //submit button
                               Container(

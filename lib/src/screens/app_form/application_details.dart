@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:scholar_app/src/commons.dart';
-import 'package:scholar_app/src/screens/home/home.dart';
 import 'package:scholar_app/src/screens/preview.dart';
 import 'package:scholar_app/src/widgets/CustomHeader.dart';
 import 'package:scholar_app/src/widgets/CustomText.dart';
+import 'package:scholar_app/src/widgets/exit_continue_buttons.dart';
 
 class ApplicationScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return ApplicationScreenState();
   }
-
 }
-class ApplicationScreenState extends State<ApplicationScreen> {
 
+class ApplicationScreenState extends State<ApplicationScreen> {
   //dropdown initial state
   int campus = 1;
   int program = 1;
@@ -28,10 +26,11 @@ class ApplicationScreenState extends State<ApplicationScreen> {
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
 //gender function
-  Widget _buildCampus(){
+  Widget _buildCampus() {
     return Row(
       children: [
-        Text("Campus"), Spacer(),
+        Text("Campus"),
+        Spacer(),
         DropdownButton(
             value: campus,
             items: [
@@ -53,10 +52,11 @@ class ApplicationScreenState extends State<ApplicationScreen> {
     );
   }
 
-  Widget _buildPrograms(){
+  Widget _buildPrograms() {
     return Row(
       children: [
-        Text("Program"), Spacer(),
+        Text("Program"),
+        Spacer(),
         DropdownButton(
             value: program,
             items: [
@@ -94,11 +94,11 @@ class ApplicationScreenState extends State<ApplicationScreen> {
     );
   }
 
-
-  Widget _buildProfile(){
+  Widget _buildProfile() {
     return Row(
       children: [
-        Text("Profile"), Spacer(),
+        Text("Profile"),
+        Spacer(),
         DropdownButton(
             value: profile,
             items: [
@@ -116,15 +116,15 @@ class ApplicationScreenState extends State<ApplicationScreen> {
                 profile = value;
               });
             }),
-
       ],
     );
   }
 
-  Widget _buildStudyMode(){
+  Widget _buildStudyMode() {
     return Row(
       children: [
-        Text("Study Mode"), Spacer(),
+        Text("Study Mode"),
+        Spacer(),
         DropdownButton(
             value: studyMode,
             items: [
@@ -142,11 +142,9 @@ class ApplicationScreenState extends State<ApplicationScreen> {
                 studyMode = value;
               });
             }),
-
       ],
     );
   }
-
 
 //date and time function
   DateTime _dateFrom = DateTime.now();
@@ -156,10 +154,9 @@ class ApplicationScreenState extends State<ApplicationScreen> {
     final DateTime picked = await showDatePicker(
         context: context,
         initialDate: _dateFrom,
-        firstDate: DateTime(DateTime.now().year-5),
-        lastDate: DateTime(DateTime.now().year+5)
-    );
-    if( picked != null && picked != _dateFrom){
+        firstDate: DateTime(DateTime.now().year - 5),
+        lastDate: DateTime(DateTime.now().year + 5));
+    if (picked != null && picked != _dateFrom) {
       print('Selected: ${_dateFrom.toString()}');
       setState(() {
         _dateFrom = picked;
@@ -171,10 +168,9 @@ class ApplicationScreenState extends State<ApplicationScreen> {
     final DateTime picked = await showDatePicker(
         context: context,
         initialDate: _dateTo,
-        firstDate: DateTime(DateTime.now().year-5),
-        lastDate: DateTime(DateTime.now().year+5)
-    );
-    if( picked != null && picked != _dateTo){
+        firstDate: DateTime(DateTime.now().year - 5),
+        lastDate: DateTime(DateTime.now().year + 5));
+    if (picked != null && picked != _dateTo) {
       print('Selected: ${_dateTo.toString()}');
       setState(() {
         _dateTo = picked;
@@ -182,27 +178,39 @@ class ApplicationScreenState extends State<ApplicationScreen> {
     }
   }
 
-  buildFromTo(){
-    return  Row(
+  buildFromTo() {
+    return Row(
       children: [
-        CustomText(text: "From:", weight: FontWeight.bold,),
+        CustomText(
+          text: "From:",
+          weight: FontWeight.bold,
+        ),
         FlatButton(
-            onPressed: () {_selectDateFrom(context);},
+            onPressed: () {
+              _selectDateFrom(context);
+            },
             child: Text('${_dateFrom.month}, ${_dateFrom.year}')),
         Spacer(),
-        CustomText(text: "To:", weight: FontWeight.bold,),
+        CustomText(
+          text: "To:",
+          weight: FontWeight.bold,
+        ),
         FlatButton(
-            onPressed: () {_selectDateTo(context);},
+            onPressed: () {
+              _selectDateTo(context);
+            },
             child: Text('${_dateTo.month}, ${_dateTo.year}')),
       ],
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Application Details"), backgroundColor: primary,),
+        appBar: AppBar(
+          title: Text("Application Details"),
+          backgroundColor: primary,
+        ),
         body: Container(
           margin: EdgeInsets.all(7),
           child: ListView(
@@ -212,7 +220,7 @@ class ApplicationScreenState extends State<ApplicationScreen> {
                   child: Column(
                     // mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                     CustomHeader(text: "Application Details"),
+                      CustomHeader(text: "Application Details"),
                       _buildCampus(),
                       _buildPrograms(),
                       _buildProfile(),
@@ -220,52 +228,12 @@ class ApplicationScreenState extends State<ApplicationScreen> {
                       buildFromTo(),
                     ],
                   )),
-
-              Padding(
-                padding: EdgeInsets.all(10),
-                child: Row(
-                  children: [
-                    RaisedButton(
-                      child: CustomText(text: "Save and Exit", color: green),
-                      onPressed: () {
-                        return  Alert(
-                          context: context,
-                          title: "Confirm",
-                          desc: "By clicking yes your information will be saved",
-                          buttons: [
-                            DialogButton(child: Text("Yes"), onPressed: () {Navigator.of(context).push(MaterialPageRoute(
-                                builder: (BuildContext context) => HomeScreen()));}, color: grey,),
-                            DialogButton(child: CustomText(text: "No, Continue", color: white, textAlign: TextAlign.center) , onPressed: () {Navigator.pop(context);}, color: primary,)
-                          ],
-                        ).show();
-                      },
-
-                    ),
-
-                    Spacer(),
-
-                    RaisedButton(
-                      child: CustomText(text: "Continue", color: green,),
-                      onPressed: () => {
-                        if(!_formkey.currentState.validate()){
-
-                        }else{
-                          _formkey.currentState.save(),
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (BuildContext context) => PreviewScreen()))
-                        }
-
-                      },)
-                  ],
-                ),
+              Buttons(
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => new PreviewScreen())),
               )
             ],
           ),
-        )
-    );
+        ));
   }
-
 }
-
-
-

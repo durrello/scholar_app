@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:scholar_app/src/commons.dart';
 import 'package:scholar_app/src/screens/app_form/experience.dart';
-import 'package:scholar_app/src/screens/home/home.dart';
 import 'package:scholar_app/src/widgets/CustomHeader.dart';
+import 'package:scholar_app/src/widgets/exit_continue_buttons.dart';
 
 class GuardianInfoScreen extends StatefulWidget {
   @override
@@ -258,44 +257,18 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
                     ],
                   )),
 
-              Padding(
-                padding: EdgeInsets.all(40),
-                child: Row(
-                  children: [
-                    RaisedButton(
-                      child: Text("Save and Exit", style: TextStyle(color: green, fontSize: 16)),
-                      onPressed: () {
-                        return  Alert(
-                          context: context,
-                          title: "Confirm",
-                          desc: "By clicking yes your information will be saved",
-                          buttons: [
-                            DialogButton(child: Text("Yes"), onPressed: () {Navigator.of(context).push(MaterialPageRoute(
-                                builder: (BuildContext context) => HomeScreen()));}, color: grey,),
-                            DialogButton(child: Text("No, Continue", style: TextStyle(color: white),), onPressed: () {Navigator.pop(context);}, color: primary,)
-                          ],
-                        ).show();
-                      },
-
-                    ),
-
-                    Spacer(),
-
-                    RaisedButton(
-                      child: Text("Continue", style: TextStyle(color: green, fontSize: 16)),
-                      onPressed: () => {
-                        if(!_formkey.currentState.validate()){
-
-                        }else{
-                          _formkey.currentState.save(),
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (BuildContext context) => ExperienceScreen()))
-                        }
-
-                      },)
-                  ],
-                ),
-              )
+                  Buttons(
+                  onPressed: () => {
+                        if (!_formkey.currentState.validate())
+                          {}
+                        else
+                          {
+                            _formkey.currentState.save(),
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    ExperienceScreen())),
+                          }
+                      }),
             ],
           ),
         )

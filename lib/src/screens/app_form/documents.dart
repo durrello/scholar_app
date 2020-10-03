@@ -2,51 +2,46 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:scholar_app/src/commons.dart';
 import 'package:scholar_app/src/screens/app_form/application_details.dart';
-import 'package:scholar_app/src/screens/home/home.dart';
 import 'package:scholar_app/src/widgets/CustomHeader.dart';
-import 'package:scholar_app/src/widgets/CustomText.dart';
+import 'package:scholar_app/src/widgets/exit_continue_buttons.dart';
 
 class DocumentScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return DocumentScreenState();
   }
-
 }
-class DocumentScreenState extends State<DocumentScreen> {
 
+class DocumentScreenState extends State<DocumentScreen> {
   String title;
 
   //dropdown initial state
   int programs = 1;
   int upload = 1;
 
-
-
-
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
   Widget _buildDocumentTitle() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Document Title'),
-      validator: (String value){
-        if(value.isEmpty && value.length < 6){
+      validator: (String value) {
+        if (value.isEmpty && value.length < 6) {
           return 'Title is required';
         }
       },
-      onSaved: (String value){
+      onSaved: (String value) {
         title = value;
       },
     );
   }
 
-  Widget _buildPrograms(){
+  Widget _buildPrograms() {
     return Row(
       children: [
-        Text("Academic Program"), Spacer(),
+        Text("Academic Program"),
+        Spacer(),
         DropdownButton(
             value: programs,
             items: [
@@ -80,7 +75,6 @@ class DocumentScreenState extends State<DocumentScreen> {
                 programs = value;
               });
             }),
-
       ],
     );
   }
@@ -102,8 +96,7 @@ class DocumentScreenState extends State<DocumentScreen> {
   }
 
   void _openFileExplorer() async {
-    if (_pickingType != FileType.any
-     || _hasValidMime) {
+    if (_pickingType != FileType.any || _hasValidMime) {
       setState(() => _loadingPath = true);
       try {
         if (_multiPick) {
@@ -126,12 +119,11 @@ class DocumentScreenState extends State<DocumentScreen> {
     }
   }
 
-  Widget _buildUploadFile(){
+  Widget _buildUploadFile() {
     return Row(
       children: [
-        Text("Upload File"), Spacer(),
-
-
+        Text("Upload File"),
+        Spacer(),
         Container(
           child: Center(
               child: Column(
@@ -139,7 +131,7 @@ class DocumentScreenState extends State<DocumentScreen> {
               new Padding(
                 padding: const EdgeInsets.only(top: 50.0, bottom: 20.0),
                 child: new RaisedButton(
-                   onPressed: () => _openFileExplorer(),
+                  onPressed: () => _openFileExplorer(),
                   child: new Text("Choose"),
                 ),
               ),
@@ -185,7 +177,6 @@ class DocumentScreenState extends State<DocumentScreen> {
             ],
           )),
         ),
-
       ],
     );
   }
@@ -193,7 +184,10 @@ class DocumentScreenState extends State<DocumentScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Documents"), backgroundColor: primary,),
+        appBar: AppBar(
+          title: Text("Documents"),
+          backgroundColor: primary,
+        ),
         body: Container(
           margin: EdgeInsets.all(7),
           child: ListView(
@@ -210,32 +204,8 @@ class DocumentScreenState extends State<DocumentScreen> {
                     ],
                   )),
 
-              Padding(
-                padding: EdgeInsets.fromLTRB(10, 40, 10, 0),
-                child: Row(
-                  children: [
-                    RaisedButton(
-                      child: CustomText(text: "Save and Exit", color: green,),
-                      onPressed: () {
-                        return  Alert(
-                          context: context,
-                          title: "Confirm",
-                          desc: "By clicking yes your information will be saved",
-                          buttons: [
-                            DialogButton(child: Text("Yes"), onPressed: () {Navigator.of(context).push(MaterialPageRoute(
-                                builder: (BuildContext context) => HomeScreen()));}, color: grey,),
-                            DialogButton(child: Text("No, Continue", style: TextStyle(color: white),), onPressed: () {Navigator.pop(context);}, color: primary,)
-                          ],
-                        ).show();
-                      },
-
-                    ),
-
-                    Spacer(),
-
-                    RaisedButton(
-                      child: Text("Continue", style: TextStyle(color: Colors.green, fontSize: 16)),
-                      onPressed: () => {
+              Buttons(
+                onPressed: () => {
                         if(!_formkey.currentState.validate()){
 
                         }else{
@@ -243,14 +213,10 @@ class DocumentScreenState extends State<DocumentScreen> {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (BuildContext context) => ApplicationScreen()))
                         }
-                      },)
-                  ],
-                ),
+                      },
               )
             ],
           ),
-        )
-    );
+        ));
   }
-
 }
