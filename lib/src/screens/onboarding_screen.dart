@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+
+//imported 3rd party packages
 import 'package:flutter_overboard/flutter_overboard.dart';
 import 'package:hexcolor/hexcolor.dart';
+
+//imported screens
 import 'package:scholar_app/src/screens/auth/signup.dart';
 
 class OnboardingScreen extends StatefulWidget {

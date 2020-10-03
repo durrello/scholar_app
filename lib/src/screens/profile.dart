@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
+
+//imported custom widgets and commons
 import 'package:scholar_app/src/commons.dart';
+
+//imported 3rd party packages
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override

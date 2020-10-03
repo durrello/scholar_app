@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
-//importing installed packages
+//imported 3rd party packages
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
-import 'package:hexcolor/hexcolor.dart';
+import 'package:scholar_app/src/commons.dart';
+
+//imported screens
 import 'package:scholar_app/src/screens/account.dart';
 import 'package:scholar_app/src/screens/app_form/application_details.dart';
 import 'package:scholar_app/src/screens/app_form/apply.dart';
@@ -19,6 +21,8 @@ import 'package:scholar_app/src/screens/notifications.dart';
 import 'package:scholar_app/src/screens/preview.dart';
 import 'package:scholar_app/src/screens/profile.dart';
 import 'package:scholar_app/src/screens/settings.dart';
+
+//imported custom widgets and commons
 import 'package:scholar_app/src/widgets/drawer_option.dart';
 
 
@@ -38,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
         appBar: new AppBar(
           elevation: 0.0,
-          backgroundColor: Hexcolor("#98C429"),
+          backgroundColor: primary,
           title: Text("SCHOLAR", textAlign: TextAlign.end,),
           actions: [
             InkWell(
@@ -60,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 accountEmail: Text("gemuhd@gmail.com"),
                 currentAccountPicture: GestureDetector(
                   child: new CircleAvatar(
-                    backgroundColor: Colors.white,
+                    backgroundColor: white,
                     child: Image(
                       image: AssetImage("assets/images/profile_picture.jpg"),
                     ),
@@ -79,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
                 decoration: new BoxDecoration(
-                    color: Hexcolor("98C429"),
+                    color: primary,
                     image: DecorationImage(image: AssetImage("assets/images/logo.png"),)
                 ),
               ),
@@ -175,7 +179,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       HomeCard(
                         text: "\nQualifications",
                         iconData: Icons.help,
-                        colors: Colors.redAccent,
+                        colors: red,
                         image:   Image.asset('assets/images/qualification.png', height: 80, width: 100, ),
                         onPressed: () =>  Navigator.of(context).push(MaterialPageRoute(builder: (context) => new QualificationScreen())),
                       ),
@@ -183,7 +187,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       HomeCard(
                         text: "Documents",
                         iconData: Icons.close,
-                        colors: Colors.redAccent,
+                        colors: red,
                         image: Image.asset('assets/images/docs.png', height: 100, width: 100, ),
                         onPressed: () =>  Navigator.of(context).push(MaterialPageRoute(builder: (context) => new DocumentScreen())),
                       ),
@@ -199,7 +203,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               Container(
                                 margin: EdgeInsets.all(10),
                                 child: FlatButton(
-                                    color: Hexcolor("#98C429"),
+                                    color: primary,
                                     onPressed: () {
                                       return  Alert(
                                           context: context,

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+//imported custom widgets and commons
 import 'package:scholar_app/src/commons.dart';
 
 class HomeCard extends StatelessWidget {

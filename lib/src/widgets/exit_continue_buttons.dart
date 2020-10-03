@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+
+//imported 3rd party packages
 import 'package:rflutter_alert/rflutter_alert.dart';
-import 'package:scholar_app/src/commons.dart';
+
+//imported screens
 import 'package:scholar_app/src/screens/home/home.dart';
+
+//imported custom widgets and commons
+import 'package:scholar_app/src/commons.dart';
 import 'package:scholar_app/src/widgets/CustomText.dart';
 
 class Buttons extends StatelessWidget {

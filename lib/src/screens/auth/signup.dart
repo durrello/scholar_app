@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+//imported custom widgets and commons
 import 'package:scholar_app/src/commons.dart';
+
+//imported models
 import 'package:scholar_app/src/models/campus.dart';
+
+//imported screens
 import 'package:scholar_app/src/screens/auth/login.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -152,7 +157,7 @@ class SignupScreenState extends State<SignupScreen> {
                           margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
                           child: RaisedButton(
                             color: primary,
-                            child: Text("Sign Up", style: TextStyle(color: Colors.white, fontSize: 16)),
+                            child: Text("Sign Up", style: TextStyle(color: white, fontSize: 16)),
                             onPressed: () => {},),
                         ),
 

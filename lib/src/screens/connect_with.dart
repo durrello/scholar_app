@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+
+//imported 3rd party packages
 import 'package:rflutter_alert/rflutter_alert.dart';
+
+//imported custom widgets and commons
 import 'package:scholar_app/src/commons.dart';
 import 'package:scholar_app/src/widgets/CustomHeader.dart';
 

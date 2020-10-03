@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:hexcolor/hexcolor.dart';
+
+
+//imported 3rd party packages
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:scholar_app/src/commons.dart';
+
+//imported screens
 import 'package:scholar_app/src/screens/home/home.dart';
 
 class RetrivePasswordScreen extends StatefulWidget {
@@ -119,8 +124,8 @@ class _RetrivePasswordState extends State<RetrivePasswordScreen> {
                       Container(
                         margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
                         child: FlatButton(
-                          color: Colors.grey,
-                          splashColor: Hexcolor("#98C429"),
+                          color: grey,
+                          splashColor: primary,
                           onPressed: () {
                             if (!_formkey.currentState.validate()) {
                             } else {

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:hexcolor/hexcolor.dart';
 
 //imported 3rd party packages
 import 'package:google_sign_in/google_sign_in.dart';

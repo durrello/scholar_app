@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+
+//imported custom widgets and commons
 import 'package:scholar_app/src/commons.dart';
+
+//imported 3rd party packages
 import 'package:settings_ui/settings_ui.dart';
 
 class LanguagesScreen extends StatefulWidget {

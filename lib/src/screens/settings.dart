@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+
+//imported custom widgets and commons
 import 'package:scholar_app/src/commons.dart';
+
+//imported screens
 import 'package:scholar_app/src/screens/language.dart';
+
+//imported 3rd party packages
 import 'package:settings_ui/settings_ui.dart';
 
 class SettingsScreen extends StatefulWidget {
