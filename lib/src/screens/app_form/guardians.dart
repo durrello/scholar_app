@@ -4,6 +4,7 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:scholar_app/src/commons.dart';
 import 'package:scholar_app/src/screens/app_form/experience.dart';
 import 'package:scholar_app/src/screens/home/home.dart';
+import 'package:scholar_app/src/widgets/CustomHeader.dart';
 
 class GuardianInfoScreen extends StatefulWidget {
   @override
@@ -242,7 +243,7 @@ class GuardianInfoScreenState extends State<GuardianInfoScreen> {
                   child: Column(
                     // mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Guardian Details", style: TextStyle(fontWeight: FontWeight.bold),),
+                      CustomHeader(text: "Guardian Details"),
                       _buildFullNames(),
                       _buildWhomToYou(),
                       _buildEducation(),

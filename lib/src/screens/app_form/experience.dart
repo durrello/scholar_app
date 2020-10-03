@@ -4,6 +4,8 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:scholar_app/src/commons.dart';
 import 'package:scholar_app/src/screens/app_form/qualifications.dart';
 import 'package:scholar_app/src/screens/home/home.dart';
+import 'package:scholar_app/src/widgets/CustomHeader.dart';
+import 'package:scholar_app/src/widgets/CustomText.dart';
 
 class ExperienceScreen extends StatefulWidget {
   @override
@@ -91,12 +93,12 @@ class ExperienceScreenState extends State<ExperienceScreen> {
   buildFromTo(){
     return  Row(
       children: [
-        Text("From:", style: TextStyle(fontWeight: FontWeight.bold),),
+        CustomText(text: "From:", weight: FontWeight.bold,),
         FlatButton(
             onPressed: () {_selectDateFrom(context);},
             child: Text('${_dateFrom.month}, ${_dateFrom.year}')),
         Spacer(),
-        Text("To"),
+        CustomText(text: "To:", weight: FontWeight.bold,),
         FlatButton(
             onPressed: () {_selectDateTo(context);},
             child: Text('${_dateTo.month}, ${_dateTo.year}')),
@@ -174,14 +176,14 @@ class ExperienceScreenState extends State<ExperienceScreen> {
                   child: Column(
                     // mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Work Experience", style: TextStyle(fontWeight: FontWeight.bold),),
+                      CustomHeader(text: "Work Experience"),
                       _buildCompany(),
                       _buildRole(),
                       buildFromTo(),
                       buildWorkDesc(),
                       Container(
                           margin: EdgeInsets.fromLTRB(0, 30, 0, 5),
-                          child: Text("Relation with Academics", style: TextStyle(fontWeight: FontWeight.bold),)),
+                          child: CustomHeader(text: "Relation with Academics")),
                       _buildPrograms(),
                     ],
                   )),

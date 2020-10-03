@@ -22,7 +22,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               title: Text("Name"),
               subtitle:  TextField(
                 decoration: InputDecoration(
-                    hintText: 'Durrell Gemuh'
+                    hintText: 'John Doe'
                 ),
               ),
             ),
@@ -34,7 +34,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               title: Text("Email"),
               subtitle:  TextField(
                 decoration: InputDecoration(
-                    hintText: 'gemuhd@gmail.com'
+                    hintText: 'johndoe@gmail.com'
                 ),
               ),
             ),
@@ -58,7 +58,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               title: Text("Address"),
               subtitle:  TextField(
                 decoration: InputDecoration(
-                    hintText: 'Buea, Cameroon'
+                    hintText: 'Town, Country'
                 ),
               ),
             ),

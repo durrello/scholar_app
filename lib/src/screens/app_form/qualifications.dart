@@ -4,6 +4,7 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:scholar_app/src/commons.dart';
 import 'package:scholar_app/src/screens/app_form/documents.dart';
 import 'package:scholar_app/src/screens/home/home.dart';
+import 'package:scholar_app/src/widgets/CustomHeader.dart';
 
 class QualificationScreen extends StatefulWidget {
   @override
@@ -157,7 +158,7 @@ class QualificationScreenState extends State<QualificationScreen> {
                     children: [
                       Container(
                           margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
-                          child: Text("Qualification Details", style: TextStyle(fontWeight: FontWeight.bold),)),
+                          child: CustomHeader(text: "Qualification Details")),
                       _buildInstitution(),
                       buildFromTo(),
                       _buildQualification(),

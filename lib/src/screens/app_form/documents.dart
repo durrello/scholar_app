@@ -6,6 +6,8 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:scholar_app/src/commons.dart';
 import 'package:scholar_app/src/screens/app_form/application_details.dart';
 import 'package:scholar_app/src/screens/home/home.dart';
+import 'package:scholar_app/src/widgets/CustomHeader.dart';
+import 'package:scholar_app/src/widgets/CustomText.dart';
 
 class DocumentScreen extends StatefulWidget {
   @override
@@ -196,6 +198,7 @@ class DocumentScreenState extends State<DocumentScreen> {
           margin: EdgeInsets.all(7),
           child: ListView(
             children: [
+              Center(child: CustomHeader(text: "Application documents")),
               Form(
                   key: _formkey,
                   child: Column(
@@ -212,7 +215,7 @@ class DocumentScreenState extends State<DocumentScreen> {
                 child: Row(
                   children: [
                     RaisedButton(
-                      child: Text("Save and Exit", style: TextStyle(color: green, fontSize: 16)),
+                      child: CustomText(text: "Save and Exit", color: green,),
                       onPressed: () {
                         return  Alert(
                           context: context,

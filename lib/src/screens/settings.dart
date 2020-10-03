@@ -4,7 +4,6 @@ import 'package:scholar_app/src/commons.dart';
 import 'package:scholar_app/src/screens/language.dart';
 import 'package:settings_ui/settings_ui.dart';
 
-
 class SettingsScreen extends StatefulWidget {
   @override
   _SettingsScreenState createState() => _SettingsScreenState();
@@ -17,55 +16,66 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Settings'), backgroundColor: primary,),
+      appBar: AppBar(
+        title: Text('Settings'),
+        backgroundColor: primary,
+      ),
       body: SettingsList(
-        // backgroundColor: Colors.orange,
         sections: [
           SettingsSection(
-
-           // title: 'Common',
-            // titleTextStyle: TextStyle(fontSize: 30),
             tiles: [
               SettingsTile(
                 title: 'Language',
                 subtitle: 'English',
-                leading: Icon(Icons.language, color: primary,),
+                leading: Icon(
+                  Icons.language,
+                  color: primary,
+                ),
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (BuildContext context) => LanguagesScreen()));
                 },
               ),
-//              SettingsTile(
-//                title: 'Environment',
-//                subtitle: 'Production',
-//                leading: Icon(Icons.cloud_queue),
-//                onTap: () => print('e'),
-//              ),
             ],
-
           ),
           SettingsSection(
-           // title: 'Account',
+            // title: 'Account',
             tiles: [
-              SettingsTile(title: 'Phone number', leading: Icon(Icons.phone, color: primary,)),
-              SettingsTile(title: 'Email', leading: Icon(Icons.email, color: primary,)),
-              SettingsTile(title: 'Sign out', leading: Icon(Icons.exit_to_app, color: primary,)),
+              SettingsTile(
+                  title: 'Phone number',
+                  subtitle: 'xxx-xxx-xxx',
+                  leading: Icon(
+                    Icons.phone,
+                    color: primary,
+                  )),
+              SettingsTile(
+                  title: 'Email',
+                  subtitle: 'johndoe@gmail.com',
+                  leading: Icon(
+                    Icons.email,
+                    color: primary,
+                  )),
             ],
           ),
           SettingsSection(
 //            title: 'Security',
             tiles: [
-
               SettingsTile.switchTile(
                 title: 'Change password',
-                leading: Icon(Icons.lock, color: primary,),
+                leading: Icon(
+                  Icons.lock,
+                  color: primary,
+                ),
                 switchValue: false,
                 onToggle: (bool value) {},
               ),
               SettingsTile.switchTile(
                 title: 'Enable Notifications',
                 enabled: notificationsEnabled,
-                leading: Icon(Icons.notifications_active, color: primary,),
+                leading: Icon(
+                  Icons.notifications_active,
+                  color: primary,
+                ),
                 switchValue: true,
                 onToggle: (value) {},
               ),
@@ -75,7 +85,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
 //            title: 'Misc',
             tiles: [
               SettingsTile(
-                  title: 'Terms of Service', leading: Icon(Icons.description, color: primary)),
+                  title: 'Terms of Service',
+                  leading: Icon(Icons.description, color: primary)),
+              SettingsTile(
+                  title: 'Sign out',
+                  leading: Icon(
+                    Icons.exit_to_app,
+                    color: primary,
+                  )),
             ],
           ),
           CustomSection(

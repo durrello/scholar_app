@@ -4,6 +4,8 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:scholar_app/src/commons.dart';
 import 'package:scholar_app/src/screens/home/home.dart';
 import 'package:scholar_app/src/screens/preview.dart';
+import 'package:scholar_app/src/widgets/CustomHeader.dart';
+import 'package:scholar_app/src/widgets/CustomText.dart';
 
 class ApplicationScreen extends StatefulWidget {
   @override
@@ -183,12 +185,12 @@ class ApplicationScreenState extends State<ApplicationScreen> {
   buildFromTo(){
     return  Row(
       children: [
-        Text("From:", style: TextStyle(fontWeight: FontWeight.bold),),
+        CustomText(text: "From:", weight: FontWeight.bold,),
         FlatButton(
             onPressed: () {_selectDateFrom(context);},
             child: Text('${_dateFrom.month}, ${_dateFrom.year}')),
         Spacer(),
-        Text("To"),
+        CustomText(text: "To:", weight: FontWeight.bold,),
         FlatButton(
             onPressed: () {_selectDateTo(context);},
             child: Text('${_dateTo.month}, ${_dateTo.year}')),
@@ -210,7 +212,7 @@ class ApplicationScreenState extends State<ApplicationScreen> {
                   child: Column(
                     // mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Application Details", style: TextStyle(fontWeight: FontWeight.bold),),
+                     CustomHeader(text: "Application Details"),
                       _buildCampus(),
                       _buildPrograms(),
                       _buildProfile(),
@@ -224,7 +226,7 @@ class ApplicationScreenState extends State<ApplicationScreen> {
                 child: Row(
                   children: [
                     RaisedButton(
-                      child: Text("Save and Exit", style: TextStyle(color: green, fontSize: 16)),
+                      child: CustomText(text: "Save and Exit", color: green),
                       onPressed: () {
                         return  Alert(
                           context: context,
@@ -233,7 +235,7 @@ class ApplicationScreenState extends State<ApplicationScreen> {
                           buttons: [
                             DialogButton(child: Text("Yes"), onPressed: () {Navigator.of(context).push(MaterialPageRoute(
                                 builder: (BuildContext context) => HomeScreen()));}, color: grey,),
-                            DialogButton(child: Text("No, Continue", style: TextStyle(color: white), textAlign: TextAlign.center,), onPressed: () {Navigator.pop(context);}, color: primary,)
+                            DialogButton(child: CustomText(text: "No, Continue", color: white, textAlign: TextAlign.center) , onPressed: () {Navigator.pop(context);}, color: primary,)
                           ],
                         ).show();
                       },
@@ -243,7 +245,7 @@ class ApplicationScreenState extends State<ApplicationScreen> {
                     Spacer(),
 
                     RaisedButton(
-                      child: Text("Continue", style: TextStyle(color: green, fontSize: 16)),
+                      child: CustomText(text: "Continue", color: green,),
                       onPressed: () => {
                         if(!_formkey.currentState.validate()){
 

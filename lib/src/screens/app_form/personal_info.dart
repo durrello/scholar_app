@@ -4,6 +4,7 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:scholar_app/src/commons.dart';
 import 'package:scholar_app/src/screens/app_form/guardians.dart';
 import 'package:scholar_app/src/screens/home/home.dart';
+import 'package:scholar_app/src/widgets/CustomHeader.dart';
 class PersonalInfoScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -497,7 +498,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
                 child: Column(
                   // mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Personal Details", style: TextStyle(fontWeight: FontWeight.bold),),
+                    CustomHeader(text: "Personal Details"),
                     _buildProfileTitle(),
                     _buildFirstName(),
                     _buildMiddleName(),
@@ -513,7 +514,7 @@ class PersonalInfoScreenState extends State<PersonalInfoScreen> {
                     Divider(),
                     Container(
                         margin: EdgeInsets.fromLTRB(0, 20, 0, 5),
-                        child: Text("Contact Details", style: TextStyle(fontWeight: FontWeight.bold),)),
+                        child: CustomHeader(text: "Contact Details"),),
                     _buildPresentAddress(),
                     _buildPermanentAddress(),
                     _buildCountry(),

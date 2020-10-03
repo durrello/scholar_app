@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:scholar_app/src/commons.dart';
+import 'package:scholar_app/src/widgets/CustomHeader.dart';
 
 class ConnectWith extends StatefulWidget {
   @override
@@ -14,9 +15,13 @@ class _ConnectWithState extends State<ConnectWith> {
       appBar: AppBar(title: Text("Connect With"), backgroundColor: primary,),
       body:  Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
+        child: ListView(
           children: [
-            Text("You can connect multiple accounts to be able to log in using them.",  textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
+            Container(
+                margin: EdgeInsets.all(10),
+                child: Center(
+                  child: CustomHeader(text: "You can connect multiple accounts to be able to log in using them.")
+                ) ),
             InkWell(
               child: Card(
                 margin: EdgeInsets.fromLTRB(5, 20, 5, 5),

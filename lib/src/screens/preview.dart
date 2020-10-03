@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scholar_app/src/commons.dart';
+import 'package:scholar_app/src/widgets/CustomHeader.dart';
 
 class PreviewScreen extends StatelessWidget {
   @override
@@ -11,7 +12,9 @@ class PreviewScreen extends StatelessWidget {
           children: [
             Container(
                 margin: EdgeInsets.all(10),
-                child: Text("Preview of application in progress", textAlign: TextAlign.center,)),
+                child: Center(
+                  child: CustomHeader(text: "Preview of application in progress")
+                ) ),
 
             ListTile(
               title: Text("Name"),

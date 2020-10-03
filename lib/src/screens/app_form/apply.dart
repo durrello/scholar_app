@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:scholar_app/src/commons.dart';
 import 'package:scholar_app/src/screens/app_form/personal_info.dart';
+import 'package:scholar_app/src/widgets/CustomHeader.dart';
+import 'package:scholar_app/src/widgets/CustomText.dart';
 
 class ApplyScreen extends StatefulWidget {
   @override
@@ -20,11 +21,11 @@ class _ApplyScreenState extends State<ApplyScreen> {
               children: [
                 Column (
                   children: [
-                    Text("Applications In Progress",  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
+                    CustomHeader(text: "Applications In Progress"),
 
                     Divider(),
                     ListTile(
-                      title: Text("Jonh Doe", style: TextStyle(fontWeight: FontWeight.bold),),
+                      title: CustomText(text: "Jonh Doe", weight: FontWeight.bold),
                       subtitle: Text("First Name: John \nLast Name: Doe"),
                       trailing: Icon(Icons.rotate_left, color: primary,),
                     ),
@@ -52,7 +53,7 @@ class _ApplyScreenState extends State<ApplyScreen> {
 
               Column (
                 children: [
-                  Text("Completed Applications",  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
+                  CustomHeader(text: "Completed Applications"),
 
                   Divider(),
                   ListTile(
