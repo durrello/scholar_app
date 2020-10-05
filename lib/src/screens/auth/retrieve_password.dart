@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-
 //imported 3rd party packages
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:scholar_app/src/commons.dart';
@@ -27,8 +26,9 @@ class _RetrivePasswordState extends State<RetrivePasswordScreen> {
     return Container(
       margin: EdgeInsets.fromLTRB(10, 5, 10, 10),
       child: TextFormField(
-        decoration:
-            InputDecoration(labelText: 'Email',),
+        decoration: InputDecoration(
+          labelText: 'Email',
+        ),
         keyboardType: TextInputType.emailAddress,
         validator: (String value) {
           if (value.isEmpty) {
@@ -53,28 +53,28 @@ class _RetrivePasswordState extends State<RetrivePasswordScreen> {
 
   Widget verify() {
     var validator = (String value) {
-                    // ignore: missing_return
-                    if (value.isEmpty) {
-                      return 'Code is require';
-                    }
-                    if (value.length < 6) {
-                      return 'Enter a valid code';
-                    }
-                    if (value.length > 6) {
-                      return 'Enter a valid code';
-                    }
-                  };
-        Alert(
-          context: context,
-          title: "Enter Verification code",
-          content: Form(
-            child: Column(
-              children: [
-                TextFormField(
-                  decoration: InputDecoration(
-                      labelText: "Code", border: OutlineInputBorder()),
-                  keyboardType: TextInputType.number,
-                  validator: validator,
+      // ignore: missing_return
+      if (value.isEmpty) {
+        return 'Code is require';
+      }
+      if (value.length < 6) {
+        return 'Enter a valid code';
+      }
+      if (value.length > 6) {
+        return 'Enter a valid code';
+      }
+    };
+    Alert(
+      context: context,
+      title: "Enter Verification code",
+      content: Form(
+        child: Column(
+          children: [
+            TextFormField(
+              decoration: InputDecoration(
+                  labelText: "Code", border: OutlineInputBorder()),
+              keyboardType: TextInputType.number,
+              validator: validator,
               onSaved: (String value) {
                 code = value;
               },
@@ -127,16 +127,16 @@ class _RetrivePasswordState extends State<RetrivePasswordScreen> {
                       _buildEmailField(),
                       Container(
                         margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                        child: FlatButton(
-                          color: grey,
-                          splashColor: primary,
+                        child: RaisedButton(
+                          //color: grey,
                           onPressed: () {
                             if (!_formkey.currentState.validate()) {
                             } else {
                               return verify();
                             }
                           },
-                          child: Text("SUBMIT"),
+                          child: Text("SUBMIT",
+                              style: TextStyle(color: green, fontSize: 16)),
                         ),
                       ),
                     ],

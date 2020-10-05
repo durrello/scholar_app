@@ -6,7 +6,7 @@ class PhoneNumberForm extends StatefulWidget {
 }
 
 class _PhoneNumberFormState extends State<PhoneNumberForm> {
-  int phone;
+  String phone;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class _PhoneNumberFormState extends State<PhoneNumberForm> {
           }
         },
         onSaved: (String value){
-          phone = value as int;
+          phone = value;
         },
       );
   }

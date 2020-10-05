@@ -23,7 +23,6 @@ class SignupScreen extends StatefulWidget {
 }
 
 class SignupScreenState extends State<SignupScreen> {
-  String name;
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
@@ -83,23 +82,17 @@ class SignupScreenState extends State<SignupScreen> {
                   PhoneNumberForm(),
                   UserNameForm(),
                   Campus(),
+
                   Container(
                     margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
                     child: RaisedButton(
-                      child: Text("SIGNUP",
-                          style: TextStyle(color: green, fontSize: 16)),
+                      child: Text("SIGNUP",style: TextStyle(color: green, fontSize: 16)),
                       onPressed: () => {
-                        if (!_formkey.currentState.validate())
-                          {}
-                        else
-                          {
-                            _formkey.currentState.save(),
-                            Navigator.of(context).pushReplacement(
+                         Navigator.of(context).pushReplacement(
                                 MaterialPageRoute(
                                     builder: (BuildContext context) =>
                                         LoginScreen()))
-                          }
-                      },
+                        }
                     ),
                   ),
                   _buildConnectWith(),
