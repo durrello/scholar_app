@@ -17,11 +17,6 @@ class PreviewScreen extends StatelessWidget {
                 child: Center(
                   child: CustomHeader(text: "Preview of application in progress")
                 ) ),
-
-            ListTile(
-              title: Text("Name"),
-            )
-
           ],
         ),
       ),
