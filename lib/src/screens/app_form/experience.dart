@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+
 //imported screens
 import 'package:scholar_app/src/screens/app_form/qualifications.dart';
 
@@ -12,6 +13,9 @@ import 'package:scholar_app/src/commons.dart';
 //imported models
 import 'package:scholar_app/src/models/date_from_to.dart';
 import 'package:scholar_app/src/models/programs.dart';
+import 'package:scholar_app/src/models/validation/company_name.dart';
+import 'package:scholar_app/src/models/validation/role_in_company.dart';
+import 'package:scholar_app/src/models/validation/work_desc.dart';
 
 class ExperienceScreen extends StatefulWidget {
   @override
@@ -21,63 +25,7 @@ class ExperienceScreen extends StatefulWidget {
 }
 
 class ExperienceScreenState extends State<ExperienceScreen> {
-  String company;
-  String role;
-  String wordDesc;
-
-  //dropdown initial state
-  int programs = 1;
-
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
-
-//company validation function
-  Widget _buildCompany() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Company'),
-      validator: (String value) {
-        if (value.isEmpty && value.length < 6) {
-          return 'Company is required';
-        }
-      },
-      onSaved: (String value) {
-        company = value;
-      },
-    );
-  }
-
-//role validation function
-  Widget _buildRole() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'What was/is your role'),
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'Role is Required';
-        }
-      },
-      onSaved: (String value) {
-        role = value;
-      },
-    );
-  }
-
-
-
-//work description validation function
-  Widget buildWorkDesc() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Work description'),
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'Description is required';
-        }
-      },
-      onSaved: (String value) {
-        wordDesc = value;
-      },
-    );
-  }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -96,10 +44,10 @@ class ExperienceScreenState extends State<ExperienceScreen> {
                     // mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       CustomHeader(text: "Work Experience"),
-                      _buildCompany(),
-                      _buildRole(),
+                      CompanyNameForm(),
+                      RoleForm(),
                       DateFromTo(),
-                      buildWorkDesc(),
+                      WorkDescForm(),
                       Container(
                           margin: EdgeInsets.fromLTRB(0, 30, 0, 5),
                           child: CustomHeader(text: "Relation with Academics")),

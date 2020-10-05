@@ -15,6 +15,7 @@ import 'package:scholar_app/src/commons.dart';
 
 //imported models
 import 'package:scholar_app/src/models/programs.dart';
+import 'package:scholar_app/src/models/validation/doc_title.dart';
 
 class DocumentScreen extends StatefulWidget {
   @override
@@ -24,26 +25,8 @@ class DocumentScreen extends StatefulWidget {
 }
 
 class DocumentScreenState extends State<DocumentScreen> {
-  String title;
-
-  //dropdown initial state
-  int upload = 1;
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
-
-  Widget _buildDocumentTitle() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Document Title'),
-      validator: (String value) {
-        if (value.isEmpty && value.length < 6) {
-          return 'Title is required';
-        }
-      },
-      onSaved: (String value) {
-        title = value;
-      },
-    );
-  }
 
   String _fileName;
   String _path;
@@ -162,9 +145,8 @@ class DocumentScreenState extends State<DocumentScreen> {
               Form(
                   key: _formkey,
                   child: Column(
-                    // mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      _buildDocumentTitle(),
+                      DocumentTitleForm(),
                       Programs(),
                       _buildUploadFile(),
                     ],

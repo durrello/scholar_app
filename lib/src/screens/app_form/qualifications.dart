@@ -30,13 +30,14 @@ class QualificationScreenState extends State<QualificationScreen> {
 
 //institution validation function
   Widget _buildInstitution() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Company'),
-      validator: (String value){
-        if(value.isEmpty && value.length < 6){
-          return 'Company is required';
-        }
-      },
+    var validator = (String value){
+            if(value.isEmpty && value.length < 6){
+              return 'Company is required';
+            }
+          };
+        return TextFormField(
+          decoration: InputDecoration(labelText: 'Company'),
+          validator: validator,
       onSaved: (String value){
         company = value;
       },

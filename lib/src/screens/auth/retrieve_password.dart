@@ -52,25 +52,29 @@ class _RetrivePasswordState extends State<RetrivePasswordScreen> {
   }
 
   Widget verify() {
-    Alert(
-      context: context,
-      title: "Enter Verification code",
-      content: Form(
-        child: Column(
-          children: [
-            TextFormField(
-              decoration: InputDecoration(
-                  labelText: "Code", border: OutlineInputBorder()),
-              keyboardType: TextInputType.number,
-              validator: (String value) {
-                // ignore: missing_return
-                if (value.isEmpty) {
-                  return 'Code is require';
-                }
-                if (value.length < 6 && value.length > 6) {
-                  return 'Enter a valid code';
-                }
-              },
+    var validator = (String value) {
+                    // ignore: missing_return
+                    if (value.isEmpty) {
+                      return 'Code is require';
+                    }
+                    if (value.length < 6) {
+                      return 'Enter a valid code';
+                    }
+                    if (value.length > 6) {
+                      return 'Enter a valid code';
+                    }
+                  };
+        Alert(
+          context: context,
+          title: "Enter Verification code",
+          content: Form(
+            child: Column(
+              children: [
+                TextFormField(
+                  decoration: InputDecoration(
+                      labelText: "Code", border: OutlineInputBorder()),
+                  keyboardType: TextInputType.number,
+                  validator: validator,
               onSaved: (String value) {
                 code = value;
               },

@@ -56,6 +56,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         title: 'Let\'s Get Started',
         body: '',
         doAnimateImage: true),
+        
 
   ];
 }

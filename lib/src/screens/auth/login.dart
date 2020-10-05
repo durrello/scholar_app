@@ -3,6 +3,8 @@ import 'package:flutter/rendering.dart';
 
 //imported 3rd party packages
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:scholar_app/src/models/validation/email.dart';
+import 'package:scholar_app/src/models/validation/password.dart';
 
 //imported screens
 import 'package:scholar_app/src/screens/auth/retrieve_password.dart';
@@ -13,16 +15,11 @@ import 'package:scholar_app/src/screens/home/home.dart';
 import 'package:scholar_app/src/commons.dart';
 
 
-
-
 class LoginScreen extends StatefulWidget {
-  //getting data from sign up screen
-  final String email;
-  LoginScreen({this.email});
 
   @override
   State<StatefulWidget> createState() {
-    return LoginScreenState(email);
+    return LoginScreenState();
   }
 
 }
@@ -31,7 +28,6 @@ class LoginScreenState extends State<LoginScreen> {
   //google login
   bool _isLoggedIn = false;
   //
-  LoginScreenState(this.email);
 
   String forgot = "";
   Icon initialIcon =  Icon(Icons.crop_square, color: grey,);
@@ -73,47 +69,7 @@ class LoginScreenState extends State<LoginScreen> {
 
   //end login
 
-  String email;
-  String password;
-
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
-
-  Widget _buildEmailField() {
-    return Container(
-      margin: EdgeInsets.fromLTRB(10, 5, 10, 10),
-      child: TextFormField(
-        decoration: InputDecoration(labelText: 'Email',),
-        keyboardType: TextInputType.emailAddress,
-        validator: (String value){
-          // ignore: missing_return
-          if(value.isEmpty){
-            return 'Email is require';
-          }
-        },
-        onSaved: (String value){
-          email = value;
-        },
-      ),
-    );
-  }
-
-  Widget _buildPassword() {
-    return Container(
-      margin: EdgeInsets.fromLTRB(10, 5, 10, 10),
-      child: TextFormField(
-        decoration: InputDecoration(labelText: 'Password',),
-        keyboardType: TextInputType.visiblePassword,
-        obscureText: true,
-        validator: (String value){
-          if(value.isEmpty){
-            return 'Password is required';
-          }
-        },
-        onSaved: (String value){
-          password = value;
-        },
-      ),
-    );  }
 
   @override
   Widget build(BuildContext context) {
@@ -139,8 +95,8 @@ class LoginScreenState extends State<LoginScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        _buildEmailField(),
-                        _buildPassword(),
+                        EmailForm(),
+                        PasswordForm(),
 
 
                     Container(

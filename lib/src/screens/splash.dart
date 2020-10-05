@@ -7,13 +7,6 @@ import 'package:page_transition/page_transition.dart';
 //imported screens
 import 'package:scholar_app/src/screens/onboarding_screen.dart';
 
-
-//third party
-
-//providers
-
-//screen
-
 class SplashScreen extends StatefulWidget {
   @override
   Splash createState() => Splash();
