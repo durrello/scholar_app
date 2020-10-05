@@ -140,7 +140,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     //personal profile custom card,
                       HomeCard(
                         text: "  \nPersonal Details",
-                        iconData: Icons.check,
                         image: Image.asset('assets/images/personal.png', height: 90, width: 100, ),
                         onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new PersonalInfoScreen())),
                       ),
@@ -148,21 +147,18 @@ class _HomeScreenState extends State<HomeScreen> {
                       //personal profile custom card,
                       HomeCard(
                         text: "Parents/Guardians",
-                        iconData: Icons.check,
                         image: Image.asset('assets/images/parents.png', height: 100, width: 100, ),
                         onPressed: () =>  Navigator.of(context).push(MaterialPageRoute(builder: (context) => new GuardianInfoScreen())),
                       ),
 
                       HomeCard(
                         text: "Work Experience",
-                        iconData: Icons.check,
                         image:  Image.asset('assets/images/work.png', height: 100, width: 100, ),
                         onPressed: () =>  Navigator.of(context).push(MaterialPageRoute(builder: (context) => new ExperienceScreen())),
                       ),
 
                       HomeCard(
                         text: "\nQualifications",
-                        iconData: Icons.help,
                         colors: red,
                         image:   Image.asset('assets/images/qualification.png', height: 80, width: 100, ),
                         onPressed: () =>  Navigator.of(context).push(MaterialPageRoute(builder: (context) => new QualificationScreen())),
@@ -170,7 +166,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
                       HomeCard(
                         text: "Documents",
-                        iconData: Icons.close,
                         colors: red,
                         image: Image.asset('assets/images/docs.png', height: 100, width: 100, ),
                         onPressed: () =>  Navigator.of(context).push(MaterialPageRoute(builder: (context) => new DocumentScreen())),
@@ -178,7 +173,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
                       HomeCard(
                         text: "Application Details",
-                        iconData: Icons.search,
                         image: Image.asset('assets/images/letters.png', height: 100, width: 100, ),
                         onPressed: () =>  Navigator.of(context).push(MaterialPageRoute(builder: (context) => new ApplicationScreen())),
                       ),
