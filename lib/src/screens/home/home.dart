@@ -4,10 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
-import 'package:scholar_app/src/commons.dart';
 
 //imported screens
-import 'package:scholar_app/src/screens/account.dart';
 import 'package:scholar_app/src/screens/app_form/application_details.dart';
 import 'package:scholar_app/src/screens/app_form/apply.dart';
 import 'package:scholar_app/src/screens/app_form/documents.dart';
@@ -15,14 +13,16 @@ import 'package:scholar_app/src/screens/app_form/experience.dart';
 import 'package:scholar_app/src/screens/app_form/guardians.dart';
 import 'package:scholar_app/src/screens/app_form/personal_info.dart';
 import 'package:scholar_app/src/screens/app_form/qualifications.dart';
-import 'package:scholar_app/src/screens/connect_with.dart';
+import 'package:scholar_app/src/screens/drawer/account.dart';
+import 'package:scholar_app/src/screens/drawer/connect_with.dart';
+import 'package:scholar_app/src/screens/drawer/notifications.dart';
+import 'package:scholar_app/src/screens/drawer/profile.dart';
+import 'package:scholar_app/src/screens/drawer/settings.dart';
 import 'package:scholar_app/src/screens/home/home_card.dart';
-import 'package:scholar_app/src/screens/notifications.dart';
-import 'package:scholar_app/src/screens/profile.dart';
-import 'package:scholar_app/src/screens/settings.dart';
 
 //imported custom widgets and commons
 import 'package:scholar_app/src/widgets/drawer_option.dart';
+import 'package:scholar_app/src/commons.dart';
 
 class HomeScreen extends StatefulWidget {
   @override

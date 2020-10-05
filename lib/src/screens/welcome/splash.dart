@@ -5,7 +5,7 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:page_transition/page_transition.dart';
 
 //imported screens
-import 'package:scholar_app/src/screens/onboarding_screen.dart';
+import 'package:scholar_app/src/screens/welcome/onboarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   @override

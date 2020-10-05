@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:scholar_app/src/commons.dart';
 
 //imported screens
-import 'package:scholar_app/src/screens/language.dart';
+import 'package:scholar_app/src/screens/drawer/language.dart';
 
 //imported 3rd party packages
 import 'package:settings_ui/settings_ui.dart';
