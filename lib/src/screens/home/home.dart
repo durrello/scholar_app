@@ -18,18 +18,11 @@ import 'package:scholar_app/src/screens/app_form/qualifications.dart';
 import 'package:scholar_app/src/screens/connect_with.dart';
 import 'package:scholar_app/src/screens/home/home_card.dart';
 import 'package:scholar_app/src/screens/notifications.dart';
-import 'package:scholar_app/src/screens/preview.dart';
 import 'package:scholar_app/src/screens/profile.dart';
 import 'package:scholar_app/src/screens/settings.dart';
 
 //imported custom widgets and commons
 import 'package:scholar_app/src/widgets/drawer_option.dart';
-
-
-//importing screens and reusable components
-//reusable components
-
-//screen
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -44,29 +37,20 @@ class _HomeScreenState extends State<HomeScreen> {
           elevation: 0.0,
           backgroundColor: primary,
           title: Text("SCHOLAR", textAlign: TextAlign.end,),
-          actions: [
-            InkWell(
-                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => new PreviewScreen())),
-                child: Column(
-                  children: [
-                    new Image.asset('assets/images/preview.png', height: 40, width: 70, ),
-                    Text("Preview")
-                  ],
-                )),
-          ],
+          actions: [],
         ),
         drawer: new Drawer(
           child: new ListView(
             children: [
               //header
               new UserAccountsDrawerHeader(
-                accountName: Text("Durrell Gemuh"),
-                accountEmail: Text("gemuhd@gmail.com"),
+                accountName: Text("John Doe"),
+                accountEmail: Text("johndoe@example.com"),
                 currentAccountPicture: GestureDetector(
                   child: new CircleAvatar(
                     backgroundColor: white,
                     child: Image(
-                      image: AssetImage("assets/images/profile_picture.jpg"),
+                      image: AssetImage("assets/images/avatart.png"),
                     ),
                   ),
                 ),
