@@ -12,10 +12,14 @@ class _CurrentAddressFormState extends State<CurrentAddressForm> {
     var validator = (String value){
             if(value.isEmpty){
               return 'Present Address is required';
+            }if(value.length < 4){
+              return 'Minimum of 4 characters required';
             }
           };
         return TextFormField(
-          decoration: InputDecoration(labelText: 'Present Address'),
+          decoration: InputDecoration(
+            labelText: 'Present Address',
+            hintText: 'Current Address'),
           validator: validator,
       onSaved: (String value){
         presentAddress = value;

@@ -12,10 +12,14 @@ class _StateRegionFormState extends State<StateRegionForm> {
     var validator = (String value){
             if(value.isEmpty){
               return 'State/Region is required';
+            }if(value.length < 4){
+              return 'Minimum of 4 characters required';
             }
           };
         return TextFormField(
-          decoration: InputDecoration(labelText: 'State or Region'),
+          decoration: InputDecoration(
+            labelText: 'State or Region',
+            hintText: 'Region'),
           validator: validator,
       onSaved: (String value){
         stateRegion = value;

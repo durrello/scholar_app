@@ -19,7 +19,9 @@ class _NameFormState extends State<NameForm> {
             };
         return TextFormField(
             decoration:
-                InputDecoration(labelText: 'Name', hintText: 'First and Last Name'),
+                InputDecoration(
+                  labelText: 'Full Names', 
+                  hintText: 'John Doe'),
             validator: validator,
         onSaved: (String value) {
           name = value;

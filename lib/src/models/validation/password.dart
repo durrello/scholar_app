@@ -11,7 +11,9 @@ class _PasswordFormState extends State<PasswordForm> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-        decoration: InputDecoration(labelText: 'Password',),
+        decoration: InputDecoration(
+          labelText: 'Password',
+          hintText: '********'),
         keyboardType: TextInputType.visiblePassword,
         obscureText: true,
         // ignore: missing_return

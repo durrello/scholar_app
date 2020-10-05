@@ -12,10 +12,14 @@ class _WhomToYouFormState extends State<WhomToYouForm> {
     var validator = (String value){
             if(value.isEmpty){
               return 'Required';
+            }if(value.length < 4){
+              return 'Minimum of 4 characters required';
             }
           };
         return TextFormField(
-          decoration: InputDecoration(labelText: 'Who to you?'),
+          decoration: InputDecoration(
+            labelText: 'Who to you?',
+            hintText: 'Mother'),
           validator: validator,
       onSaved: (String value){
         toWhom = value;

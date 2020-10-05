@@ -12,10 +12,15 @@ class _CityFormState extends State<CityForm> {
     var validator = (String value){
             if(value.isEmpty){
               return 'City is required';
+            }if(value.length < 6){
+              return 'Minimum of 6 characters required';
             }
           };
         return TextFormField(
-          decoration: InputDecoration(labelText: 'City'),
+          decoration: InputDecoration(
+            labelText: 'City',
+            hintText: 'City'
+            ),
           validator: validator,
       onSaved: (String value){
         city = value;

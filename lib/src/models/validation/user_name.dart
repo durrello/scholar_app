@@ -17,7 +17,9 @@ class _UserNameFormState extends State<UserNameForm> {
               }
             };
         return TextFormField(
-            decoration: InputDecoration(labelText: 'Username',),
+            decoration: InputDecoration(
+              labelText: 'Username',
+              hintText: 'johndoe1'),
             validator: validator,
         onSaved: (String value){
           username = value;

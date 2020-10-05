@@ -12,10 +12,14 @@ class _OccupationFormState extends State<OccupationForm> {
     var validator = (String value){
             if(value.isEmpty){
               return 'Occupation is required';
+            }if(value.length < 6){
+              return 'Minimum of 6 characters required';
             }
           };
         return TextFormField(
-          decoration: InputDecoration(labelText: 'Occupation'),
+          decoration: InputDecoration(
+            labelText: 'Occupation',
+            hintText: 'Teacher'),
           validator: validator,
       onSaved: (String value){
         occupation = value;

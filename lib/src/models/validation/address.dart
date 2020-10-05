@@ -12,10 +12,15 @@ class _AddressFormState extends State<AddressForm> {
     var validator = (String value){
             if(value.isEmpty){
               return 'Address is required';
+            }if(value.length < 6){
+              return 'Minimum of 6 characters required';
             }
           };
         return TextFormField(
-          decoration: InputDecoration(labelText: 'Address'),
+          decoration: InputDecoration(
+            labelText: 'Address',
+            hintText: 'Address'
+            ),
           validator: validator,
       onSaved: (String value){
         address = value;

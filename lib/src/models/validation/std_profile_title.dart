@@ -12,10 +12,14 @@ class _ProfileTilteFormState extends State<ProfileTilteForm> {
     var validator = (String value){
             if(value.isEmpty){
               return 'Profile Title is required';
+            }if(value.length < 4){
+              return 'Minimum of 4 characters required';
             }
           };
         return TextFormField(
-          decoration: InputDecoration(labelText: 'Profile Title'),
+          decoration: InputDecoration(
+            labelText: 'Profile Title',
+            hintText: ''),
           validator: validator,
       onSaved: (String value){
         profileTitle = value;

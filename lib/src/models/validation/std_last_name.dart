@@ -12,10 +12,14 @@ class _LastNameFormState extends State<LastNameForm> {
     var validator = (String value){
             if(value.isEmpty){
               return 'Last name is required';
+            }if(value.length < 4){
+              return 'Minimum of 4 characters required';
             }
           };
         return TextFormField(
-          decoration: InputDecoration(labelText: 'Last Name'),
+          decoration: InputDecoration(
+            labelText: 'Last Name',
+            hintText: 'Doe'),
           validator: validator,
       onSaved: (String value){
         middleName = value;

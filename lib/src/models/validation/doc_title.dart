@@ -12,10 +12,15 @@ class _DocumentTitleFormState extends State<DocumentTitleForm> {
     var validator = (String value) {
             if (value.isEmpty && value.length < 6) {
               return 'Title is required';
+            }if(value.length < 6){
+              return 'Minimum of 6 characters required';
             }
           };
         return TextFormField(
-          decoration: InputDecoration(labelText: 'Document Title'),
+          decoration: InputDecoration(
+            labelText: 'Document Title',
+            hintText: 'Document title'
+            ),
           validator: validator,
       onSaved: (String value) {
         title = value;

@@ -12,10 +12,14 @@ class _MotherTongueFormState extends State<MotherTongueForm> {
     var validator = (String value){
             if(value.isEmpty){
               return 'Mother Tongue is required';
+            }if(value.length < 4){
+              return 'Minimum of 4 characters required';
             }
           };
         return TextFormField(
-          decoration: InputDecoration(labelText: 'Mother Tongue'),
+          decoration: InputDecoration(
+            labelText: 'Mother Tongue',
+            hintText: 'Bayangian'),
           validator: validator,
       onSaved: (String value){
         motherTongue = value;

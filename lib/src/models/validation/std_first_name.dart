@@ -12,10 +12,14 @@ class _FirstNameFormState extends State<FirstNameForm> {
     var validator = (String value){
             if(value.isEmpty){
               return 'First name is required';
+            }if(value.length < 4){
+              return 'Minimum of 4 characters required';
             }
           };
         return TextFormField(
-          decoration: InputDecoration(labelText: 'First Name'),
+          decoration: InputDecoration(
+            labelText: 'First Name',
+            hintText: 'John'),
           validator: validator,
       onSaved: (String value){
         firstName = value;

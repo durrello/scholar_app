@@ -11,7 +11,9 @@ class _PhoneNumberFormState extends State<PhoneNumberForm> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-        decoration: InputDecoration(labelText: 'Enter Phone Number',),
+        decoration: InputDecoration(
+          labelText: 'Enter Phone Number',
+          hintText: 'xxx-xxx-xxx'),
         keyboardType: TextInputType.phone,
         // ignore: missing_return
         validator: (String value){
