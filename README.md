@@ -5,10 +5,9 @@ This is a mobile application to handle application process at https://train.scho
 
 This is just the UI
 
-**Lib folder structure
+**Folder structure
 -->Contains the src folder and the main.dart file
-
-
+-->Contains the assets folder which cantains all the images used
 
 **src folder structure
 -->Contains the commons.dart file which contains all the colors used in the project
@@ -22,5 +21,8 @@ This is just the UI
   --The folder home contains the home screen, and its card.
   --The auth folder contains the signup, login and retrieve screens
   --The app_form folder contains the different sections of the application form
+  --The welcome folder contains the splash and onboarding screen
+  --The drawer folder contains the different screen options found in th drawer menu
+  
 
 
