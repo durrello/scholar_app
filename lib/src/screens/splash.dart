@@ -19,7 +19,7 @@ class Splash extends State<SplashScreen>  {
 
     return AnimatedSplashScreen(
       splash: 'assets/images/logo.png',
-      duration: 3000,
+      duration: 2000,
       nextScreen: OnboardingScreen(),
       splashTransition: SplashTransition.rotationTransition,
       pageTransitionType: PageTransitionType.scale,

@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-//imported 3rd party packages
-import 'package:rflutter_alert/rflutter_alert.dart';
-
 //imported custom widgets and commons
 import 'package:scholar_app/src/commons.dart';
 
@@ -25,7 +22,7 @@ class _AccountScreenState extends State<AccountScreen> {
               title: Text("Email"),
               subtitle:  TextField(
                 decoration: InputDecoration(
-                    hintText: 'gemuhd@gmail.com'
+                    hintText: 'johndoe@example.com'
                 ),
               ),
             ),
@@ -37,7 +34,7 @@ class _AccountScreenState extends State<AccountScreen> {
               title: Text("Username"),
               subtitle:  TextField(
                 decoration: InputDecoration(
-                    hintText: 'durrello'
+                    hintText: 'johndoe'
                 ),
               ),
             ),
@@ -50,7 +47,7 @@ class _AccountScreenState extends State<AccountScreen> {
               title: Text("Old password"),
               subtitle:  TextField(
                 decoration: InputDecoration(
-                    hintText: 'Enter old password'
+                    hintText: 'Enter old password',
                 ),
               ),
             ),
@@ -81,17 +78,7 @@ class _AccountScreenState extends State<AccountScreen> {
 
             FlatButton(
                 color: primary,
-                onPressed: () {
-                  return  Alert(
-                      context: context,
-                      title: "Alert",
-                      desc: "Clicking here takes you to sign/login with facebook, implement using firebase, or facebook auth",
-                      buttons: [
-                        DialogButton(child: Text("Continue"), onPressed: () {Navigator.pop(context);}),
-                        DialogButton(child: Text("Cancel"), onPressed: () {Navigator.pop(context);})
-                      ]
-                  ).show();
-                },
+                onPressed: () => {},
                 child: Row(
                   children: [
                     Spacer(),

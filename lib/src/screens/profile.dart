@@ -3,9 +3,6 @@ import 'package:flutter/material.dart';
 //imported custom widgets and commons
 import 'package:scholar_app/src/commons.dart';
 
-//imported 3rd party packages
-import 'package:rflutter_alert/rflutter_alert.dart';
-
 class ProfileScreen extends StatefulWidget {
   @override
   _ProfileScreenState createState() => _ProfileScreenState();
@@ -37,7 +34,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               title: Text("Email"),
               subtitle:  TextField(
                 decoration: InputDecoration(
-                    hintText: 'johndoe@gmail.com'
+                    hintText: 'johndoe@example.com'
                 ),
               ),
             ),
@@ -108,17 +105,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
             FlatButton(
               color: primary,
-                onPressed: () {
-                  return  Alert(
-                      context: context,
-                      title: "Alert",
-                      desc: "Clicking here takes you to sign/login with facebook, implement using firebase, or facebook auth",
-                      buttons: [
-                        DialogButton(child: Text("Continue"), onPressed: () {Navigator.pop(context);}),
-                        DialogButton(child: Text("Cancel"), onPressed: () {Navigator.pop(context);})
-                      ]
-                  ).show();
-                },
+                onPressed: () => {},
                 child: Row(
                   children: [
                    Spacer(),
